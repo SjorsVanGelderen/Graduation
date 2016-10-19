@@ -1,0 +1,6 @@
+[package]
+name = "peak_finding"
+version = "0.1.0"
+authors = ["Sjors van Gelderen <sjors@openmailbox.org>"]
+
+[dependencies]
