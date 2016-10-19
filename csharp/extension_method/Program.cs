@@ -33,10 +33,10 @@ namespace Test
 	{
 	    if(_args.Length > 0)
 	    {
-		Console.WriteLine("This program does not accept any arguments!");
+		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
 	    }
 
-	    Console.WriteLine("Extension method example - Copyright 2016, Sjors van Gelderen");
+	    Console.WriteLine("Extension method example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
 		
 	    string sentence = "The spice must flow.";
 	    Console.WriteLine("{0}", sentence.GetEvenCharacters());

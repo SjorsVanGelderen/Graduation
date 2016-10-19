@@ -53,10 +53,10 @@ namespace IndexersAndEnum
 	{
 	    if(_args.Length > 0)
 	    {
-		Console.WriteLine("This program does not accept any arguments!");
+		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
 	    }
 
-	    Console.WriteLine("Indexers and enum example - Copyright 2016, Sjors van Gelderen");
+	    Console.WriteLine("Indexers and enum example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
 
 	    Hand hand = new Hand();
 	    string buffer = "The following cards are in the hand: ";

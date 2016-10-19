@@ -17,21 +17,6 @@ namespace Program
 	static int[] collection_2 = {2, 1, 3, 4, 5};
 	static int[] collection_3 = {5, 5, 5, 5, 5, 5, 5, 4};
 	
-        static void Main(string[] _args)
-	{
-	    if(_args.Length > 0)
-	    {
-		Console.WriteLine("This program does not accept any arguments!");
-	    }
-
-	    Console.WriteLine("Merge sort example - Copyright 2016, Sjors van Gelderen");
-	    
-	    MergeSort(collection_0);
-	    MergeSort(collection_1);
-	    MergeSort(collection_2);
-	    MergeSort(collection_3);
-	}
-	
 	/*
 	  Merge sort algorithm
 	  Complexity: O(n log n)
@@ -83,7 +68,7 @@ namespace Program
 		sorted.AddRange(left.Skip(left_index).Take(left.Length - left_index));
 	    }
 
-	    Console.WriteLine("Result: " + IntArrayToString(sorted.ToArray()) + "!\n");
+	    Console.WriteLine("Result: " + IntArrayToString(sorted.ToArray()) + "!" + Environment.NewLine);
 	}
 
 	//Creates a string representation of an integer array
@@ -103,6 +88,21 @@ namespace Program
 
 	    buffer += "]";
 	    return buffer;
+	}
+	
+        static void Main(string[] _args)
+	{
+	    if(_args.Length > 0)
+	    {
+		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
+	    }
+
+	    Console.WriteLine("Merge sort example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
+	    
+	    MergeSort(collection_0);
+	    MergeSort(collection_1);
+	    MergeSort(collection_2);
+	    MergeSort(collection_3);
 	}
     }
 }

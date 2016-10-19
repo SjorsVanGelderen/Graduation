@@ -12,24 +12,6 @@ namespace Program
 	//Array in which to search
 	static readonly int[] collection = {3, 5, 1, 6, 2, 2, 8, 6};
 	
-        static void Main(string[] _args)
-	{
-	    if(_args.Length > 0)
-	    {
-		Console.WriteLine("This program does not accept any arguments!");
-	    }
-
-	    Console.WriteLine("Search algorithms example - Copyright 2016, Sjors van Gelderen");
-
-	    LinearSearch(8, collection);
-	    LinearSearch(9, collection);
-	    LinearSearch(2, collection);
-
-	    BinarySearch(8, collection);
-	    BinarySearch(9, collection);
-	    BinarySearch(2, collection);
-	}
-	
 	/*
 	  Linear search algorithm
 	  Finds the first instance of the target element in a collection
@@ -113,6 +95,24 @@ namespace Program
 
 	    buffer += "]";
 	    return buffer;
+	}
+	
+        static void Main(string[] _args)
+	{
+	    if(_args.Length > 0)
+	    {
+		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
+	    }
+
+	    Console.WriteLine("Search algorithms example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
+
+	    LinearSearch(8, collection);
+	    LinearSearch(9, collection);
+	    LinearSearch(2, collection);
+
+	    BinarySearch(8, collection);
+	    BinarySearch(9, collection);
+	    BinarySearch(2, collection);
 	}
     }
 }

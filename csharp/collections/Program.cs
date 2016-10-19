@@ -1,14 +1,16 @@
 /*
-  Threading example
+  Collections example
   Copyright 2016, Sjors van Gelderen
 */
 
 using System;
 
-namespace ThreadingExample
+namespace Program
 {
     class Program
     {
+	//Array, List, ArrayList, Stack, Queue, Hashtable, Dictionary, BitArray, SortedList, IDictionary
+	
         static void Main(string[] _args)
 	{
 	    if(_args.Length > 0)
@@ -16,7 +18,7 @@ namespace ThreadingExample
 		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
 	    }
 
-	    Console.WriteLine("Threading example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
+	    Console.WriteLine("Collections example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
 	}
     }
 }
