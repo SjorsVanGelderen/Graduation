@@ -6,7 +6,108 @@
 using System;
 
 namespace Program
-{    
+{
+    /*
+      Binary search tree
+      Currently only implemented for integers
+    */
+    class BST
+    {
+	public BST Left { get; set; } = null;
+	public BST Right { get; set; } = null;
+	public BST Parent { get; set; } = null;
+	public int Key { get; set; }
+
+	public BST(BST _parent, int _key)
+	{
+	    Key = _key;
+	}
+
+	/*
+	  Insert a new node
+	  Complexity: O(h) where h = BST height
+	*/
+	public void Insert(int _value)
+	{
+	    if(Parent == null)
+	    {
+		Console.WriteLine("Starting insertion of {0}", _value);
+	    }
+
+	    if(_value < Key)
+	    {
+		if(Left == null)
+		{
+		    Console.WriteLine("Inserting node with value {0} left of {1}", _value, Key);
+		    Left = new BST(this, _value);
+		}
+		else
+		{
+		    Console.WriteLine("Moving left from {0}", Key);
+		    Left.Insert(_value);
+		}
+	    }
+	    else if(_value > Key)
+	    {
+		if(Right == null)
+		{
+		    Console.WriteLine("Inserting node with value {0} left of {1}", _value, Key);
+		    Right = new BST(this, _value);
+		}
+		else
+		{
+		    Console.WriteLine("Moving right from {0}", Key);
+		    Right.Insert(_value);
+		}
+	    }
+	    else
+	    {
+		Console.WriteLine("Duplicate entry, ignoring insert!");
+	    }
+	}
+
+	/*
+	  Find a value in the tree
+	  Complexity: O(h) where h = BST height
+	*/
+	public void Find(int _value)
+	{
+	    if(Parent == null)
+	    {
+		Console.WriteLine("Looking for {0}", _value);
+
+		if(_value < Key)
+		{
+		    if(Left == null)
+		    {
+			Console.WriteLine("Could not find value!");
+		    }
+		    else
+		    {
+			Console.WriteLine("Moving left from {0}", Key);
+			Left.Find(_value);
+		    }
+		}
+		else if(_value > Key)
+		{
+		    if(Right == null)
+		    {
+			Console.WriteLine("Could not find value!");
+		    }
+		    else
+		    {
+			Console.WriteLine("Moving right from {0}", Key);
+			Right.Find(_value);
+		    }
+		}
+		else
+		{
+		    Console.WriteLine("Found value!");
+		}
+	    }
+	}
+    }
+    
     class Program
     {
 	//Array in which to search
@@ -113,6 +214,17 @@ namespace Program
 	    BinarySearch(8, collection);
 	    BinarySearch(9, collection);
 	    BinarySearch(2, collection);
+
+	    var tree = new BST(null, 49);
+	    tree.Insert(52);
+	    tree.Insert(3);
+	    tree.Insert(999);
+	    tree.Insert(33);
+
+	    tree.Find(23);
+	    tree.Find(55);
+	    tree.Find(3);
+	    tree.Find(999);
 	}
     }
 }

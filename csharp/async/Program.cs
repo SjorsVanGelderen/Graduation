@@ -7,7 +7,7 @@ using System;
 
 namespace AsyncExample
 {
-    class Program
+	class Program
     {
         static void Main(string[] _args)
 	{
