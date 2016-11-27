@@ -6,7 +6,8 @@ Copyright 2016, Sjors van Gelderen
 from math import floor
 
 """Heap data structure
-
+Contains common heap functionality
+Supports both min and max heaps
 """
 class Heap:    
     def __init__(self, _max):
@@ -64,10 +65,34 @@ class Heap:
     @staticmethod
     def get_right_child_index(_index):
         return 2 * i + 2
+    
+    @staticmethod
+    def heapify(_binary_tree, _max, _index):
+        key = _binary_tree[_index]
+        left_child_key = None
+        right_child_key = None
+        
+        left_child_index = get_left_child(_index)
+        right_child_index = get_right_child(_index)
+        
+        if left_child_index < len(_binary_tree):
+            left_child_key = _binary_tree[left_child_index]
 
+        if right_child_index < len(_binary_tree):
+            right_child_key = _binary_tree[right_child_index]
+
+        if max:
+            if left_child_key < right_child_key
+            if key < left_child_key:
+                temp = key
+                _binary_tree[_index] = left_child_key
+                _binary_tree[left_child_index] = key
+
+            if key < 
+            
 # Main program logic
 def program():
-    # keys = [6, 4, 6, 2, 5, 1, 13, 60, 3, 52]
+    binary_tree = [44, 1, 22, 4, 8, 100, 3]
     keys = [15, 17, 20, 14, 9, 8, 1, 4, 6]
     heap = Heap(True)
     
@@ -75,5 +100,6 @@ def program():
         heap.insert(key)
     
     heap.print_keys()
+    Heap.heapify(binary_tree)
 
 program()
