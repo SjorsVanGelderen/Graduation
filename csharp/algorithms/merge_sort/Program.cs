@@ -25,7 +25,7 @@ namespace Program
 	    {
 		int middle = (_left + _right) / 2;
 	        
-		//Divide the current subproblem in two lesser subproblems
+		//Divide the current subproblem into two lesser subproblems
 		MergeSort(_collection, _left, middle);
 		MergeSort(_collection, middle + 1, _right);
 
@@ -80,7 +80,7 @@ namespace Program
 
 	    Console.WriteLine("Intermediate result: {0}", IntArrayToString(result));
 	    
-	    //Introduce the results to the original array
+	    //Introduce the results into the original array
 	    for(int i = 0; i < result.Length; i++)
 	    {
 		_collection[_left + i] = result[i];

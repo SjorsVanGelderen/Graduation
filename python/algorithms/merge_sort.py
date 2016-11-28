@@ -1,47 +1,72 @@
-"""Merge sort
-Complexity: 
+"""Merge sort algorithm
 Copyright 2016, Sjors van Gelderen
 """
-def merge_sort(_collection):
-    if not _collection:
-        print("Error, list is empty!")
-        return
+import random
 
-    print("Merge sort on {}".format(_collection))
+"""Merge sort
+Complexity: O(n log n)
+"""
+def merge_sort(_collection, _left, _right):
+    if _right > _left:
+        middle = (_left + _right) // 2
 
-    length = len(_collection)
-    half = length // 2
-    left = _collection[:half]
-    right = _collection[half:]
-    left_index = 0
-    right_index = 0
-    sorted = []
+        # Divide the current subproblem into two lesser subproblems
+        merge_sort(_collection, _left, middle)
+        merge_sort(_collection, middle + 1, _right)
 
-    # Left and right lists must be sorted, or merge sort won't work
-    left.sort()
-    right.sort()
-    print(left)
-    print(right)
-    
-    while left_index < len(left) and right_index < len(right):
-        if left[left_index] < right[right_index]:
-            print("{} smaller than {}".format(left[left_index], right[right_index]))
-            sorted.append(left[left_index])
+        merge(_collection, _left, middle, _right)
+
+def merge(_collection, _left, _middle, _right):
+    result = []
+    left_index = _left
+    right_index = _middle + 1
+
+    while left_index <= _middle and right_index <= _right:
+        print("Comparing {} and {}"
+              .format(_collection[left_index],
+                      _collection[right_index]))
+
+        if _collection[left_index] <= _collection[right_index]:
+            print("{} <= {}"
+                  .format(_collection[left_index],
+                          _collection[right_index]))
+
+            result.append(_collection[left_index])
             left_index += 1
         else:
-            print("{} smaller than {}".format(right[right_index], left[left_index]))
-            sorted.append(right[right_index])
-            right_index += 1
+            print("{} >= {}"
+                  .format(_collection[left_index],
+                          _collection[right_index]))
 
-    if left_index == length:
-        sorted.extend(right[right_index:])
-    else:
-        sorted.extend(left[left_index:])
+            result.append(_collection[right_index])
+            right_index += 1
     
-    print("Result: {}".format(sorted))
+    while left_index <= _middle:
+        print("Appending remaining element from left: {}"
+              .format(_collection[left_index]))
+        
+        result.append(_collection[left_index])
+        left_index += 1
+
+    while right_index <= _right:
+        print("Appending remaining element from right: {}"
+              .format(_collection[right_index]))
+
+        result.append(_collection[right_index])
+        right_index += 1
+
+    print("Intermediate result: {}".format(result))
+
+    # Introduce the results into the original array
+    for i in range(len(result)):
+        _collection[_left + i] = result[i]
 
 # Main program logic
 def program():
-    merge_sort([5, 2, 4, 1, 3])
+    for i in range(4):
+        collection_range = range(random.randint(3, 16))
+        collection = [random.randrange(99) for i in collection_range]
+        print("Merge sort on {}".format(collection))
+        merge_sort(collection, 0, len(collection) - 1)
 
 program()
