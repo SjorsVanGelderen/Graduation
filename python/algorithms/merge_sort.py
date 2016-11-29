@@ -22,10 +22,6 @@ def merge(_collection, _left, _middle, _right):
     right_index = _middle + 1
 
     while left_index <= _middle and right_index <= _right:
-        print("Comparing {} and {}"
-              .format(_collection[left_index],
-                      _collection[right_index]))
-
         if _collection[left_index] <= _collection[right_index]:
             print("{} <= {}"
                   .format(_collection[left_index],
