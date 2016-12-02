@@ -11,7 +11,7 @@ def quicksort(collection, start, end):
     if end > start:
         left = start
         right = end
-        pivot_index = left # random.randrange(left, right)
+        pivot_index = left
         
         print("Subproblem: {}".format(collection[left:right]))
         print("Pivot: {} at {}"
@@ -48,7 +48,7 @@ def quicksort(collection, start, end):
 # Main program logic
 def program():
     for i in range(4):
-        collection = [ random.randrange(99) for i in range(16) ]
+        collection = [ random.randrange(100) for i in range(16) ]
         print("Performing quicksort on: {}".format(collection))
         quicksort(collection, 0, len(collection) - 1)
         print("Result: {}".format(collection))

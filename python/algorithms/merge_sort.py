@@ -61,7 +61,7 @@ def merge(_collection, _left, _middle, _right):
 def program():
     for i in range(4):
         collection_range = range(random.randint(3, 16))
-        collection = [random.randrange(99) for i in collection_range]
+        collection = [random.randrange(100) for i in collection_range]
         print("Merge sort on {}".format(collection))
         merge_sort(collection, 0, len(collection) - 1)
 
