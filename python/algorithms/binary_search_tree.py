@@ -2,9 +2,7 @@
 Copyright 2016, Sjors van Gelderen
 """
 
-"""Binary search tree
-Copyright 2016, Sjors van Gelderen
-"""
+# Binary Search Tree Logic
 class BST:
     def __init__(self, _parent, _key):
         self.parent = _parent
