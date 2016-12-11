@@ -1,5 +1,4 @@
 """Linked list data structure
-Very basic sub-optimal implementation
 Copyright 2016, Sjors van Gelderen
 """
 
@@ -39,6 +38,7 @@ class List:
         result = List()
         values = []
         segment = self.segment
+        
         while not segment.is_empty:
             values.append(segment.value)
             segment = segment.tail
