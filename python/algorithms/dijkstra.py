@@ -14,7 +14,7 @@ class Path:
         self.distance = distance
 
     def __repr__(self):
-        return "Path of length {} goes to {}".format(self.distance, self.target_id)
+        return str(self.target_id)
 
 
 # Node in a graph
@@ -24,9 +24,12 @@ class Node:
         self.paths = []
 
     def __repr__(self):
-        return "Node {}".format(self.id)
+        path_strings = ", ".join([ str(path) for path in self.paths ])
+        buffer = ("Node {}, connected to | {} |"
+                  .format(self.id, path_strings))
+        return buffer
 
-        
+
 # Connect two nodes
 def connect(node_0, node_1, distance):
     if node_0 != node_1 and \
@@ -35,14 +38,16 @@ def connect(node_0, node_1, distance):
         node_0.paths.append(Path(node_1.id, distance))
         node_1.paths.append(Path(node_0.id, distance))
 
-        
+
 # Find index of vertex with minimal distance
-def find_closest(distances):
+def find_closest(distances, unvisited):
     min_distance = inf
     result_index = -1
     for index, distance in enumerate(distances):
-        if distance < min_distance:
-            result_index = index
+        if index in unvisited:
+            if distance < min_distance:
+                min_distance = distance
+                result_index = index
     
     print("CLOSEST: {}".format(result_index))
     return result_index
@@ -60,7 +65,8 @@ def dijkstra(graph, source):
     unvisited = list(range(len(graph)))
     
     while unvisited:
-        index = find_closest(distances)
+        print("REMAINING: {}".format(unvisited))
+        index = find_closest(distances, unvisited)
         current = graph[index]
         unvisited.remove(index)
         
@@ -79,28 +85,26 @@ def dijkstra(graph, source):
 def program():
     print("Dijkstra's algorithm example - " + \
           "Copyright 2016, Sjors van Gelderen")
-    
-    graph = [ Node(id) for id in range(6) ]
-    print("GRAPH: {}".format(graph))
-    
+
     # Build the graph and weighted paths
-    connect(graph[0], graph[1], 7)
-    connect(graph[0], graph[2], 9)
-    connect(graph[0], graph[5], 14)
+    graph = [ Node(id) for id in range(6) ]
     
-    connect(graph[1], graph[2], 10)
-    connect(graph[1], graph[3], 15)
+    connect(graph[0], graph[1], 8)
+    connect(graph[0], graph[2], 1)
 
-    connect(graph[2], graph[3], 11)
-    connect(graph[2], graph[5], 2)
+    connect(graph[1], graph[3], 2)
 
-    connect(graph[3], graph[4], 6)
+    connect(graph[2], graph[3], 3)
 
-    connect(graph[5], graph[4], 9)
+    connect(graph[3], graph[4], 4)
+    connect(graph[3], graph[5], 6)
+
+    connect(graph[4], graph[5], 1)
     
+    print("GRAPH: {}".format(graph))
+
+    # Compute distances using Dijkstra's algorithm
     distances = dijkstra(graph, 0)
-    
     print("RESULT: {}".format(distances))
-
 
 program()
