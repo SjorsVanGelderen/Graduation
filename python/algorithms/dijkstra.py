@@ -54,7 +54,7 @@ def find_closest(distances, unvisited):
 
 
 """Dijkstra's algorithm
-Complexity: O(|E| + |V| log |V|)
+Complexity: O(|V|^2)
 """
 def dijkstra(graph, source):
     # Set up tentative distances
