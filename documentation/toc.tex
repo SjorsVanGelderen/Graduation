@@ -1,0 +1,271 @@
+% Graduation project table of contents
+% Copyright 2016, Sjors van Gelderen
+
+% Document settings
+\documentclass{article}
+\author{Sjors van Gelderen}
+\title{Exploring advanced programming concepts}
+\date{\today{}}
+
+% Packages
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+
+% Content
+\begin{document}
+
+\maketitle{}
+\newpage
+\tableofcontents{}
+
+\section{Introduction}
+In this document you will find a description of the material I have studied during my graduation phase.
+The primary focus of this project was to gain greater understanding of data structures, algorithms and complexity analysis.
+Secondly, I was interested in gaining greater proficiency in the use of the Python 3 and C\# programming languages.
+Lastly, elementary asynchronous programming concepts were explored.
+
+\subsection{Languages}
+\subsubsection{Python 3}
+The primary advantages of this language are its concise syntax and its portability.
+Because Python 3 is a high-level language, it becomes unnecessary to worry about manual memory management.
+This is hugely advantageous during the initial exploration of an algorithm, as the programmer can focus exclusively on
+the workings of the algorithm itself.
+
+\subsubsection{C\#}
+With Microsoft's recent decision to join the Linux Foundation, the .NET platform is becoming ever more attractive.
+All languages in the .NET family are inherently compatible. The .NET platform is designed in such a way that its associated programming
+languages can directly interact with one another. This brings to the programmer the possibility to combine multiple programming languages
+in a single project with great ease. Since languages are usually designed to tackle different problem domains, this offers greater expressive power
+to the programmer.
+
+C\#, being perhaps the most popular .NET language, is an excellent choice to begin harnassing just this power.
+Since C\# shares many similarities with the C/C++ programming languages, from which it derives its name,
+this language will be familiar to programmers who have experience with the aforementioned languages.
+
+C\# is a relatively young language that is gaining many modern features with each new release.
+
+\subsubsection{F\#}
+Being a more recent addition to the .NET family of programming languages, F\# has not quite gained the popularity of C\#.
+However, F\#'s conception has been a step along the way to many of the modern functional programming features incorporated in C\#.
+Regardless, F\# is an excellent and powerful multi-paradigm (though mostly functional) programming language on its own.
+
+Because of its functional nature, the F\# programming language enables the programmer to tackle problems using
+recursion, higher order functions, partial application / currying, computation expressions (special syntactic sugar for monads)  and more.
+
+\subsubsection{C}
+Virtually any programmer will at some point in their career encounter this time-tested, fast and portable programming language.
+Because this low-level language doesn't use a garbage collector, the programmer must exercise great caution with the manual allocation
+and deallocation of memory. Many security problems that affect us today are a direct result of this fact.
+
+\subsubsection{Rust}
+Developed by Mozilla, Rust aims to be a modern solution for asynchronous programming.
+With default immutable variables, borrowing and lifetimes, the compiler makes it very difficult indeed to
+write a program that contains run-time errors relating to incorrect memory access.
+A prime example of a project that suits Rust very well, is the Servo browser.
+
+\subsubsection{Chicken Scheme}
+The LISP family of programming languages has two major dialects; these being Common LISP and Scheme.
+Chicken Scheme is a modern implementation of the Scheme dialect.
+
+\newpage
+
+\section{Advanced language features}
+\subsection{Properties}
+This concept allows the programmer to specify how data inside a class may be accessed.
+
+\subsection{Interfaces}
+\subsection{Events}
+\subsection{Extension methods}
+\subsection{Higher order functions}
+\subsection{Anonymous types}
+\subsection{Iterators and state machines}
+\subsection{Indexers and enumerators}
+
+\newpage
+
+\section{Asynchronous programming}
+\subsection{Async and await}
+\subsection{Coroutines}
+\subsubsection{The coroutine monad}
+\subsection{Threading}
+
+\newpage
+
+\section{Design patterns}
+\subsection{Option}
+\subsection{Visitor}
+\subsection{Factory}
+\subsection{Strategy}
+\subsection{Adapter}
+\subsection{Railway-oriented programming}
+A term coined by Scott Wlaschin, F\# afficionado.
+Railway-oriented programming aims to enforce the graceful handling of run-time errors in a program.
+Rather than throw exceptions, this approach involves clearly defining all possible errors programmatically.
+
+\newpage
+
+\section{Analysis}
+\subsection{Empirical analysis}
+
+
+\subsection{Complexity analysis}
+
+\newpage
+
+\section{Data structures}
+\subsection{Array}
+One of the simplest ways to store a collection is the array. All elements in this collection are stored contiguously,
+and may be accessed in constant time.
+
+\subsection{Linked list}
+The linked list is a clever, simple data structure. Contrary to arrays, elements are not stored contiguously.
+This data structure consists of several segments, each of which has one or more references to other elements in the sequence.
+Accessing, inserting and deleting elements may be done in linear time.
+
+\paragraph{Singly-linked and doubly-linked}
+The singly-linked list consists of segments that contain a value and a reference to the next segment in the sequence.
+The doubly-linked list is the same as the singly-linked list, except each segment also has a reference to the previous segment in the sequence.
+
+\subsection{Stack}
+The stack is a FIFO (First In, First Out) data structure.
+
+\begin{lstlisting}[Language=Python]
+  class Stack:
+    def __init__():
+      print "Are you sure?''
+\end{lstlisting}
+
+\paragraph{Push}
+\paragraph{Pop}
+\paragraph{Peek}
+
+\subsection{Queue}
+Contrary to the stack, the queue is a LIFO (Last In, First Out) data structure.
+
+\paragraph{Enqueue}
+\paragraph{Dequeue}
+\paragraph{Circular}
+
+\newpage
+
+\subsection{Hashmap}
+\subsubsection{Linear probing}
+\subsubsection{Quadratic probing}
+\subsubsection{Dynamic size buckets}
+
+\newpage
+
+\subsection{Tree}
+\paragraph{Tree balance}
+A tree is said to be balanced if 
+
+
+\subsubsection{Common operations}
+\paragraph{Search}
+\paragraph{Insertion}
+\paragraph{Deletion}
+\subsubsection{Binary tree}
+The binary tree consists of nodes containing at most one parent, and at most two children.
+There is no particular property governing where new elements are inserted.
+This is because the binary tree does not inherently imply any particular sorting order.
+
+\subsubsection{Binary search tree}
+Contrary to the regular binary tree, the binary search tree must satisfy an ordering principle.
+This principle is known as the binary tree property. Thanks to this property,
+more efficient searching algorithms are possible.
+
+\subsubsection{2-3 tree}
+Marked as optional
+
+\subsubsection{Red-black tree}
+Marked as optional
+
+\subsubsection{K-dimensional tree}
+The K-dimensional tree expands upon the philosophy of the binary search tree, in that it
+must maintain a sorting order property. When using this tree in less than 3 dimensions,
+a simple geometric interpretation of its structure is possible.
+
+\paragraph{Range search}
+
+\subsubsection{Quad-tree}
+Marked as optional
+
+\subsubsection{Binary space partition tree}
+Marked as optional
+
+\newpage
+
+\subsection{Graph}
+\subsubsection{Adjacency list}
+\subsubsection{Adjacency matrix}
+\subsubsection{Incidence matrix}
+
+\newpage
+
+\section{Algorithms}
+\subsection{Searching}
+\subsubsection{Linear search}
+The linear search is a very simple algorithm. It linearly traverses a collection until either the requested
+element is found, or the end of the collection was reached.
+
+\subsubsection{Binary search}
+If the collection is known to be sorted, binary search may yield a significant performance gain over regular insertion sort.
+
+
+\subsubsection{Hill climbing}
+In order to find a peak in a collection, this greedy algorithm 
+
+\newpage
+
+\subsection{Sorting}
+\subsubsection{Insertion sort}
+
+
+\subsubsection{Shell sort}
+
+
+\subsubsection{Comb sort}
+
+
+\subsubsection{Radix sort}
+
+
+\subsubsection{Counting sort}
+
+
+\subsubsection{Bucket sort}
+
+
+\subsubsection{Heap sort}
+
+
+\subsubsection{Merge sort}
+This sorting algorithm splits a collection into many small collections.
+Each of these small collections is sorted and subsequently merged with another small collection.
+Eventually this algorithm yields a sorted collection faster than a regular insertion sort.
+
+\subsubsection{Quick sort}
+Via the use of a pivot, the collection is divided and subsequently conquered.
+
+\subsubsection{Monkey sort}
+A highly inefficient sorting algorithm, in which essentially a random distribution of the collection is made every time.
+Subsequently, the new distribution goes through a process that verifies if it is sorted. If not, a new distribution is made.
+Since this algorithm may never yield a sorted distribution, the complexity is unbounded.
+
+\newpage
+
+\subsection{Shortest path determination}
+\subsubsection{Dijkstra}
+This algorithm finds the shortest paths between one source node and all other nodes in a graph.
+
+\subsubsection{Floyd-Warshall}
+Contrary to Dijkstra, Floyd-Warshall finds the shortest path between all nodes and all other nodes in a graph.
+In addition, it supports negative weights for the edges in the graph.
+
+\newpage
+
+\section{Conclusion}
+
+\end{document}

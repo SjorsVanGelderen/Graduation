@@ -1,0 +1,529 @@
+% Graduation thesis
+% Copyright 2016, Sjors van Gelderen
+
+% Document settings
+\documentclass{article}
+\author{Sjors van Gelderen}
+\title{Exploring advanced programming concepts}
+\date{\today{}}
+
+% Packages
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% Content
+\begin{document}
+
+\maketitle{}
+
+\newpage
+
+\tableofcontents{}
+
+\newpage
+
+\section{Introduction}
+In this document you will find a description of the material I have studied during my graduation phase.
+The primary focus of this project was to gain greater understanding of data structures, algorithms and complexity analysis.
+Secondly, I was interested in gaining greater proficiency in the use of the Python 3 and C\# programming languages, and the application of design patterns.
+Lastly, elementary asynchronous programming concepts were explored.
+
+\subsection{Languages}
+\subsubsection{Python 3}
+Advantages of this language include its concise syntax and its portability.
+Because Python 3 is a high-level language, it becomes unnecessary to worry about manual memory management.
+This is hugely advantageous during the initial exploration of an algorithm, as the programmer can focus exclusively on
+the workings of the algorithm itself.
+
+A major downside of the language is the absence of a strict compiler.
+Python programs frequently crash during run-time, as problems are not detected at compile-time.
+
+\subsubsection{C\#}
+With Microsoft's recent decision to join the Linux Foundation, the .NET platform is becoming ever more attractive.
+The .NET platform is designed in such a way that its associated programming languages can directly interact with one another.
+This brings to the programmer the possibility to combine multiple programming languages in a single project with great ease.
+Since languages are designed with different problem domains in mind, this offers greater expressive power to the programmer.
+
+C\#, being perhaps the most popular .NET language, is an excellent choice to begin harnassing just this power.
+Since C\# shares many similarities with the C/C++ programming languages, from which it derives its name,
+this language will be familiar to programmers who have experience with the aforementioned languages.
+
+\subsubsection{F\#}
+Being a more recent addition to the .NET family of programming languages, F\# has not quite gained the popularity of C\#.
+However, F\#'s conception has been a step along the way to many of the modern functional programming features incorporated in C\#.
+Regardless, F\# is an excellent and powerful multi-paradigm (though mostly functional) programming language on its own.
+
+Because of its functional nature, the F\# programming language enables the programmer to tackle problems using
+recursion, higher order functions, partial application / currying, computation expressions (special syntactic sugar for monads)  and more.
+
+\subsubsection{C}
+Virtually any programmer will at some point in their career encounter this time-tested, fast and portable programming language.
+Because this low-level language doesn't use a garbage collector, the programmer must exercise great caution with the manual allocation
+and deallocation of memory. Many security problems that affect us today are a direct result of this fact.
+
+\subsubsection{Rust}
+Developed by Mozilla, Rust aims to be a modern solution for asynchronous programming.
+With default immutable variables, borrowing and lifetimes, the compiler makes it very difficult indeed to
+write a program that contains run-time errors relating to incorrect memory access.
+A prime example of a project that suits Rust very well, is the Servo browser.
+
+\subsubsection{Chicken Scheme}
+The LISP family of programming languages has two major dialects; these being Common LISP and Scheme.
+Chicken Scheme is a modern implementation of the Scheme dialect.
+It has a very minimalistic syntax, revolving around the use of parentheses and prefix notation.
+
+\newpage
+
+\section{Advanced C\# features}
+\subsection{Properties}
+This concept allows the programmer to specify how data inside a class may be accessed.
+
+\subsection{Interfaces}
+Interfaces are contracts that guarantee a class implements certain methods.
+
+\subsection{Events}
+Event-driven programming is made possible in C\# through the use of
+
+\subsection{Extension methods}
+In order to extend the functionality offered by base types, a programmer may use extension methods.
+
+\subsection{Higher order functions}
+Higher order functions are part of what makes functional programming so powerful.
+In C\#, delegates and lambdas offer the features required for higher order functions.
+
+\paragraph{Iter}
+\paragraph{Filter}
+\paragraph{Map}
+\paragraph{Fold}
+\paragraph{LINQ}
+
+\subsection{Anonymous types}
+Using this feature, programmers may easily specify new types with a comfortable syntax.
+
+\begin{lstlisting}[language=Python]
+  var some_type = { SomeProperty = 5 };
+\end{lstlisting}
+
+\subsection{Iterators and state machines}
+
+
+\subsection{Indexers and enumerators}
+
+\newpage
+
+\section{Asynchronous programming}
+\subsection{Async and await}
+\subsection{Coroutines}
+\subsubsection{The coroutine monad}
+\subsection{Threading}
+
+\newpage
+
+\section{Design patterns}
+
+\subsection{Option and Visitor}
+These design patterns are a great answer to the infamous null-reference-exception.
+In essence, the {\em option} pattern offers a syntactical construct that forces the programmer to deal with missing data at {\em compile time}.
+Data in the option is said to be either {\em some data} or {\none}, the latter of which is an indication of missing data.
+Since {\em none} is clearly defined, a null-reference-exception shan't occur.
+
+The option's counterpart is the {\em visitor}, which offers a syntactical construct to perform different operations depending on whether data
+is missing({\em none}) or readily available ({\em some data}).
+
+The following example demonstrates this process:
+
+\begin{lstlisting}[language=Fsharp]
+  let none_data : String Option = None
+  let some_Data : String Option = Some "Hello, World!"
+
+  let option_print data =
+    match data with
+    | Some data -> printfn "%A" data
+    | None -> printfn "Data is missing!"
+\end{lstlisting}
+
+The two variables({\em none_data} and {\em some_data}) are defined to be of type {\em Option String}.
+That is to say, the variables may either hold actual data({\em some}) or not{\em none}.
+When interacting with {\em Option} data, the programmer must use a {\em match} expression.
+Such an expression is forced by the compiler to deal with both possible cases({\em some} and {\em none}.
+Notice how {\em some} comes with a {\em data} object, {\none} does not.
+
+\subsection{Factory}
+\subsection{Strategy}
+
+\subsection{Adapter}
+Programmers will frequently encounter situations in which they must deal with error-prone code.
+For example {\huge EXAMPLE HERE}.
+Unfortunately, one is frequently not allowed to modify existing code.
+To deal with this situation efficiently, the programmer may employ a technique called the {\em adapter pattern}.
+The adapter pattern consists of building a new interface to existing code.
+The primary purpose of this new interface is to guarantee proper interaction with the existing code.
+
+\subsection{Railway-oriented programming}
+A term coined by Scott Wlaschin, F\# expert.
+Railway-oriented programming aims to enforce the graceful handling of run-time errors in a program.
+Rather than throw exceptions, this approach involves clearly defining all possible errors programmatically.
+
+\newpage
+
+\section{Analysis}
+\subsection{Empirical analysis}
+Empirical analysis refers to inferring a program's expected performance based on measurements taken while running a program with various configurations.
+A typical scenario involves the measurement of performance in terms of running time by the use of a 'stopwatch'.
+
+\subsection{Complexity analysis}
+Complexity analysis is different from empirical analysis in that it uses reasoning
+- rather than experiment - to determine a program's expected performance.
+
+\newpage
+
+\section{Data structures}
+The field of algorithms is closely tied to that of data structures. As the manner in which data is stored determines both the efficiency and the shape of a given algorithm, it is appropriate to discuss the applied data structures now.
+
+\subsection{Array}
+One of the simplest ways to store a collection is the array. All elements in this collection are stored contiguously,
+and may be accessed in constant time. This makes the array an appropriate choice where data is frequently accessed.
+Unfortunately, there are many situations in which the amount of memory required is incompatible with the necessity
+to store this data contiguously. Insertion and deletion in an array can be a costly operation, as many elements will have to be shifted.
+
+\subsection{Linked list}
+The linked list is a simple data structure. Contrary to arrays, elements are not stored contiguously.
+This data structure consists of several segments, each of which has one or more references to other elements in the sequence.
+Accessing, inserting and deleting elements may be done in linear time.
+
+The main advantages of linked lists are:
+\begin{itemize}
+\item Dynamically resizable
+\item Fragmented storage, no contiguous memory required
+\item Simple insertion, deletion and traversal operations
+\end{itemize}
+
+\subsubsection{Singly-linked and doubly-linked}
+The singly-linked list consists of segments that contain a value and a reference to the next segment in the sequence.
+The doubly-linked list is the same as the singly-linked list, except each segment also has a reference to the previous segment in the sequence.
+
+\subsection{Stack}
+The stack is a {\em FIFO} (First In, First Out) data structure.
+It may be implemented in a variety of ways. For instance, the stack might store its data in an array, a linked list, or something else entirely.
+
+\begin{lstlisting}[language=Python]
+  class Stack:
+  def __init__(self):
+    
+\end{lstlisting}
+
+Regardless of which structure is used to store the stack information, the interface must always offer the following operations:
+
+\paragraph{Push}
+The {\em push operation} puts a new element on top of the current stack.
+If the stack has a size limit, this operation might cause a {\em stack overflow} exception.
+This exception indicates that there is no more room to add a new element to the stack.
+
+\begin{lstlisting}[language=Python]
+  def push(self, value):
+    self.segments = Segment(value, self.segments)
+\end{lstlisting}
+
+\paragraph{Pop}
+The pop operation removes the top element of the stack. If the stack has no elements, this operation will yield a {\em stack underflow} exception,
+as there are no elements left to remove.
+
+\begin{lstlisting}[language=Python]
+  def push(self, value):
+    self.segments = Segment(value, self.segments)
+\end{lstlisting}
+
+\paragraph{Peek}
+The peek operation gives the programmer access to the current top element of the stack.
+If the stack is empty, this element may yield a {\em stack underflow} exception, as there are no elements to reveal.
+
+\begin{lstlisting}[language=Python]
+  def push(self, value):
+    self.segments = Segment(value, self.segments)
+\end{lstlisting}
+
+\subsection{Queue}
+Contrary to the stack, the queue is a {\em LIFO} (Last In, First Out) data structure.
+
+\paragraph{Enqueue}
+\paragraph{Dequeue}
+\paragraph{Circular}
+A circular queue will {\huge UNFINISHED SENTENCE}.
+
+\newpage
+
+\subsection{Hashmap}
+\subsubsection{Linear probing}
+\subsubsection{Quadratic probing}
+\subsubsection{Dynamic size buckets}
+
+\newpage
+
+\subsection{Tree}
+A tree is said to be balanced if
+
+\subsubsection{Common operations}
+\subsubsection{Binary tree}
+The binary tree consists of nodes containing at most one parent, and at most two children.
+There is no particular property governing where new elements are inserted.
+This is because the binary tree does not inherently imply any particular sorting order.
+
+\subsubsection{Heap}
+This binary tree maintains the {\em heap property}, which is said to be {\em max} or {\em min}.
+A heap that satisfies the {\em max heap property} is called a {\em max heap}.
+Accordingly, a heap that satisfies the {\em min heap property} is called a {\em min heap}.
+The property determines the order in which the elements are stored inside the heap.
+
+For example, in a max heap each key must be greater than every key stored inside its children.
+Conversely, in a min heap each key must be less than every key stored inside its children.
+
+\paragraph{Heapify}
+The heapify operation will help us maintain the heap property on our data.
+
+\begin{lstlisting}[language=Python]
+  def heapify(index):
+        c = self.keys
+        left = get_left_child_index(index)
+        right = get_right_child_index(index)
+        largest = index
+
+        property_holds = c[left] > c[index] if self.max else c[left] < c[index]
+        
+        if left <= self.heap_size and property_holds:
+            largest = left
+
+        property_holds = c[right] > c[largest] if self.max else c[right] < c[largest]
+        
+        if right <= self.heap_size and property_holds:
+            largest = right
+        
+        if largest != index:
+            swap(index, largest)
+            heapify(largest)
+\end{lstlisting}
+
+\paragraph{Build}
+This simple operation takes as input a collection of elements of which the heap will consist.
+Since we have already defined a means of enforcing the heap property, we may simply use that same logic to construct the tree.
+
+\begin{lstlisting}[language=Python]
+  # INCORRECT PLEASE FIX
+  def build(self, collection):
+    for element in collection:
+      self.heapify(len(self.keys) - 1)
+\end{lstlisting}  
+
+\subsubsection{Binary search tree}
+Contrary to the regular binary tree, the binary search tree must satisfy an ordering principle.
+This principle is known as the binary tree property. Thanks to this property,
+more efficient searching algorithms are possible.
+
+\subsubsection{2-3 tree}
+\subsubsection{Red-black tree}
+
+\subsubsection{K-dimensional tree}
+The K-dimensional tree expands upon the philosophy of the binary search tree, in that it
+must maintain a sorting order property. When using this tree in less than 3 dimensions,
+a simple geometric interpretation of its structure is possible.
+
+\paragraph{Construction}
+Let's examine the construction of a 2-dimensional tree from the array \(A = [(3, 2), (6, 5), (7, 1)]\).
+The root key of the tree will be the first element in the array, in this case (3, 2).
+We will record this key as a {\em vertical} split of the plane, like so:
+
+{\huge INSERT GRAPHIC HERE}
+
+Since the next key in the collection - (6, 1) - has a larger {\em X} coordinate than the root key(\(6 > 3\)), it will be stored to the left of the root key.
+
+Notice that this operation has added a new level to our tree. In a 2-dimensional tree, each level of the tree will be recorded as being either {\em vertical} or {\em horizontal}.
+
+For this example, let's assume that even levels are {\em vertical}, whereas odd levels are {\em horizontal}.
+
+The next key in our collection - (7, 1) - has a larget {\em X} coordinate than our root key(\(7 > 3\), so the key must be stored in the right subtree. However, the right subtree is not empty, and so we must compare the right child of the root key to the key from our insertion collection. Since the right child of the root key is on an odd level in our tree, it corresponds to a {\em horizontal} split. The consequence of this difference is that we must now compare the {\em Y coordinates} rather than the {\em X coordinates} of our keys. Since the {\em Y} coordinate of our insertion key is less than that of the right child of the root key, we must store our new element to the left the right child of the root key.
+
+\subsubsection{Quad-tree}
+\subsubsection{Binary space partition tree}
+
+\newpage
+
+\subsection{Graph}
+
+\subsubsection{Adjacency list}
+\subsubsection{Adjacency matrix}
+\subsubsection{Incidence matrix}
+
+\newpage
+
+\section{Algorithms}
+\subsection{Searching}
+\subsubsection{Linear search}
+The linear search is a very simple algorithm. It linearly traverses a collection until either the requested
+element is found, or the end of the collection was reached.
+
+\subsubsection{Binary search}
+If the collection is known to be sorted, binary search may yield a significant performance gain over regular insertion sort.
+
+\subsubsection{Hill climbing}
+In order to find a peak in a collection, this greedy algorithm 
+
+\newpage
+
+\subsection{Sorting}
+\subsubsection{Insertion sort}
+\subsubsection{Shell sort}
+\subsubsection{Comb sort}
+\subsubsection{Radix sort}
+\subsubsection{Counting sort}
+\subsubsection{Bucket sort}
+\subsubsection{Heap sort}
+\subsubsection{Merge sort}
+This sorting algorithm splits a collection into many small collections.
+Each of these small collections is sorted and subsequently merged with another small collection.
+Eventually this algorithm yields a sorted collection faster than a regular insertion sort.
+
+\subsubsection{Quick sort}
+Via the use of a pivot, the collection is divided and subsequently conquered.
+
+\subsubsection{Monkey sort}
+A highly inefficient sorting algorithm, in which essentially a random distribution of the collection is made every time.
+Subsequently, the new distribution goes through a process that verifies if it is sorted. If not, a new distribution is made.
+Since this algorithm may never yield a sorted distribution, the complexity is unbounded.
+
+\newpage
+
+\subsection{Shortest path determination}
+In this section, each of the following algorithms is assumed to operate on the following graph:
+
+\includegraphics[width=\textwidth]{sample_graph}
+
+When recording this graph as data, letters are replaced with 0-based indices, such that \(A=0, B=1, C=2, \dots\). The graph is said to consist of a set of {\em vertices}, \(V\) and a set of {\em edges}, \(E\). Vertices may be connected to one another through one or more edges. Such a connection is called a {\em path}.
+The bar-notation is used to indicate the amount of elements in a set, such that \(|V|\) is the amount of vertices and \(|E|\) is the amount of edges.
+
+\subsubsection{Dijkstra}
+This algorithm finds all shortest path distances between a source vertex and all other vertices in a graph.
+With a slight modification it becomes possible to also track the actual paths, rather than just the distances.
+
+Obviously Dijkstra requires a graph, so let us construct one.
+In my implementation, I have created two classes:
+
+\begin{lstlisting}[language=Python]
+# Edge connected to a node in a graph
+class Edge:
+    def __init__(self, target_id, distance):
+        self.target_id = target_id
+        self.distance = distance
+
+# Vertex in a graph
+class Node:
+    def __init__(self, id):
+        self.id = id
+        self.edges = []
+\end{lstlisting}
+
+Next, we need a simple way to specify connections between vertices.
+
+\begin{lstlisting}[language=Python]
+# Connect two nodes
+def connect(node_0, node_1, distance):
+    if node_0 != node_1 and \
+       node_1 not in node_0.edges and \
+       node_0 not in node_1.edges:
+        node_0.edges.append(Edge(node_1.id, distance))
+        node_1.edges.append(Edge(node_0.id, distance))
+\end{lstlisting}
+
+Using these constructs, we may build the final graph as follows:
+
+\begin{lstlisting}[language=Python]
+  # Build the graph and weighted paths
+    graph = [ Node(id) for id in range(6) ]
+    
+    connect(graph[0], graph[1], 8)
+    connect(graph[0], graph[2], 1)
+
+    connect(graph[1], graph[3], 2)
+
+    connect(graph[2], graph[3], 3)
+
+    connect(graph[3], graph[4], 4)
+    connect(graph[3], graph[5], 6)
+
+    connect(graph[4], graph[5], 1)
+\end{lstlisting}
+
+\subsubsection{Floyd-Warshall}
+Rather than Dijkstra's focus on a single source, Floyd-Warshall finds the shortest path between each vertex and all other vertices in a graph. In addition, it supports negative weights for the edges in the graph.
+
+Initially, one might suspect that this algorithm somehow runs Dijkstra on each vertex.
+This would be rather inefficient. Fortunately, Floyd-Warshall uses a more clever approach.
+
+To get started, we'll need to construct a graph and specify the weight of each edge.
+Python 3 allows us to record exactly this using a concise syntax:
+
+\begin{lstlisting}[language=Python]
+  graph = {
+    0: {1: 8. 2: 1},
+    1: {0: 8, 3: 2},
+    2: {0: 1, 3: 3},
+    3: {1: 2, 2: 3, 4: 4, 5: 6},
+    4: {3: 4, 5: 1},
+    5: {3: 6, 4: 1}
+  }
+\end{lstlisting}
+
+Which is essentially a weighted adjacency list which we will supply to the Floyd-Warshall algorithm to generate our final result.
+
+Now we set up the initial 'guess' of our algorithm.
+The first step is to set up a matrix of distances between vertices.
+Initially, this matrix will contain the value infinity for each distance.
+In my implementation, I've used a multidimensional list comprehension to generate this matrix:
+
+\begin{lstlisting}[language=Python]
+  distances = [
+    [
+      0 if x == y else inf \
+      for x in range(len(graph)) \
+    ] \
+    for y in range(len(graph))
+  ]
+\end{lstlisting}
+
+Then, we populate our matrix with a slightly better guess, containing the distances between vertices of just that share an edge.
+
+\begin{lstlisting}[language=Python]
+    for vertex, connections in graph.items():
+        for target, distance in connections.items():
+            distances[vertex][target] = distance
+\end{lstlisting}
+
+Finally, we must run the actually interesting part of the algorithm.
+This part is also what primarily defines the complexity class of this algorithm's running time.
+
+\begin{lstlisting}[language=Python]
+  for k in range(len(graph)):
+        for i in range(len(graph)):
+            for j in range(len(graph)):
+                if distances[i][j] > distances[i][k] + distances[k][j]:
+                    shorter_distance = distances[i][k] + distances[k][j]
+                    print("Improving {} -> {} from {} to {}"
+                          .format(i, j, distances[i][j], shorter_distance))
+                    distances[i][j] = shorter_distance
+\end{lstlisting}
+
+We have three {\em for} loops, using the variables {\em i}, {\em j}, and {\em k}.
+At each point, {\em i} and {\em j} are always two vertices between which we are trying to find the shortest path. The most interesting part of the algorithm actually relies on {\em k}.
+
+{\em k} at each iteration represents a vertex between {\em i} and {\em k}, which may potentially yield a shorter path from {\em i} to {\em j}. This means that each time we find a shorter path, we'll have to update the currently recorded value in our distance matrix.
+
+Since we have three {\em for} loops that each scale according to the amount of vertices in the graph,
+it naturally follows that the complexity class of our algorithm is \(O(n^3)\).
+
+\newpage
+
+\section{Conclusion}
+
+
+\end{document}
