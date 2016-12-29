@@ -27,16 +27,18 @@
 
 \section{Introduction}
 In this document you will find a description of the material I have studied during my graduation phase.
-The primary focus of this project was to gain greater understanding of data structures, algorithms and complexity analysis.
-Secondly, I was interested in gaining greater proficiency in the use of the Python 3 and C\# programming languages, and the application of design patterns.
+The primary focus of this project was to gain a greater understanding of data structures, algorithms and complexity analysis.
+Secondly, I was interested in gaining greater proficiency in the use of the Python 3 and C\# programming languages.
 Lastly, elementary asynchronous programming concepts were explored.
 
 \subsection{Languages}
+Here I briefly describe the languages used to implement the concepts studied.
+
 \subsubsection{Python 3}
 Advantages of this language include its concise syntax and its portability.
 Because Python 3 is a high-level language, it becomes unnecessary to worry about manual memory management.
 This is hugely advantageous during the initial exploration of an algorithm, as the programmer can focus exclusively on
-the workings of the algorithm itself.
+the logic involved in the algorithm itself.
 
 A major downside of the language is the absence of a strict compiler.
 Python programs frequently crash during run-time, as problems are not detected at compile-time.
@@ -45,60 +47,92 @@ Python programs frequently crash during run-time, as problems are not detected a
 With Microsoft's recent decision to join the Linux Foundation, the .NET platform is becoming ever more attractive.
 The .NET platform is designed in such a way that its associated programming languages can directly interact with one another.
 This brings to the programmer the possibility to combine multiple programming languages in a single project with great ease.
-Since languages are designed with different problem domains in mind, this offers greater expressive power to the programmer.
+Since languages are designed with different problem-domains in mind, this offers increased expressive power to the programmer.
 
 C\#, being perhaps the most popular .NET language, is an excellent choice to begin harnassing just this power.
 Since C\# shares many similarities with the C/C++ programming languages, from which it derives its name,
 this language will be familiar to programmers who have experience with the aforementioned languages.
+Fortunately, this group includes me.
 
 \subsubsection{F\#}
 Being a more recent addition to the .NET family of programming languages, F\# has not quite gained the popularity of C\#.
 However, F\#'s conception has been a step along the way to many of the modern functional programming features incorporated in C\#.
-Regardless, F\# is an excellent and powerful multi-paradigm (though mostly functional) programming language on its own.
+F\# is an excellent and powerful multi-paradigm (though mostly functional) programming language.
 
 Because of its functional nature, the F\# programming language enables the programmer to tackle problems using
-recursion, higher order functions, partial application / currying, computation expressions (special syntactic sugar for monads)  and more.
+recursion, higher order functions, partial application and currying, computation expressions (special syntactic sugar for monads) and more.
 
 \subsubsection{C}
-Virtually any programmer will at some point in their career encounter this time-tested, fast and portable programming language.
-Because this low-level language doesn't use a garbage collector, the programmer must exercise great caution with the manual allocation
-and deallocation of memory. Many security problems that affect us today are a direct result of this fact.
+Virtually any programmer will at some point in their career encounter this venerable, fast and portable programming language.
+Because this low-level language doesn't use a garbage collector, the programmer must exercise great caution with the manual management of memory.
+Many security problems that affect us today are a direct consequence of a failure to do so.
 
 \subsubsection{Rust}
-Developed by Mozilla, Rust aims to be a modern solution for asynchronous programming.
-With default immutable variables, borrowing and lifetimes, the compiler makes it very difficult indeed to
-write a program that contains run-time errors relating to incorrect memory access.
-A prime example of a project that suits Rust very well, is the Servo browser.
+Developed by Mozilla, Rust aims to be a modern solution for safe, asynchronous programming.
+With default immutable variables, as well as borrowing and lifetimes, the compiler makes it
+very difficult indeed to write a program that contains run-time errors relating to incorrect memory access.
+A prime example of a project that suits Rust very well, is the Mozilla's {\em Servo browser}.
 
 \subsubsection{Chicken Scheme}
 The LISP family of programming languages has two major dialects; these being Common LISP and Scheme.
 Chicken Scheme is a modern implementation of the Scheme dialect.
 It has a very minimalistic syntax, revolving around the use of parentheses and prefix notation.
+Chicken Scheme is a functional programming language.
 
 \newpage
 
 \section{Advanced C\# features}
 \subsection{Properties}
 This concept allows the programmer to specify how data inside a class may be accessed.
+With this feature, manually writing {\em get} and {\em set} functions becomes obsolete.
+
+{\huge FURTHER EXPLANATION REQUIRED}
 
 \subsection{Interfaces}
 Interfaces are contracts that guarantee a class implements certain methods.
 
 \subsection{Events}
-Event-driven programming is made possible in C\# through the use of
+Event-driven programming is made possible in C\# through the use of {\huge UNFINISHED SENTENCE}.
 
 \subsection{Extension methods}
 In order to extend the functionality offered by base types, a programmer may use extension methods.
 
-\subsection{Higher order functions}
+\subsection{Lambdas, delegates and higher order functions}
 Higher order functions are part of what makes functional programming so powerful.
 In C\#, delegates and lambdas offer the features required for higher order functions.
 
+Here are several examples of how these concepts may be applied.
+
 \paragraph{Iter}
+This operation iterates over a sequence of elements. For each of these elements the provided lambda will be executed.
+
+\begin{lstlisting}[language=Fsharp]
+  // This function prints all elements in the collection
+  List.iter (fun element -> printfn "%A" element) collection
+\end{lstlisting}
+
 \paragraph{Filter}
-\paragraph{Map}
+This operation iterates over a sequence of elements. For each of these elements, the provided lambda predicate will be executed.
+Elements for which this predicate returns True will be in the resulting list. Contrastingly, elements for which the predicate returns False will be discarded.
+
+\begin{lstlisting}[language=Fsharp]
+  // This function returns all elements in the collection that are even
+  List.filter (fun element -> element % 2 == 0) collection
+\end{lstlisting}
+
+\paragraph{Map and reduce}
+This operation iterates over a sequence of elements. For each of these elements, the provided lambda will be executed.
+The lambda contains a function that manipulates the current element. The result of this operation is the list of transformed elements.
+
+\begin{lstlisting}[language=Fsharp]
+  //This function returns all transformed elements in the collection
+  List.map (fun element -> element + 4) collection
+\end{lstlisting}
+  
 \paragraph{Fold}
+
 \paragraph{LINQ}
+
 
 \subsection{Anonymous types}
 Using this feature, programmers may easily specify new types with a comfortable syntax.
@@ -265,7 +299,6 @@ A circular queue will {\huge UNFINISHED SENTENCE}.
 \subsection{Tree}
 A tree is said to be balanced if
 
-\subsubsection{Common operations}
 \subsubsection{Binary tree}
 The binary tree consists of nodes containing at most one parent, and at most two children.
 There is no particular property governing where new elements are inserted.
@@ -314,7 +347,7 @@ Since we have already defined a means of enforcing the heap property, we may sim
   def build(self, collection):
     for element in collection:
       self.heapify(len(self.keys) - 1)
-\end{lstlisting}  
+\end{lstlisting}
 
 \subsubsection{Binary search tree}
 Contrary to the regular binary tree, the binary search tree must satisfy an ordering principle.
