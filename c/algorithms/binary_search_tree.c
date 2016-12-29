@@ -1,14 +1,12 @@
 /*
-  Binary search tree algorithm
+  Binary search tree example
   Copyright 2016, Sjors van Gelderen
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-/*
-  Binary search tree data structure
-*/
+// Binary search tree data structure
 typedef struct BST
 {
     struct BST* parent;
@@ -17,17 +15,14 @@ typedef struct BST
     int key;
 } BST;
 
-/*
-  Function prototypes
-*/
+
+// Function prototypes
 int print_array(int _n, int _array[_n]);
 BST* bst_create();
 void bst_insert(BST* _tree, int _key);
 void bst_find(BST* _tree, int _key);
 
-/*
-  Prints an array
-*/
+// Prints an array
 int print_array(int _n, int _array[_n])
 {
     int i;
@@ -56,9 +51,7 @@ int print_array(int _n, int _array[_n])
     return EXIT_SUCCESS;
 }
 
-/*
-  Creates a BST and returns a pointer to it
-*/
+// Creates a BST and returns a pointer to it
 BST* bst_create(BST* _parent, int _key)
 {
     BST* tree = malloc(sizeof(BST));
@@ -158,9 +151,7 @@ void bst_find(BST* _tree, int _key)
     }
 }
 
-/*
-  Main program logic
-*/
+// Main program logic
 int main()
 {
     int array[5] = {1, 3, 2, 7, 6};
