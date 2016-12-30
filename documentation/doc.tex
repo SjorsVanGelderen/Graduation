@@ -106,7 +106,7 @@ Here are several examples of how these concepts may be applied.
 \paragraph{Iter}
 This operation iterates over a sequence of elements. For each of these elements the provided lambda will be executed.
 
-\begin{lstlisting}[language=Fsharp]
+\begin{lstlisting}[language=Python]
   // This function prints all elements in the collection
   List.iter (fun element -> printfn "%A" element) collection
 \end{lstlisting}
@@ -115,7 +115,7 @@ This operation iterates over a sequence of elements. For each of these elements 
 This operation iterates over a sequence of elements. For each of these elements, the provided lambda predicate will be executed.
 Elements for which this predicate returns True will be in the resulting list. Contrastingly, elements for which the predicate returns False will be discarded.
 
-\begin{lstlisting}[language=Fsharp]
+\begin{lstlisting}[language=Python]
   // This function returns all elements in the collection that are even
   List.filter (fun element -> element % 2 == 0) collection
 \end{lstlisting}
@@ -124,7 +124,7 @@ Elements for which this predicate returns True will be in the resulting list. Co
 This operation iterates over a sequence of elements. For each of these elements, the provided lambda will be executed.
 The lambda contains a function that manipulates the current element. The result of this operation is the list of transformed elements.
 
-\begin{lstlisting}[language=Fsharp]
+\begin{lstlisting}[language=Python]
   //This function returns all transformed elements in the collection
   List.map (fun element -> element + 4) collection
 \end{lstlisting}
@@ -161,7 +161,7 @@ Using this feature, programmers may easily specify new types with a comfortable 
 \subsection{Option and Visitor}
 These design patterns are a great answer to the infamous null-reference-exception.
 In essence, the {\em option} pattern offers a syntactical construct that forces the programmer to deal with missing data at {\em compile time}.
-Data in the option is said to be either {\em some data} or {\none}, the latter of which is an indication of missing data.
+Data in the option is said to be either {\em some data} or {\em none}, the latter of which is an indication of missing data.
 Since {\em none} is clearly defined, a null-reference-exception shan't occur.
 
 The option's counterpart is the {\em visitor}, which offers a syntactical construct to perform different operations depending on whether data
@@ -169,9 +169,9 @@ is missing({\em none}) or readily available ({\em some data}).
 
 The following example demonstrates this process:
 
-\begin{lstlisting}[language=Fsharp]
-  let none_data : String Option = None
-  let some_Data : String Option = Some "Hello, World!"
+\begin{lstlisting}[language=Python]
+  let noneData : String Option = None
+  let someData : String Option = Some "Hello, World!"
 
   let option_print data =
     match data with
@@ -179,11 +179,11 @@ The following example demonstrates this process:
     | None -> printfn "Data is missing!"
 \end{lstlisting}
 
-The two variables({\em none_data} and {\em some_data}) are defined to be of type {\em Option String}.
+The two variables({\em noneData} and {\em someData}) are defined to be of type {\em Option String}.
 That is to say, the variables may either hold actual data({\em some}) or not{\em none}.
 When interacting with {\em Option} data, the programmer must use a {\em match} expression.
 Such an expression is forced by the compiler to deal with both possible cases({\em some} and {\em none}.
-Notice how {\em some} comes with a {\em data} object, {\none} does not.
+Notice how {\em some} comes with a {\em data} object, {\em none} does not.
 
 \subsection{Factory}
 \subsection{Strategy}
@@ -215,72 +215,116 @@ Complexity analysis is different from empirical analysis in that it uses reasoni
 \newpage
 
 \section{Data structures}
-The field of algorithms is closely tied to that of data structures. As the manner in which data is stored determines both the efficiency and the shape of a given algorithm, it is appropriate to discuss the applied data structures now.
+As the manner in which data is stored affects the choice of algorithm,
+it is appropriate to discuss the used data structures now.
 
 \subsection{Array}
-One of the simplest ways to store a collection is the array. All elements in this collection are stored contiguously,
-and may be accessed in constant time. This makes the array an appropriate choice where data is frequently accessed.
-Unfortunately, there are many situations in which the amount of memory required is incompatible with the necessity
-to store this data contiguously. Insertion and deletion in an array can be a costly operation, as many elements will have to be shifted.
+Among the most common data structures for collections is the array.
+All elements in the array are stored contiguously in memory,
+and may be accessed in constant time through their respective indices.
+Arrays have excellent cache-alignment, making them very fast indeed.
+
+The location of an element in an array at some given index {\em i} will be
+\[{\verb base_address_of_array } + i * s\]
+In which {\em s} is the size of a single element. This size depends on the data type of the array.
+
+\subsubsection{Size}
+
+\paragraph{Fixed size}
+By default, arrays are generally of {\em fixed size}; meaning the array will take up constant space ({\em O(1)}).
+Since less elements might be stored in the array than its total capacity allows for, space might be wasted on unused memory.
+The amount of elements that are actually being used is called the {\em logical size} of the array.
+
+\paragraph{Dynamic size}
+When an array is of dynamic size, the programmer must carefully specify the amount by which the array will be resized.
+If the programmer adds more elements than some given threshold will allow, the array must perform a resize operation.
+Since the resize operation is costly (typically \(O(n)\)), it shouldn't occur too frequently.
+In some implementations, dynamic size arrays will also shrink when the logical size becomes less than a given threshold.
+
+\subsubsection{Dimensionality}
+Arrays may have more than one dimension. Such a construction may also be called a matrix.
+Elements in the multidimensional array may be accessed with multiple indices describing the relevant coordinates.
+
 
 \subsection{Linked list}
-The linked list is a simple data structure. Contrary to arrays, elements are not stored contiguously.
-This data structure consists of several segments, each of which has one or more references to other elements in the sequence.
-Accessing, inserting and deleting elements may be done in linear time.
+The {\em linked list} is a linear, dynamic size data structure for storing collections of elements.
+Contrary to arrays, elements are not guaranteed to be stored contiguously.
+This makes it possible to store elements in a fragmented (non-contiguous) fashion,
+which is useful when the collection is larger than any available contiguous block of memory.
+Because of the fragmentation, elements cannot be accessed in constant time through the use of indices.
 
-The main advantages of linked lists are:
-\begin{itemize}
-\item Dynamically resizable
-\item Fragmented storage, no contiguous memory required
-\item Simple insertion, deletion and traversal operations
-\end{itemize}
+The linked list consists of several segments,
+each of which has up to two references to other elements in the sequence.
+Traversing the linked list is a linear time (\(O(n)\)) operation.
 
-\subsubsection{Singly-linked and doubly-linked}
-The singly-linked list consists of segments that contain a value and a reference to the next segment in the sequence.
-The doubly-linked list is the same as the singly-linked list, except each segment also has a reference to the previous segment in the sequence.
+\paragraph{Insert}
+Inserting an element in the linked list requires traversing the list from start to end,
+which is in the worst case a linear time (\(O(n)\) operation.
+The last element will have a reference to a null link, meaning there is no next element in the sequence.
+When this situation is encountered, the null link may be changed to refer to the new element instead.
+If the list is doubly-linked, the new element's {\em previous} variable should reference the last element of the current list.
+
+\paragraph{Delete}
+The delete operation in the worst case requires a complete traversal of the list,
+which is a linear time (\(O(n)\) operation. If the current element points to the element to be deleted,
+the {\em next} reference must be changed to point to the element in the sequence that comes after the element to be deleted.
+
+\
+\paragraph{Singly-linked and doubly-linked}
+The {\em singly-linked} list consists of segments that contain a value and a reference to the next segment in the sequence.
+The {\em doubly-linked} list is the same as the singly-linked list, except each segment also has a reference to the previous segment in the sequence.
+Whether the list is singly-linked or doubly-linked affects the traversal process,
+since where singly-linked lists only allow forward traversal, doubly-linked lists also allow backward traversal.
+
 
 \subsection{Stack}
-The stack is a {\em FIFO} (First In, First Out) data structure.
-It may be implemented in a variety of ways. For instance, the stack might store its data in an array, a linked list, or something else entirely.
+The {\em stack} is a {\em LIFO} (Last In, First Out) data structure.
+The name of the data structure reveals its workings.
+Data is always inserted on and removed from the top of the stack.
+Only the top element of the stack may be inspected at any time.
+Regardless of which structure is used to store the stack contents,
+the interface must always offer the following operations: {\em push}, {\em pop} and {\em peek}.
+
+\subsubsection{Implementation}
+Here follows an example of a dynamic size stack implemented in Python 3.
 
 \begin{lstlisting}[language=Python]
   class Stack:
-  def __init__(self):
-    
+    def __init__(self):
+        self.contents = []
+
+    def push(self, value):
+        self.contents.append(value)
+
+    def pop(self):
+        self.contents.pop()
+
+    def peek(self):
+        if self.contents:
+            return self.contents[-1]
+        else:
+            return None
 \end{lstlisting}
 
-Regardless of which structure is used to store the stack information, the interface must always offer the following operations:
+\paragraph{Storage}
+Storage is done using a Python 3 list.
 
 \paragraph{Push}
-The {\em push operation} puts a new element on top of the current stack.
-If the stack has a size limit, this operation might cause a {\em stack overflow} exception.
-This exception indicates that there is no more room to add a new element to the stack.
-
-\begin{lstlisting}[language=Python]
-  def push(self, value):
-    self.segments = Segment(value, self.segments)
-\end{lstlisting}
+The {\em push operation} puts a new element on top of the stack.
+If the stack has a size limit, this operation might cause a {\em stack overflow} exception in the event that the stack's capacity is exceeded.
 
 \paragraph{Pop}
-The pop operation removes the top element of the stack. If the stack has no elements, this operation will yield a {\em stack underflow} exception,
+The pop operation removes the top element of the stack. If the stack has no elements, this operation will throw a {\em stack underflow} exception,
 as there are no elements left to remove.
-
-\begin{lstlisting}[language=Python]
-  def push(self, value):
-    self.segments = Segment(value, self.segments)
-\end{lstlisting}
 
 \paragraph{Peek}
 The peek operation gives the programmer access to the current top element of the stack.
-If the stack is empty, this element may yield a {\em stack underflow} exception, as there are no elements to reveal.
+If the stack is empty, this element may throw an {\em invalid operation} exception, as there are no elements to reveal.
 
-\begin{lstlisting}[language=Python]
-  def push(self, value):
-    self.segments = Segment(value, self.segments)
-\end{lstlisting}
 
 \subsection{Queue}
-Contrary to the stack, the queue is a {\em LIFO} (Last In, First Out) data structure.
+Contrary to the stack, the queue is a {\em FIFO} (First In, First Out) data structure.
+
 
 \paragraph{Enqueue}
 \paragraph{Dequeue}
@@ -295,6 +339,7 @@ A circular queue will {\huge UNFINISHED SENTENCE}.
 \subsubsection{Dynamic size buckets}
 
 \newpage
+
 
 \subsection{Tree}
 A tree is said to be balanced if
