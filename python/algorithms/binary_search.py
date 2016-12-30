@@ -16,11 +16,11 @@ def binary_search(_target, _collection):
     while True:
         old_pivot = pivot
         
+        print("Touching index: {}".format(pivot))
+        
         if _collection[pivot] < _target:
-            print("Touching index: {}".format(pivot))
             pivot = int((len(_collection) - pivot) / 2 + pivot)
         elif _collection[pivot] > _target:
-            print("Touching index: {}".format(pivot))
             pivot = int(pivot / 2)
         else:
             print("Found target at index: {}!".format(pivot))
@@ -30,6 +30,7 @@ def binary_search(_target, _collection):
             print("Could not find target!")
             return
 
+        
 # Main program logic
 def program():
     numbers = [5, 2, 6, 6, 1, 3, 3]
@@ -38,4 +39,5 @@ def program():
     binary_search(88, numbers)
     binary_search(6, numbers)
 
+    
 program()

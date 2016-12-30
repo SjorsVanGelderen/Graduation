@@ -37,7 +37,7 @@ namespace Program
 		throw new StackOverflowException();
 	    }
 
-	    Console.WriteLine("Adding value {0}", _value);
+	    Console.WriteLine("Pushing value {0}", _value);
 	    
 	    contents.Add(_value);
 	}
@@ -67,6 +67,12 @@ namespace Program
 	    Console.WriteLine("Peeking value {0}", contents[contents.Count - 1]);
 
 	    return contents[contents.Count - 1];
+	}
+
+	// Check whether the stack is empty
+	public bool IsEmpty()
+	{
+	    return contents.Count == 0;
 	}
     }
     
@@ -116,13 +122,24 @@ namespace Program
 	    
 	    // String stack example
 	    var string_stack = new Stack<string>();
-	    string_stack.Push("Aardvark");
-	    string_stack.Peek();
-	    string_stack.Push("Beagle");
-	    string_stack.Peek();
+	    string_stack.Push("Read book");
+	    string_stack.Push("Eat vegetables");
+	    string_stack.Push("Do homework");
 	    string_stack.Pop();
 	    string_stack.Peek();
-	    string_stack.Peek();
+	    string_stack.Push("Answer phone");
+
+	    while(!string_stack.IsEmpty())
+	    {
+		try
+		{
+		    string_stack.Pop();
+		}
+		catch (InvalidOperationException _e)
+		{
+		    Console.WriteLine("Invalid operation occurred! Message: {0}", _e.Message);
+		}
+	    }
 	}
     }
 }
