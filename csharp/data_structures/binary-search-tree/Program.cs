@@ -8,28 +8,44 @@ using System;
 namespace Program
 {
     //Binary search tree data structure and functionality
-    class BST<T>
+    class BST<T> where T : IComparable
     {
 	T value;
 	BST<T> left;
 	BST<T> right;
-	
-	public BST<T>(T _value)
+
+	// Empty BST
+	public BST()
 	{
-	    value = _value;
+	    
 	}
-	
+
+	// Populate BST with values from the get-go
+	public BST(T[] _collection)
+	{
+	    foreach(var element in _collection)
+	    {
+		Insert(this, element);
+	    }
+	}
+
+	/*
+	  Insertion operation
+	  Complexity: O(n)
+	*/
 	static void Insert(BST<T> _tree, T _value)
 	{
 	    if(_tree == null)
 	    {
 		//Insert the value
-		_tree = new BST<T>(_value);
+		_tree = new BST<T>();
+		_tree.value = _value;
 	    }
 	    else
 	    {
 		//Keep looking for a place to put the value
-		if(_value <= _tree.value)
+		var comparison = _value.CompareTo(_tree.value);
+		if(comparison < 0)
 		{
 		    Insert(_tree.left, _value);
 		}
@@ -41,35 +57,75 @@ namespace Program
 	}
 
 	/*
-	static bool Delete(BinaryTree<T> _tree, T _value)
+	  Deletion operation
+	  Complexity: O(n)
+	*/
+	static void Delete(BST<T> _tree, T _value)
 	{
 	    if(_tree == null)
 	    {
 		Console.WriteLine("Could not find value {0} in tree!", _value);
-		return false;
 	    }
-	    else //if(_tree.value == _value)
+	    else 
 	    {
-		return _tree.left == null && _tree.right == null;
+		var comparison = _value.CompareTo(_tree.value);
+		if(comparison == 0)
+		{
+		    if(_tree.left == null && _tree.right == null)
+		    {
+			// Delete the leaf
+			_tree = null;
+		    }
+		    else
+		    {
+			if(_tree.left != null)
+			{
+			    // Replace with left subtree
+			    _tree = _tree.left;
+			}
+			else if(_tree.right != null)
+			{
+			    // Replace with right subtree
+			    _tree = _tree.right;
+			}
+			else
+			{
+			    // Replace with in-order successor
+			    Console.WriteLine("To-do: Implement delete with in-order successor");
+			}
+		    }
+		}
+		else if(comparison < 0)
+		{
+		    Delete(_tree.left, _value);
+		}
+		else
+		{
+		    Delete(_tree.right, _value);
+		}
 	    }
      	}
+
+	/*
+	  Searching operation
+	  Complexity: O(n)
 	*/
-	
-	static bool Search(BinaryTree<T> _tree, T _value)
+	static bool Search(BST<T> _tree, T _value)
 	{
 	    if(_tree == null)
 	    {
 		Console.WriteLine("Could not find value {0} in tree!", _value);
 		return false;
-	    }
-	    else if(_tree.value == _value)
-	    {
-		Console.WriteLine("Found value {0} in tree!", _value);
-		return true;
 	    }
 	    else
 	    {
-		if(_value <= _tree.value)
+		var comparison = _value.CompareTo(_tree.value);
+		if(comparison == 0)
+		{
+		    Console.WriteLine("Found value {0} in tree!", _value);
+		    return true;
+		}
+		else if(comparison < 0)
 		{
 		    return Search(_tree.left, _value);
 		}
@@ -80,7 +136,11 @@ namespace Program
 	    }
 	}
 
-	static void TraversePreOrder(BinaryTree<T> _tree)
+	/*
+	  Complete tree traversals in various orders
+	  Complexity: O(n)
+	*/
+	static void TraversePreOrder(BST<T> _tree)
 	{
 	    if(_tree != null)
 	    {
@@ -90,7 +150,7 @@ namespace Program
 	    }
 	}
 	
-	static void TraverseInOrder(BinaryTree<T> _tree)
+	static void TraverseInOrder(BST<T> _tree)
 	{
 	    if(_tree != null)
 	    {
@@ -100,7 +160,7 @@ namespace Program
 	    }
 	}
 	
-	static void TraversePostOrder(BinaryTree<T> _tree)
+	static void TraversePostOrder(BST<T> _tree)
 	{
 	    if(_tree != null)
 	    {
@@ -113,13 +173,24 @@ namespace Program
     
     static class Program
     {
-	public static void Main(string _args)
+	static void Main()
 	{
-	    Console.WriteLine("""Binary tree data structure example - 
-                                 Copyright 2016, Sjors van Gelderen"""
+	    Console.WriteLine("Binary tree data structure example - "
+			      + "Copyright 2016, Sjors van Gelderen"
 			      + Environment.NewLine);
-
 	    
+	    var random = new Random();
+
+	    for(int i = 0; i < 3; i++)
+	    {
+		var collection = new int[random.Next(16)];
+		for(int o = 0; o < 16; i++)
+		{
+		    collection[o] = random.Next(100);
+		}
+		
+		var tree = new BST<int>(collection);
+	    }
 	}
     }
 }

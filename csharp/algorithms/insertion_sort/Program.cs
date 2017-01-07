@@ -1,76 +1,89 @@
 /*
-  Insertion sort algorithm
+  Insertion sort algorithm example
   Copyright 2016, Sjors van Gelderen
 */
 
 using System;
+using System.Collections.Generic;
 
 namespace Program
 {    
-    class Program
+    static class Program
     {
-	//Array in which to search
-	static int[] collection = {3, 5, 1, 6, 2, 2, 8, 6};
+	// Generate string from elements in a collection
+	static string StringFromCollection<T>(ref T[] _collection)
+	{
+	    string buffer = "[";
+	    foreach(var element in _collection)
+	    {
+		buffer += element.ToString();
+		buffer += ", ";
+	    }
+	    buffer += "]";
+	    return buffer;
+	}
 	
 	/*
 	  Insertion sort algorithm
-	  Complexity: O(n)
+	  Complexity: O(n^2)
 	*/
-	static void InsertionSort(int[] _collection)
+	static void InsertionSort<T>(ref T[]_collection) where T : IComparable
 	{
-	    Console.WriteLine("Performing insertion sort on " + IntArrayToString(_collection) + "!");
+	    Console.WriteLine("Performing insertion sort on {0}",
+			      StringFromCollection(ref _collection));
 	    
 	    for(int i = 1; i < _collection.Length; i++)
 	    {
 		//Set index variable
 		int index = i;
-		while(index > 0 && _collection[index] < _collection[index - 1])
+		while(true)
 		{
-		    Console.WriteLine("Swapping " + _collection[index - 1].ToString() +
-				      " with " + _collection[index].ToString());
-		    
-		    //Swap the elements
-		    int temp = _collection[index - 1];
-		    _collection[index - 1] = _collection[index];
-		    _collection[index] = temp;
-		    
-		    //Decrease the index
-		    index--;
+		    if(index > 0)
+		    {
+			// Perform comparison
+			var comparison = _collection[index].CompareTo(_collection[index - 1]);
+			if(comparison < 0)
+			{
+			    Console.WriteLine("{0} <-> {1}",
+					      _collection[index],
+					      _collection[index - 1]);
+			    
+			    //Swap the elements
+			    T temp = _collection[index - 1];
+			    _collection[index - 1] = _collection[index];
+			    _collection[index] = temp;
+			    
+			    //Decrease the index
+			    index--;
+			    continue;
+			}
+		    }
+
+		    break;
 		}
 	    }
 
-	    Console.WriteLine("Result: " + IntArrayToString(_collection) + "!" + Environment.NewLine);
-	}
-
-	//Creates a string representation of an integer array
-	static string IntArrayToString(int[] _array)
-	{
-	    string buffer = "[";
-	    
-	    for(int i = 0; i < _array.Length; i++)
-	    {
-		buffer += _array[i].ToString();
-		
-		if(i < _array.Length - 1)
-		{
-		    buffer += ", ";
-		}
-	    }
-
-	    buffer += "]";
-	    return buffer;
+	    Console.WriteLine("Insertion sort result: {0}",
+			      StringFromCollection(ref _collection));
 	}
 	
-        static void Main(string[] _args)
+        static void Main()
 	{
-	    if(_args.Length > 0)
+	    Console.WriteLine("Insertion sort algorithm example - "
+			      + "Copyright 2016, Sjors van Gelderen"
+			      + Environment.NewLine);
+
+	    var random = new Random();
+	    
+	    for(int i = 0; i < 3; i++)
 	    {
-		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
+		var collection = new int[16];
+		for(int o = 0; o < collection.Length; o++)
+		{
+		    collection[o] = random.Next(100);
+		}
+		InsertionSort<int>(ref collection);
 	    }
-
-	    Console.WriteLine("Insertion sort example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
-
-	    InsertionSort(collection);
 	}
     }
 }

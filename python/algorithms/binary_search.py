@@ -8,7 +8,7 @@ def binary_search(_target, _collection):
     
     print("Binary search for {} on {}".format(_target, _collection))
 
-    # Sort the collection
+    # Sort the collection for the binary search
     _collection.sort()
     
     pivot = len(_collection) // 2

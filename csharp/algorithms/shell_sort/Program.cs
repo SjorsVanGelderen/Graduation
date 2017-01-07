@@ -1,5 +1,5 @@
 /*
-  Shell sort example
+  Shell sort algorithm example
   Copyright 2016, Sjors van Gelderen
 */
 
@@ -11,21 +11,6 @@ namespace Program
 {
     class Program
     {
-	//Array in which to search
-	static int[] collection = {3, 5, 1, 6, 2, 2, 8, 6};
-	
-        static void Main(string[] _args)
-	{
-	    if(_args.Length > 0)
-	    {
-		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
-	    }
-
-	    Console.WriteLine("Shell sort algorithm - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
-
-	    ShellSort(collection, 3);
-	}
-
 	/*
 	  Shell sort algorithm
 	  Complexity: O(n log^2 n)
@@ -94,6 +79,25 @@ namespace Program
 
 	    buffer += "]";
 	    return buffer;
+	}
+	
+        static void Main(string[] _args)
+	{
+	    Console.WriteLine("Shell sort algorithm example - "
+			      + "Copyright 2016, Sjors van Gelderen"
+			      + Environment.NewLine);
+
+	    var random = new Random();
+	    
+	    for(int i = 0; i < 3; i++)
+	    {
+		var collection = new int[16];
+		for(int o = 0; o < 16; o++)
+		{
+		    collection[o] = random.Next(100);
+		}
+		ShellSort(collection, 3);
+	    }
 	}
     }
 }

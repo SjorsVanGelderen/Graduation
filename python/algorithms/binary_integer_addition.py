@@ -1,7 +1,6 @@
 """Binary integer addition
 Arrays contain individual bits
 This procedure assumes both arrays are of equal length
-Complexity: 
 Copyright 2016, Sjors van Gelderen
 """
 def binary_integer_addition(_array_0, _array_1):
@@ -26,6 +25,7 @@ def binary_integer_addition(_array_0, _array_1):
     
     print("The result of the binary integer addition is: {}".format(result))
 
+    
 # Convert a string to an int list
 def int_list(_string):
     integer_list = []
@@ -33,10 +33,13 @@ def int_list(_string):
         integer_list.append(int(letter))
     return integer_list
 
+
 # Main program logic
 def program():
     number_one = int_list(input("Please provide binary integer one: "))
     number_two = int_list(input("Please provide binary integer two: "))
     binary_integer_addition(number_one, number_two)
 
+
+# Run the program
 program()

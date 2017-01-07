@@ -2,7 +2,6 @@
 Complexity: O(n^2)
 Copyright 2016, Sjors van Gelderen
 """
-
 def selection_sort(_collection):
     c = _collection
     l = len(_collection)
@@ -11,7 +10,7 @@ def selection_sort(_collection):
     print("Selection sort on {}".format(c))
     
     while l > 0:
-        for o in range(0, l):
+        for o in range(l):
             if c[o] > c[t]:
                 t = o
         temp = c[l - 1]
@@ -25,8 +24,10 @@ def selection_sort(_collection):
     
     print("Result: {}".format(c))
 
+    
 # Main program logic
 def program():
     selection_sort([5, 1, 6, 53, 1, 43, 5, 90, 0])
 
+    
 program()

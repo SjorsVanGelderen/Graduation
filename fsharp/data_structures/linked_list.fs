@@ -12,15 +12,11 @@ type LinkedList<'a> =
 
 (*
 Insert an element into the list
-Complexity: O(n)
+Complexity: O(1)
 *)
 let rec insert element list =
-    match list with
-    | Node (value, tail) ->
-        Node (value, insert element tail)
-    | Empty ->
-        printfn "Inserting element %A" element
-        Node (element, Empty)
+    printfn "Inserting element %A" element
+    Node (element, list)
         
 (*
 Delete an element from the list

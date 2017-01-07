@@ -69,4 +69,6 @@ def program():
     tree.find(3)
     tree.find(999)
 
+
+# Run the program
 program()

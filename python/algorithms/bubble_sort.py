@@ -12,11 +12,14 @@ def bubble_sort(_collection):
                 c[o - 1] = c[o]
                 c[o] = temp
                 print("Swapped {} with {}".format(c[o - 1], c[o]))
-    print("Result: {}".format(c))
+    print("Bubble sort result: {}".format(c))
 
+    
 # Main program logic
 def program():
     collection = [0, 12, 6, 2, 3, 12, 1];
     bubble_sort(collection)
 
+
+# Start running the program
 program()

@@ -50,7 +50,7 @@ Complexity: O(1)
 *)
 let front queue =
     if queue.Segments.IsEmpty then
-        printfn "FRONT: Queue underflow"
+        printfn "FRONT: Invalid operation"
     else
         printfn "FRONT: %A" queue.Segments.Head
 
@@ -60,7 +60,7 @@ Complexity: O(n)
 *)
 let rear queue =
     if queue.Segments.IsEmpty then
-        printfn "REAR: Queue underflow"
+        printfn "REAR: Invalid operation"
     else
         printfn "REAR: %A" <| queue.Segments.[queue.Segments.Length - 1]
 

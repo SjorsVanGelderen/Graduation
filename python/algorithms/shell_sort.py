@@ -14,22 +14,21 @@ def insertion_sort(_collection):
     for index, element in enumerate(_collection):
         if index == 0:
             continue
-
-        print("Index: {}".format(index))
-        print(_collection)
         
         iter_index = index
         while True:
             if iter_index > 0 and element < _collection[iter_index - 1]:
+                print("{0} < {1}"
+                      .format(_collection[iter_index],
+                              _collection[iter_index - 1]))
                 temp = _collection[iter_index - 1]
                 _collection[iter_index - 1] = element
                 _collection[iter_index] = temp
                 iter_index -= 1
-                print(_collection)
             else:
                 break
 
-    print("Result: {}".format(_collection))
+    print("Insertion sort result: {}".format(_collection))
 
 # The main shell sort algorithm
 def shell_sort(_collection, _gap):
@@ -44,7 +43,7 @@ def shell_sort(_collection, _gap):
         buffer += s
 
     insertion_sort(buffer)
-    print("Result: {}".format(buffer))
+    print("Shell sort result: {}".format(buffer))
 
 # Generate slices of the provided collection
 def generate_slices(_collection, _gap):
