@@ -435,7 +435,7 @@ namespace Program
 	    // Wait for the semaphore's signal
 	    Console.WriteLine("{0} is waiting for the semaphore's signal",
 			      Thread.CurrentThread.Name);
-
+	    
 	    _semaphore.WaitOne();
 
 	    // Simulate work by sleeping a random amount of time
