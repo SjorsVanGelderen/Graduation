@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """Async examples
 Copyright 2017, Sjors van Gelderen
 
