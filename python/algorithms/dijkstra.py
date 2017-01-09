@@ -1,5 +1,6 @@
 """Dijkstra's algorithm example
-Finds shortest path between nodes in a graph
+Finds shortest paths from a given vertex
+to all other vertices in a graph
 Copyright 2016, Sjors van Gelderen
 """
 

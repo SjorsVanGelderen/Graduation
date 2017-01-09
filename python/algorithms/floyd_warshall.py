@@ -5,6 +5,7 @@ Copyright 2016, Sjors van Gelderen
 
 from math import inf
 
+
 """Floyd-Warshall algorithm
 Complexity: O(n^3)
 """
@@ -36,7 +37,8 @@ def floyd_warshall(graph):
                     distances[i][j] = shorter_distance
 
     return distances
-    
+
+
 # Main program logic
 def program():
     print("Floyd-Warshall algorithm example - "
@@ -53,4 +55,6 @@ def program():
     distances = floyd_warshall(graph)
     print("Result: {}".format(distances))
 
+
+# Run the program
 program()
