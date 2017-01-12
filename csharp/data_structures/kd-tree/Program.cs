@@ -4,6 +4,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 
 namespace Program
 {
@@ -15,7 +16,7 @@ namespace Program
 	public T X { get; set; }
 	public T Y { get; set; }
 	
-	public Vector2<T>(T _x, T _y)
+	public Vector2(T _x, T _y)
 	{
 	    X = _x;
 	    Y = _y;
@@ -30,7 +31,7 @@ namespace Program
 	public Vector2<T> TopLeft     { get; set; }
 	public Vector2<T> BottomRight { get; set; }
 
-	public Rectangle<T>(Vector2<T> _top_left, Vector2<T> _bottom_right)
+	public Rectangle(Vector2<T> _top_left, Vector2<T> _bottom_right)
 	{
 	    TopLeft = _top_left;
 	    BottomRight = _bottom_right;
@@ -41,18 +42,18 @@ namespace Program
 	    return _point.X >= TopLeft.X &&
 		_point.X <= BottomRight.X &&
 		_point.Y >= TopLeft.Y &&
-		_point.Y <= BottomRight.Y
+		_point.Y <= BottomRight.Y;
 	}
     }
 
     /*
       Describes a 2D implementation of a K-dimensional tree
     */
-    class 2DTree<T>
+    class TwoDimensionalTree<T>
     {
 	public Vector2<T> Value { get; set; }
-	public 2DTree     Left  { get; set; } = new 2DTree<T>();
-	public 2DTree     Right { get; set; } = new 2DTree<T>();
+	public TwoDimensionalTree<T> Left  { get; set; } = new TwoDimensionalTree<T>();
+	public TwoDimensionalTree<T> Right { get; set; } = new TwoDimensionalTree<T>();
 	
 	public void Insert(Vector2<T> _value, bool _vertical = true)
 	{
@@ -187,12 +188,13 @@ namespace Program
 				  + Environment.NewLine);
 	    }
 
-	    Console.WriteLine(@"K-dimensional tree data structure example - 
-                                Copyright 2016, Sjors van Gelderen"
+	    Console.WriteLine("K-dimensional tree data structure example - "
+                              + "Copyright 2016, Sjors van Gelderen"
 			      + Environment.NewLine);
-
+	    
 	    var random = new Random();
 
+	    /*
 	    //Generate random points
 	    var points = List<Vector2<float>>();
 	    for(int i = 0; i < 10; i++)
@@ -200,9 +202,9 @@ namespace Program
 		points.Add(new Vector2<float>(random.NextDouble() * 10,
 					      random.NextDouble() * 10));
 	    }
-
+	    
 	    //Build a tree containing these points
-	    var tree = new 2DTree<float>();
+	    var tree = new TwoDimensionalTree<float>();
 	    foreach(var point in points)
 	    {
 		tree.Insert(point);
@@ -212,9 +214,10 @@ namespace Program
 	    for(int i = 0; i < 3; i++)
 	    {
 		//Select a random point from the collection
-		var random_point = points[random.NextInt(points.Count));
-		tree.Search(random_point)
+		var random_point = points[random.NextInt(points.Count)];
+		tree.Search(random_point);
 	    }
+	    */
 
 	    //Delete points from the tree
 
