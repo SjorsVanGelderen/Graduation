@@ -104,14 +104,12 @@ namespace Program
 		    {
 			Console.WriteLine("Replacing {0} with right subtree {1}",
 					  _tree.Value, _tree.Left.Value);
-			//return _tree.Left;
 			_tree = _tree.Left;
 		    }
 		    else
 		    {
 			Console.WriteLine("Replacing {0} with right subtree {1}",
 					  _tree.Value, _tree.Right.Value);
-			//return _tree.Right;
 			_tree = _tree.Right;
 		    }
 		}
