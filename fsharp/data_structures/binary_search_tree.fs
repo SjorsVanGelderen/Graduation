@@ -41,7 +41,7 @@ let rec insert value tree =
 
 (*
 Delete operation
-Complexity: O(MISSING)
+Complexity: O(n log n)
 *)
 let rec delete value tree : BST<'a> Option =
     match tree with
@@ -52,20 +52,15 @@ let rec delete value tree : BST<'a> Option =
             elif tree.Left <> None && tree.Right <> None then
                 // Locate successor
                 let predicate = (fun elem -> elem = tree.Value)
-                let traversal = in_order_traversal tree // Some weird bug error here?
-                None
-                (*
+                let traversal = in_order_traversal (Some tree)
                 match List.tryFind predicate traversal with
                 | Some successor ->
                     // Recursion on the rest of the subtree
                     Some { tree with Value = successor
                                      Right = delete successor tree.Right }
-                    ()
                 | None ->
                     printfn "Failed to locate successor of %A" tree.Value
                     None
-                    ()*)
-                //None
             elif tree.Left <> None then
                 // Replace tree with left subtree
                 tree.Left
@@ -84,7 +79,7 @@ let rec delete value tree : BST<'a> Option =
                 Some { tree with Right = delete value tree.Right }
     | None ->
         // Value not found
-        printfn "Value %A not found in tree..." tree.Value
+        printfn "Value %A not found in tree..." value
         None
 
 (*
@@ -99,7 +94,7 @@ let rec search value tree =
             printfn "Found %A in tree!" value
             true
         else
-            if tree.Value < value then
+            if value < tree.Value then
                 // Recursion on the left subtree
                 search value tree.Left
             else
@@ -107,7 +102,7 @@ let rec search value tree =
                 search value tree.Right
     | None ->
         // Value not found
-        printfn "Value %A not found in tree..." tree.Value
+        printfn "Value %A not found in tree..." value
         false
 
 // Main program logic
@@ -123,6 +118,13 @@ let main args =
         |> insert 16
         |> insert 2
         |> insert 7
+        |> delete 4 // Deliberate failure
+        |> delete 2
+        |> delete 5
+    
+    search 7 tree  |> ignore
+    search 20 tree |> ignore // Deliberate failure
+    search 16 tree |> ignore
 
     List.iter (fun elem -> printfn "%A" elem) <| in_order_traversal tree
     0
