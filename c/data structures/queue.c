@@ -46,6 +46,8 @@ void enqueue(Queue* _queue, int _value)
 	printf("ENQUEUE: %d\n", _value);
 	_queue->values[_queue->back] = _value;
     }
+    
+    print_queue(_queue);
 }
 
 /*
@@ -71,6 +73,8 @@ void dequeue(Queue* _queue)
 
 	printf("DEQUEUE: %d\n", _queue->values[_queue->front]);
     }
+    
+    print_queue(_queue);
 }
 
 /*
@@ -118,28 +122,20 @@ int main()
     
     // Do some operations on the queue
     enqueue(&queue, 10);
-    print_queue(&queue);
-    
     enqueue(&queue, 34);
-    print_queue(&queue);
-    
     enqueue(&queue, 66);
-    print_queue(&queue);
-    
     enqueue(&queue, 98);
-    print_queue(&queue);
     
     dequeue(&queue);
-    print_queue(&queue);
+    dequeue(&queue);
+
+    enqueue(&queue, 120);
+    enqueue(&queue, 150);
     
     dequeue(&queue);
-    print_queue(&queue);
-    
     dequeue(&queue);
-    print_queue(&queue);
-    
     dequeue(&queue);
-    print_queue(&queue);
+    dequeue(&queue);
     
     // Free and deallocate memory
     free(queue.values);
