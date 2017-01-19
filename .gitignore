@@ -500,3 +500,7 @@ Cargo.lock
 
 # MacOS
 .DS_Store
+
+# Builds
+a.out
+run

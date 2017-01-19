@@ -1,10 +1,11 @@
 /*
   Async & await example
-  Copyright 2016, Sjors van Gelderen
+  Copyright 2017, Sjors van Gelderen
 */
 
 using System;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Program
@@ -15,15 +16,19 @@ namespace Program
 	static async Task<string> CollectDataAsync()
 	{
 	    Console.WriteLine("Collecting data from Google UK...");
-		
+	    
 	    // Create the HTTP client
 	    var client = new HttpClient();
-		
+	    
 	    // Asynchronously collect data from Google UK
 	    Task<string> get_string_task = client.GetStringAsync("http://google.co.uk");
-
+	    
 	    // Meanwhile, print a message
-	    Console.WriteLine("Doing something really important while waiting for data...");
+	    for(int i = 0; i < 4; i++)
+	    {
+		Console.WriteLine("Doing something really important while waiting for data...");
+		Thread.Sleep(10);
+	    }
 	    
 	    // Block until the data arrives, then return it
 	    return await get_string_task;
@@ -32,7 +37,7 @@ namespace Program
         static void Main()
 	{
 	    Console.WriteLine("Async & await example - "
-			      + "Copyright 2016, Sjors van Gelderen"
+			      + "Copyright 2017, Sjors van Gelderen"
 			      + Environment.NewLine);
 
 	    // Run an asynchronous task

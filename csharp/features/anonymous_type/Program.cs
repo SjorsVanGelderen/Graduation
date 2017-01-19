@@ -9,14 +9,11 @@ namespace AnonymousType
 {
     class Program
     {
-        static void Main(string[] _args)
+        static void Main()
 	{
-	    if(_args.Length > 0)
-	    {
-		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
-	    }
-
-	    Console.WriteLine("Anonymous type example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
+	    Console.WriteLine("Anonymous type example - "
+			      + "Copyright 2016, Sjors van Gelderen"
+			      + Environment.NewLine);
 
 	    //Create the object with an anonymous type
 	    var object_of_anonymous_type = new {

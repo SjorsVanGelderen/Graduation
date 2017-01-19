@@ -91,7 +91,7 @@ namespace Program
 	    var dynamic_stack = new Stack<int>();
 	    for(int i = 0; i < 16; i++)
 	    {
-		dynamic_stack.Push(random.Next());
+		dynamic_stack.Push(random.Next(100));
 	    }
 
 	    for(int i = 0; i < 4; i++)
@@ -112,7 +112,7 @@ namespace Program
 	    {
 		try
 		{
-		    fixed_stack.Push(random.Next());
+		    fixed_stack.Push(random.Next(100));
 		}
 		catch(StackOverflowException _e)
 		{

@@ -67,14 +67,11 @@ namespace Program
     {
 	static Random random = new Random();
 	
-        static void Main(string[] _args)
+        static void Main()
 	{
-	    if(_args.Length > 0)
-	    {
-		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
-	    }
-
-	    Console.WriteLine("Iterators / state machines example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
+	    Console.WriteLine("Iterators / state machines example - "
+			      + "Copyright 2016, Sjors van Gelderen"
+			      + Environment.NewLine);
 
 	    //Process a number of trucks
 	    for(int i = 0; i < 5; i++)

@@ -15,15 +15,13 @@ namespace Properties
 	public string OS      { get; set; }
 	public int    Version { get; set; } = 0; //Example of a default value for this property
 	
-	//Constructor with default values
+	//Constructor without parameters
 	public Phone()
 	{
-	    Model = default(string);
-	    Brand = default(string);
-	    OS    = default(string);
+	    
 	}
 
-	//Constructor with parameter values
+	//Constructor with parameters
 	public Phone(string _model, string _brand, string _os, int _version)
 	{
 	    Model   = _model;
@@ -37,12 +35,9 @@ namespace Properties
     {
         static void Main(string[] _args)
 	{
-	    if(_args.Length > 0)
-	    {
-		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
-	    }
-
-	    Console.WriteLine("Properties example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
+	    Console.WriteLine("Properties example - "
+			      + "Copyright 2016, Sjors van Gelderen"
+			      + Environment.NewLine);
 	    
 	    Phone phone_0 = new Phone();
 	    phone_0.Model   = "iPhone";

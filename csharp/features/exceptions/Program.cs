@@ -9,14 +9,11 @@ namespace Program
 {
     class Program
     {
-        static void Main(string[] _args)
+        static void Main()
 	{
-	    if(_args.Length > 0)
-	    {
-		Console.WriteLine("This program does not accept any arguments!" + Environment.NewLine);
-	    }
-
-	    Console.WriteLine("Exception handling example - Copyright 2016, Sjors van Gelderen" + Environment.NewLine);
+	    Console.WriteLine("Exception handling example - "
+			      + "Copyright 2016, Sjors van Gelderen"
+			      + Environment.NewLine);
 
 	    Console.WriteLine(Division(10, 3).ToString());
 	    Console.WriteLine(Division(45, 7).ToString());
