@@ -95,13 +95,14 @@ class Heap:
         else:
             print("Nothing to extract")
     
-    """Heapify operation
+    """Heapify operation tailored to be used after extraction
     Complexity: O(log n)
     """
     def heapify(self):
         print("Restoring heap property")
         key_index = 0
-        
+
+        # Loop until the heap property is restored
         while True:
             left_child_index = Heap.get_left_child_index(key_index)
             right_child_index = Heap.get_right_child_index(key_index)

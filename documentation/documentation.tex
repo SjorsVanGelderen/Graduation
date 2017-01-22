@@ -1,4 +1,4 @@
-% Graduation thesis
+% Graduation documentation
 % Copyright 2016-2017, Sjors van Gelderen
 
 % Document settings
@@ -23,75 +23,118 @@
 
 \tableofcontents{}
 
+
 \newpage
 
-\section{Introduction}
-In this document you will find a description of the materials I have studied during my graduation phase.
-The primary focus of this project was to gain a greater understanding of data structures, algorithms and complexity analysis.
-When studying these algorithms, I have focused primarily on worst case complexities. \huge why
-Secondly, I was interested in gaining greater proficiency in the use of the Python 3 and C\# programming languages.
-Lastly, I have taken a brief look at the C, Rust and Chicken Scheme programming languages. \huge why
 
-\subsection{Languages}
-Here I briefly describe the languages used to implement the concepts studied.
+\section{Introduction}
+In this document I describe the materials studied during my graduation phase.
+The aim of the project was to prepare for professionally teaching students selective aspects of computer science.
+These aspects include:
+\begin{itemize}
+\item{The C\# and Python 3 programming languages}
+\item{Object-oriented design patterns}
+\item{Data structures, algorithms and complexity analysis}
+\end{itemize}
+
+% ATTENTION REQUIRED: MISSING EXPLANATION
+% ATTENTION REQUIRED: MISSING REPOSITORY LOCATION
+\paragraph{}
+I have provided many example implementations in a variety of programming languages.
+All provided complexities in this document and related implementations are worst-case complexities.
+
+\subsection{Primary languages}
+Here is a brief description of the main languages used.
+
+\subsubsection{C\#}
+% ATTENTION REQUIRED: CITATION NEEDED
+C\# is Microsoft's most popular .NET programming language.
+The language strikes me as a much higher level variant of C++.
+With its rich .NET ecosystem, modern features (LINQ, anonymous methods, tasks, etcetera),
+C\# is certainly a powerful programming language.
+
+\paragraph{Sources}
+C\# code is provided in the subdirectory {\em csharp/}.
 
 \subsubsection{Python 3}
 Advantages of this language include its concise syntax and its portability.
-Because of Python 3's high-level nature, the programmer can focus exclusively on the actual logic of the algorithm,
+Because of Python 3's high-level nature, the programmer can focus exclusively on the actual logic of an algorithm,
 rather than the low-level memory management involved. This is removes a significant source of potential distraction.
-A major downside of the language is the absence of a strict compiler.
-Python programs frequently crash during run-time, as problems are not detected at compile-time.
+Unfortunately, the absence of a strict compiler means frequent run-time debugging sessions are necessary.
 
-\subsubsection{C\#}
-With Microsoft's recent decision to join the Linux Foundation, the .NET platform is becoming ever more attractive.
-The .NET platform is designed in such a way that its associated programming languages can directly interact with one another.
-This brings to the programmer the possibility to combine multiple programming languages in a single project with great ease.
-Since languages are designed with different problem-domains in mind, this offers increased expressive power to the programmer.
-C\#, being perhaps the most popular .NET language, is an excellent choice to begin harnassing just this power.
+\paragraph{Sources}
+Python 3 code is provided in the subdirectory {\em python\_3/}.
 
 \subsubsection{F\#}
-Being a more recent addition to the .NET family of programming languages, F\# has not quite gained the popularity of C\#.
-However, F\#'s conception has been a step along the way to many of the modern functional programming features incorporated in C\#.
-F\# is an excellent and powerful multi-paradigm (though mostly functional) programming language.
-Because of its functional nature, the F\# programming language enables the programmer to tackle problems using high-level concepts such as
-recursion, higher order functions, partial application and currying, computation expressions (syntactic sugar for monads) and more.
+% ATTENTION REQUIRED: CITATION NEEDED
+Being a more recent addition to the .NET family of programming languages,
+F\# has not quite gained the popularity of C\#.
+The F\# programming language enables the programmer to tackle problems
+using high-level concepts such as recursion, higher order functions,
+partial application and currying, computation expressions
+(syntactic sugar for monads) and more.
+
+\paragraph{Sources}
+F\# code is provided in the subdirectory {\em fsharp/}.
+
+
+\newpage
+
+
+\subsection{Secondary languages}
+These languages were only used sparingly, out of curiosity rather than necessity.
 
 \subsubsection{C}
-Virtually any programmer will at some point in their career encounter this venerable, fast and portable programming language.
-Because this low-level language doesn't use a garbage collector, the programmer must exercise great caution with the manual management of memory.
+Virtually any programmer will at some point in their career encounter this venerable,
+fast and portable programming language. Because this low-level language doesn't use a garbage collector,
+the programmer must exercise great caution with the manual management of memory.
 Many security problems that affect us today are a direct consequence of a failure to do so.
-This language is interesting to one studying the low-level concepts of algorithms.
+This language is well-suited to studying the low-level implementation of algorithms and data structures.
 
-\huge Marked for appendix (rust / chicken scheme)
+\paragraph{Sources}
+C code is provided in the subdirectory {\em bonus/c/}.
+
 \subsubsection{Rust}
 Developed by Mozilla, Rust aims to be a modern solution for safe, asynchronous programming.
 With default immutable variables, as well as borrowing and lifetimes, the compiler makes it
 very difficult indeed to write a program that contains run-time errors relating to incorrect memory access.
 
+\paragraph{Sources}
+Rust code is provided in the subdirectory {\em bonus/rust/}.
+
 \subsubsection{Chicken Scheme}
+% ATTENTION REQUIRED: CITATION NEEDED
 The LISP family of programming languages has two major dialects; these being Common LISP and Scheme.
 Chicken Scheme is a modern implementation of the Scheme dialect.
 It has a very minimalistic syntax, revolving around the use of parentheses and prefix notation.
 Chicken Scheme is a functional programming language.
 
+\paragraph{Sources}
+Chicken Scheme code is provided in the subdirectory {\em bonus/chicken\_scheme/}.
+
+
 \newpage
 
+
 \section{Analysis}
+% ATTENTION REQUIRED: VERY MUCH INCOMPLETE
+
 \subsection{Empirical analysis}
 Empirical analysis refers to inferring a program's expected performance based on measurements taken while running a program with various configurations.
 A typical scenario involves the measurement of performance in terms of running time by the use of a 'stopwatch'.
-
-\huge PROVIDE MINIMAL EXAMPLE WITH STOPWATCH IN C# HERE, USE INSERTION SORT AND PLOT GRAPH
 
 \subsection{Complexity analysis}
 Complexity analysis is different from empirical analysis in that it uses reasoning
 - rather than experiment - to determine a program's expected performance.
 
+
 \newpage
 
+
 \section{Data structures}
-As the manner in which data is stored affects the choice of algorithm,
+As the manner in which data is stored affects the efficiency of and compatibility with a given algorithm,
 it is appropriate to discuss the studied data structures now.
+
 
 \subsection{Array}
 Among the most common data structures for collections is the array.
@@ -100,7 +143,7 @@ and may be accessed in constant time(\(O(1)\)) through their respective indices.
 Arrays have excellent cache-alignment, making them very fast indeed.
 
 The location of an element in an array at some given index {\em i} will be
-\[{\verb base_address_of_array } + i * s\]
+\[base\_address\_of\_array + i * s\]
 In which {\em s} is the size of a single element.
 This size depends on the data type of the array.
 
@@ -108,94 +151,100 @@ This size depends on the data type of the array.
 
 \paragraph{Fixed size}
 By default, arrays are generally of {\em fixed size}; meaning the array will take up constant space ({\em O(1)}).
-Since less elements might be stored in the array than its total capacity allows for, space might be wasted on unused memory.
-The amount of elements that are actually being used is called the {\em logical size} of the array.
+Since less elements might be stored in the array than its total capacity allows for,
+space might be wasted on unused memory. The amount of elements that are actually being used is
+called the {\em logical size} of the array.
 
 \paragraph{Dynamic size}
-When an array is of dynamic size, the programmer must carefully specify the amount by which the array will be resized.
-If the programmer adds more elements than some given threshold will allow, the array must perform a resize operation.
-Since the resize operation is costly (typically \(O(n)\)), it shouldn't occur too frequently.
-In some implementations, dynamic size arrays will also shrink when the logical size becomes less than a given threshold.
+When an array is of dynamic size, the programmer must carefully specify the amount by
+which the array will be resized. If the programmer adds more elements than some given threshold will allow,
+the array must perform a resize operation. Since the resize operation is costly (typically \(O(n)\)),
+frequent resizes ought to be avoided. In some implementations, dynamic size arrays will also shrink when
+the logical size becomes less than a given threshold.
 
 \subsubsection{Dimensionality}
 Arrays may have more than one dimension. Such a construction may also be called a matrix.
 Elements in the multidimensional array may be accessed with multiple indices describing the relevant coordinates.
 
 
+\newpage
+
+
 \subsection{Linked list}
 The {\em linked list} is a linear, dynamic size data structure for storing collections of elements.
 Contrary to arrays, elements are not guaranteed to be stored contiguously.
-This makes it possible to store elements in a fragmented (non-contiguous) fashion,
+This makes it possible to store elements in a fragmented fashion,
 which is useful when the collection is larger than any available contiguous block of memory.
-Because of the fragmentation, elements cannot be accessed in constant time \((O(1))\) through the use of indices.
+Since elements in the linked list are stored in a fragmented fashion, direct access through indices
+as done with the array becomes impossible.
 
-The linked list consists of several segments,
-each of which has up to two references to other elements in the sequence.
-Traversing the linked list is a linear time (\(O(n)\)) operation.
+The linked list consists of several segments, each of which has up to two references to other
+elements in the sequence. The last element of the sequence will point to an empty segment,
+which may be called a {\em null link}. Traversing the linked list is a linear time (\(O(n)\)) operation.
 
 \paragraph{Singly-linked and doubly-linked}
-The {\em singly-linked} list consists of segments that contain a value and a reference to the next segment in the sequence.
-The {\em doubly-linked} list is the same as the singly-linked list, except each segment also has a reference to the previous segment in the sequence.
+The {\em singly-linked} list consists of segments that contain a value and a reference to the next
+segment in the sequence. The {\em doubly-linked} list is the same as the singly-linked list,
+except each segment also has a reference to the previous segment in the sequence.
 Whether the list is singly-linked or doubly-linked affects the traversal process,
 since where singly-linked lists only allow forward traversal, doubly-linked lists also allow backward traversal.
 
 \paragraph{Insert}
-Inserting an element in the linked list requires traversing the list from start to end,
-which is in the worst case a linear time (\(O(n)\) operation.
-The last element will have a reference to a {\em null link}, meaning there is no next element in the sequence.
-When this situation is encountered, the null link may be changed to refer to the new element instead.
-If the list is {\em doubly-linked}, the new element's {\em previous} variable should reference the last element of the current list.
+Elements are inserted at the root of the list. Since no traversal is required to locate the root,
+the insertion operation is one of constant time \(O(1)\). The inserted element becomes the new root,
+and is given a reference to the next segment. This next segment is the old root segment.
+
+When inserting at the end - rather than the beginning - of a list,
+the list must be traversed until a given segment references a null link as the next element in the sequence.
+The reference to the empty segment may be replaced with a reference the element to be inserted.
+Due to the traversal, the worst case complexity of such an insertion is of linear time \(O(n)\).
+If the list is {\em doubly-linked}, the new element's {\em previous} variable should reference
+the last element of the current list.
 
 \paragraph{Delete}
-The delete operation in the worst case requires a complete traversal of the list,
-which is a linear time (\(O(n)\) operation. If the current element points to the element to be deleted,
-the {\em next} reference must be changed to point to the element in the sequence that comes after the element to be deleted.
+Locating the element to be deleted will in the worst case require a complete traversal of the list,
+which is a linear time (\(O(n)\) operation. If the current segment's {\em next} variable references
+the element to be deleted, it must be changed to point to the segment in the sequence that succeeds
+the element to be deleted (which may be {\em null}). If the root element is deleted,
+the next segment in the list becomes the root.
+
+
+\newpage
 
 
 \subsection{Stack}
 The {\em stack} is a {\em LIFO} (Last In, First Out) data structure.
-The name of the data structure reveals its workings.
 Data is always inserted on and removed from the top of the stack.
 Only the top element of the stack may be inspected at any time.
 Regardless of which structure is used to store the stack contents,
 the interface must always offer the following operations: {\em push}, {\em pop} and {\em peek}.
 
-\subsubsection{Implementation}
-Here follows an example of a dynamic size stack implemented in Python 3.
-
-\huge CHECK THIS BIT
-\begin{lstlisting}[language=Python]
-  class Stack:
-    def __init__(self):
-        self.contents = []
-
-    def push(self, value):
-        self.contents.append(value)
-
-    def pop(self):
-        self.contents.pop()
-
-    def peek(self):
-        if self.contents:
-            return self.contents[-1]
-        else:
-            return None
-\end{lstlisting}
-
-\paragraph{Storage}
-Storage is done using a Python 3 list.
-
 \paragraph{Push}
-The {\em push operation} puts a new element on top of the stack.
-If the stack has a size limit, this operation might cause a {\em stack overflow} exception in the event that the stack's capacity is exceeded.
+The {\em push operation} puts a new element on top of the stack. This is a constant time (\(O(1)\)) operation.
+If the stack has a size limit, this operation throws a {\em stack overflow} exception
+when the stack's capacity is exceeded.
 
 \paragraph{Pop}
-The pop operation removes the top element from the stack. If the stack has no elements, this operation will throw an {\em stack underflow} exception,
-as there are no elements left to remove.
+The pop operation removes the top element from the stack. This is a constant time (\(O(1)\)) operation.
+If the stack has no elements, this operation will throw a {\em stack underflow} or {\em invalid operation}
+exception, as there are no elements to remove.
 
 \paragraph{Peek}
 The peek operation gives the programmer access to the current top element of the stack.
-If the stack is empty, this element may throw an {\em invalid operation} exception, as there are no elements to reveal.
+This is a constant time (\(O(1)\)) operation. If the stack is empty, this operation will throw an
+{\em invalid operation} exception, as there are no elements on the stack to reveal.
+
+\paragraph{Sources}
+Stack implementations are provided at the following locations:
+\begin{itemize}
+\item{{\em csharp/data\_structures/stack/}}
+\item{{\em python\_3/data\_structures/}}
+\item{{\em fsharp/data\_structures/}}
+\item{{\em bonus/c/data\_structures/}}
+\end{itemize}
+
+
+\newpage
 
 
 \subsection{Queue}
@@ -203,19 +252,85 @@ Contrary to the stack, the queue is a {\em FIFO} (First In, First Out) data stru
 Elements are inserted at the back of the queue, and removed from the front of the queue.
 
 \paragraph{Enqueue}
-The {\em queue} operation removes the element at the front of the queue.
-
+The {\em enqueue} operation adds a new element at the front of the queue.
+This is a constant time (\(O(1)\)) operation.
 
 \paragraph{Dequeue}
 The {\em dequeue} operation removes the element at the back of the queue.
+This is a constant time (\(O(1)\)) operation for arrays, and a linear time (\(O(n)\)) for linked-lists.
+
+\paragraph{IsEmpty}
+The {\em is\_empty} operation returns whether the queue is empty or not.
+This is a constant time (\(O(1)\)) operation. It can be used to prevent queue underflow.
+
+\paragraph{Rear and front}
+The {\em rear} and {\em front} operations provide access to the front and rear elements of the queue.
+These operations are optional and as such are not provided in all implementations.
+Both operations are constant time (\(O(1)\)) operations for arrays.
+The rear operation is linear time (\(O(n)\)) and the front operation is constant time (\(O(1)\)) for linked-lists.
+
+\paragraph{Sources}
+Queue implementations are provided at the following locations:
+\begin{itemize}
+\item{{\em csharp/data\_structures/queue/}}
+\item{{\em python\_3/data\_structures/}}
+\item{{\em fsharp/data\_structures/}}
+\item{{\em bonus/c/data\_structures/}}
+\end{itemize}
+
 
 \newpage
 
-\huge MARKED FOR SCRAPPING
+
 \subsection{Hashmap}
-\subsubsection{Linear probing}
-\subsubsection{Quadratic probing}
+This data structure - also known as a {\em dictionary} or {\em hash table} -
+is used to store a list of key-value pairs. This kind of structure is also called an {\em associative array}.
+The data structure consists of a list or array of {\em buckets} or {\em slots} containing one or
+more elements. The amount of elements that may be stored in a given bucket depends on the implementation of said
+bucket. The underlying data structure may, for example, be a fixed-size array or a linked-list.
+
+Of primary interest is the way the indices of the relevant bucket are determined.
+Unlike standard arrays, indices need not be integers. Indices may instead be derived from any kind of data type.
+This is done using a {\em hash function} (hence, the name of the data structure).
+
+The hash function derives an integer from the provided data. The modulo operator then restricts the provided
+integer to a range that fits in the array or list.
+
+\begin{lstlisting}[language=Python]
+  hash\_value = hash\_function(data)
+  hash\_map\_index = hash\_value % hash\_map\_size
+\end{lstlisting}
+
+To determine whether the number of buckets is appropriate for the amount of elements to be inserted,
+the load factor may be calculated. The load factor is calculated as follows:
+\[number\_of\_entries / number\_of\_buckets\]
+A large load factor is indicative of an inappropriate amount of buckets.
+If the load factor is too small, however, it is possible a lot of buckets are unnecessarily taking up space.
+Some implementations of hash maps will resize when the load factor reaches a certain threshold.
+This is a costly operation, seeing as all elements will have to be redistributed according to the new size.
+
+It is possible that two different pieces of data generate the same hash map index.
+Such a situation is called a {\em collision}. If there are many collisions, the distribution of the values
+will be poor. As a consequence, the data structure will be inefficient.
+If all keys are known before the data is inserted into the hash map, it is possible to generate a perfect
+hashing function. This means each piece of data provided will result in a unique hash map index.
+
+There exist several solutions to the collision problem, three of which are described in the next sections.
+
+\subsubsection{Linear and quadratic probing}
+When performing {\em linear probing}, a collision causes the hash map index to be increased successively by one,
+until an empty bucket is found. Similarly, {\em quadratic probing} successively increases the hash map index using
+values from a quadratic polynomial to find a new hash map index for the colliding element.
+Usually, both of these probing methods will wrap around if the resulting hash map index is outside of the range
+of the bucket array. These methods may cause elements to occupy buckets that would otherwise be populated by
+other pieces of data. In addition, these probing methods may cause infinite loops when an acceptable bucket is
+never found.
+
 \subsubsection{Dynamic size buckets}
+Another solution to the collision problem is to allow multiple values per bucket. Such a solution could be
+implemented by making each bucket into a dynamic size array or linked-list. If hash function or load-factor is bad,
+this implementation may result in similar efficiency to simply using a single dynamic size array or linked list.
+
 
 \newpage
 
@@ -230,84 +345,108 @@ The predecessor of a child node is called its {\em parent}.
 The root node is the only node that does not have a parent.
 
 Nodes that don't have any children are called {\em leaves}, expanding on the analogy of the tree.
+Any node that has at least one child is an {\em internal node}.
 
 A tree is said to be {\em balanced} if the nodes are distributed evenly among the subtrees in the tree.
 A tree might be so poorly balanced that the nodes are organized much like a {\em linked list}.
-In this case, it's arguable that the tree was not a suitable data structure for the relevant problem.
+In this case, it's possible that the tree was not a suitable data structure for the relevant problem.
 
+The {\em depth} of a node is the amount of {\em edges} that must be traversed from the root to reach it.
+A collection of edges to traverse is called a {\em path}, the length of which is the amount of edges.
+All nodes of the same depth are said to be on the same {\em level}.
 
-parents
+In this section are described a number of data structures that may be called trees.
 
-leafs
-
-levels
 
 \subsubsection{Binary tree}
-The binary tree consists of nodes containing at most one parent, and at most two children.
-There is no particular property governing where new elements are inserted.
+The binary tree - also called {\em bifurcating arborescence} - consists of nodes containing at most one parent,
+and at most two children. There is no particular property governing where new elements are inserted.
 This is because the binary tree does not inherently imply any particular sorting order.
 
-\subsubsection{Heap}
-This binary tree maintains the {\em heap property}, which is said to be {\em max} or {\em min}.
+A binary tree is said to be {\em full} if all of its leaves are on the same level,
+and each internal node has two children. This is different from the notion of completeness,
+as a {\em complete} binary tree is a tree where each level other than possibly the last is fully populated,
+and all nodes are as far to the left as possible.
+
+\paragraph{Sources}
+A binary tree implementation is provided at the following location:
+\begin{itemize}
+\item{{\em fsharp/data\_structures/}}
+\end{itemize}
+
+
+\subsubsection{Binary heap}
+This complete binary tree maintains the {\em heap property}, which is said to be {\em max} or {\em min}.
 A heap that satisfies the {\em max heap property} is called a {\em max heap}.
 Accordingly, a heap that satisfies the {\em min heap property} is called a {\em min heap}.
 The property determines the order in which the elements are stored inside the heap.
 
-For example, in a max heap each key must be greater than every key stored inside its children.
+In a max heap each key must be greater than every key stored inside its children.
 Conversely, in a min heap each key must be less than every key stored inside its children.
 
-\paragraph{Heapify}
-The heapify operation will help us maintain the heap property on our data.
+\paragraph{Insert}
+The {\em insert} operation adds a new key at the end of the heap. If the heap property is violated,
+it may be restored by letting the key 'swim' to the correct position. When 'swimming', the key
+is compared to its parent. If the a violation of the heap property is found, the key and its parent
+are swapped. This process is repeated until the heap property is no longer violated. Note that the
+heap property is also restored if this key becomes the new root of the heap.
 
-\begin{lstlisting}[language=Python]
-  def heapify(index):
-        c = self.keys
-        left = get_left_child_index(index)
-        right = get_right_child_index(index)
-        largest = index
+\paragraph{Extract and heapify}
+The {\em extract} operation removes the root node from the binary heap. It does this by replacing
+the root key with the last key in the heap. After this step, the {\em heapify} operation is used to
+restore the heap property if it is be violated by the new root. In such case, the root is compared
+to its children. Depending on the relevant property, the root is swapped with either its smaller child in a
+min-heap, or its larger child in a max-heap. The process is then repeated from the old root's new location,
+which is the index of the child it was swapped with. Eventually, the heap property must be restored.
 
-        property_holds = c[left] > c[index] if self.max else c[left] < c[index]
-        
-        if left <= self.heap_size and property_holds:
-            largest = left
+\paragraph{Sources}
+Heap implementations are provided at the following locations:
+\begin{itemize}
+\item{{\em csharp/data\_structures/heap/}}
+\item{{\em python\_3/data\_structures/}}
+\item{{\em fsharp/data\_structures/} (At the time of writing incomplete)}
+\end{itemize}
 
-        property_holds = c[right] > c[largest] if self.max else c[right] < c[largest]
-        
-        if right <= self.heap_size and property_holds:
-            largest = right
-        
-        if largest != index:
-            swap(index, largest)
-            heapify(largest)
-\end{lstlisting}
 
-\paragraph{Build}
-This simple operation takes as input a collection of elements of which the heap will consist.
-Since we have already defined a means of enforcing the heap property, we may simply use that same logic to construct the tree.
 
-\begin{lstlisting}[language=Python]
-  # INCORRECT PLEASE FIX
-  def build(self, collection):
-    for element in collection:
-      self.heapify(len(self.keys) - 1)
-\end{lstlisting}
+
+\iffalse
+
+
+
+
 
 \subsubsection{Binary search tree}
 Contrary to the regular binary tree, the binary search tree must satisfy an ordering principle.
 This principle is known as the binary tree property. Thanks to this property,
 more efficient searching algorithms are possible.
 
+\paragraph{Sources}
+Binary search tree implementations are provided at the following locations:
+\begin{itemize}
+\item{{\em csharp/data\_structures/binary\_search\_tree/}}
+\item{{\em python\_3/data\_structures/}}
+\item{{\em c/data\_structures/}
+\item{{\em fsharp/data\_structures/}
+\end{itemize}
+
 \subsubsection{K-dimensional tree}
 The K-dimensional tree expands upon the philosophy of the binary search tree, in that it
 must maintain a sorting order property. When using this tree in less than 3 dimensions,
 a simple geometric interpretation of its structure is possible.
+
+\paragraph{Sources}
+Binary search tree implementation is provided at the following location:
+\begin{itemize}
+\item{{\em csharp/data\_structures/kd\_tree/}}
+\end{itemize}
 
 \paragraph{Construction}
 Let's examine the construction of a 2-dimensional tree from the array \(A = [(3, 2), (6, 5), (7, 1)]\).
 The root key of the tree will be the first element in the array, in this case (3, 2).
 We will record this key as a {\em vertical} split of the plane, like so:
 
-{\huge INSERT GRAPHIC HERE}
+% ATTENTION REQUIRED: MISSING GRAPHIC
 
 Since the next key in the collection - (6, 1) - has a larger {\em X} coordinate than the root key(\(6 > 3\)), it will be stored to the left of the root key.
 
@@ -327,13 +466,26 @@ The next key in our collection - (7, 1) - has a larget {\em X} coordinate than o
 \subsubsection{Adjacency matrix}
 \subsubsection{Incidence matrix}
 
+
 \newpage
+
 
 \section{Algorithms}
 \subsection{Searching}
 \subsubsection{Linear search}
 The linear search is a very simple algorithm. It linearly traverses a collection until either the requested
 element is found, or the end of the collection was reached.
+
+\paragraph{Sources}
+Linear implementations are provided at the following locations:
+\begin{itemize}
+\item{{\em csharp/algorithms/searching/}}
+\item{{\em python\_3/algorithms/}}
+\item{{\em c/algorithms/}
+\item{{\em fsharp/algorithms/}
+\item{{\em bonus/rust/search/}
+\item{{\em bonus/chicken\_scheme/algorithms/}
+\end{itemize}
 
 \subsubsection{Binary search}
 If the collection is known to be sorted, binary search may yield a significant performance gain over regular insertion sort.
@@ -369,7 +521,7 @@ Imagine having an unsorted deck of cards, then throwing it in the air and pickin
 If it's not, then you repeat the process. This is a quaint description of {\em Monkey sort}.
 It's a highly inefficient sorting algorithm, in which a random distribution of the collection is made every time.
 Subsequently, the new distribution goes through a process that verifies if it is sorted. If it is not sorted, a new distribution is made.
-Since this algorithm may never yield a sorted distribution, the complexity is unbounded ($O(\infinity)$).
+Since this algorithm may never yield a sorted distribution, the complexity is unbounded ($O(\infty)$).
 
 \newpage
 
@@ -503,18 +655,16 @@ it naturally follows that the complexity class of our algorithm is \(O(n^3)\).
 \newpage
 
 \section{Advanced C\# features}
-\huge MARKED FOR SCRAPPING
+% ATTENTION REQUIRED: MARKED FOR SCRAPPING, VERY MUCH INCOMPLETE
 \subsection{Properties}
 This concept allows the programmer to specify how data inside a class may be accessed.
 With this feature, manually writing {\em get} and {\em set} functions becomes obsolete.
-
-{\huge FURTHER EXPLANATION REQUIRED}
 
 \subsection{Interfaces}
 Interfaces are contracts that guarantee a class implements certain methods.
 
 \subsection{Events}
-Event-driven programming is made possible in C\# through the use of {\huge UNFINISHED SENTENCE}.
+
 
 \subsection{Extension methods}
 In order to extend the functionality offered by base types, a programmer may use extension methods.
@@ -591,7 +741,6 @@ is missing({\em none}) or readily available ({\em some data}).
 
 The following example demonstrates this process:
 
-\huge SECTION INCOMPLETE, REPLACE WITH C# DESIGN PATTERN
 \begin{lstlisting}[language=Python]
 \end{lstlisting}
 
@@ -606,11 +755,10 @@ Notice how {\em some} comes with a {\em data} object, {\em none} does not.
 The strategy pattern is used where different strategies may be optimal depending on context.
 For instance, if we know a collection to be mostly sorted, we might choose to use a different sorting algorithm than when the collection is mostly unsorted.
 
-\huge SECTION INCOMPLETE, PROVIDE C# CODE HERE
 
 \subsection{Adapter}
 Programmers will frequently encounter situations in which they must deal with error-prone code.
-For example {\huge C# EXAMPLE HERE}.
+
 Unfortunately, one is frequently not allowed to modify existing code.
 To deal with this situation efficiently, the programmer may employ a technique called the {\em adapter pattern}.
 The adapter pattern consists of building a new interface to existing code.
@@ -622,6 +770,9 @@ The primary purpose of this new interface is to guarantee proper interaction wit
 
 
 \section{Bibliography}
+
+
+\fi
 
 
 \end{document}

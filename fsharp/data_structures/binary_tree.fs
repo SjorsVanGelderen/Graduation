@@ -48,8 +48,8 @@ let rec print tree =
     match tree with
     | Node (value, left, right) ->
         printfn "%A" value
-        print_elements left
-        print_elements right
+        print left
+        print right
     | Empty -> ()
 
 // Main program logic

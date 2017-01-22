@@ -2,6 +2,8 @@
 Heap data structure example
 Copyright 2017, Sjors van Gelderen
 
+This implementation is unfinished and untested
+
 Resources used:
 https://en.wikipedia.org/wiki/Heap_(data_structure) - Heap data structure
 *)

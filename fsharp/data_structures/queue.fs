@@ -55,7 +55,7 @@ let front queue =
         printfn "FRONT: %A" queue.Segments.Head
 
 (*
-Peek the reer element of the stack
+Peek the rear element of the stack
 Complexity: O(n)
 *)
 let rear queue =

@@ -103,7 +103,7 @@ namespace Program
 	  Extract operation
 	  Complexity: O(log n)
 	*/
-	public void Extract() // Use max-heapify
+	public void Extract()
 	{
 	    if(keys.Count == 1)
 	    {
@@ -128,7 +128,7 @@ namespace Program
 	}
 
 	/*
-	  Heapify operation
+	  Heapify operation tailored to work after extractionn
 	  Complexity: O(log n)
 	*/
 	public void Heapify()
