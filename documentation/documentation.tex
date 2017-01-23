@@ -860,7 +860,23 @@ Until the index is equal to the size of the collection:
 
 
 \subsubsection{Comb sort}
-The {\em comb sort} algorithm addresses a problem with bubble sort % WHAT PROBLEM?
+The {\em comb sort} algorithm addresses a problem bubble sort faces when dealing with small values near the end of
+the unsorted input collection. Comb sort is a quadratic time (\(O(n^2)\)) complexity algorithm.
+
+\paragraph{Setup}
+The algorithm expects as input an unsorted collection of keys and a gap shrink factor. The first gap size is the
+length of the input collection multiplied by the shrink factor.
+
+\paragraph{Process}
+\begin{enumerate}
+\item{Multiply the gap size by the shrink factor}
+\item{If the gap size is smaller than or equal to 1 the algorithm is finished}
+\item{Set an index to 0}
+\item{If the index plus the gap size is larger than or equal to the length of the collection, continue from step 1}
+\item{If the key at the current index in the collection is larger than the key at the index plus the gap size,
+  swap those keys}
+\item{Increment the index and continue from step 4}
+\end{enumerate}
 
 \paragraph{Sources}
 \begin{itemize}
@@ -926,11 +942,12 @@ Via the use of a pivot, the collection is divided and subsequently conquered.
 
 
 \subsubsection{Monkey sort}
-Imagine having an unsorted deck of cards, then throwing it in the air and picking it up to see if the new distribution is sorted.
-If it's not, then you repeat the process. This is a quaint description of {\em Monkey sort}.
-It's a highly inefficient sorting algorithm, in which a random distribution of the collection is made every time.
-Subsequently, the new distribution goes through a process that verifies if it is sorted. If it is not sorted, a new distribution is made.
-Since this algorithm may never yield a sorted distribution, the complexity is unbounded (\(O(\infty)\)).
+Imagine having an unsorted deck of cards, then throwing it in the air and picking it up to see if the new
+distribution is sorted. If it's not, then you repeat the process. This approach to sorting is a description of
+{\em monkey sort}. It's a highly inefficient sorting algorithm, in which a random distribution of the collection
+is made every time. Subsequently, the new distribution goes through a process that verifies if it is sorted.
+If it isn't, a new distribution is made. Since this algorithm may never yield a sorted distribution,
+the time complexity is unbounded (\(O(\infty)\)).
 
 \paragraph{Sources}
 \begin{itemize}
