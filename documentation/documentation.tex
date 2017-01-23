@@ -843,13 +843,13 @@ The algorithm expects as input an unsorted collection. It keeps track of an inde
 already sorted.
 
 \paragraph{Process}
-Until no more swaps are necessary:
+Until the index is equal to the size of the collection:
 \begin{enumerate}
 \item{Take a slice from the index to the end of the collection and increment the index}
-\item{Take the rightmost key from the slice}
-\item{If the key does not have a left-side neighbor, the algorithm is complete}
-\item{If the left-side neighbor is smaller than the key, swap the keys. Otherwise, continue from step 1}
-\item{Repeat from step 1 until the algorithm is finished}
+\item{Take the rightmost key of the slice}
+\item{If the key does not have a left-side neighbor, continue from step 1}
+\item{If the left-side neighbor is smaller than the key, swap the keys}
+\item{Continue from step 3}
 \end{enumerate}
 
 \paragraph{Sources}
