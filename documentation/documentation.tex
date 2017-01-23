@@ -76,7 +76,7 @@ partial application and currying, computation expressions
 (syntactic sugar for monads) and more.
 
 \paragraph{Sources}
-F\# code is provided in the subdirectory {\em fsharp/}.
+F\# code is provided in the subdirectory {\em bonus/fsharp/}.
 
 
 \newpage
@@ -121,8 +121,9 @@ Chicken Scheme code is provided in the subdirectory {\em bonus/chicken\_scheme/}
 % ATTENTION REQUIRED: VERY MUCH INCOMPLETE
 
 \subsection{Empirical analysis}
-Empirical analysis refers to inferring a program's expected performance based on measurements taken while running a program with various configurations.
-A typical scenario involves the measurement of performance in terms of running time by the use of a 'stopwatch'.
+Empirical analysis refers to inferring a program's expected performance based on measurements taken while running a
+program with various configurations. A typical scenario involves the measurement of performance in terms of running
+time by the use of a 'stopwatch'.
 
 \subsection{Complexity analysis}
 Complexity analysis is different from empirical analysis in that it uses reasoning
@@ -240,8 +241,8 @@ Stack implementations are provided at the following locations:
 \begin{itemize}
 \item{{\em csharp/data\_structures/stack/}}
 \item{{\em python\_3/data\_structures/}}
-\item{{\em fsharp/data\_structures/}}
 \item{{\em bonus/c/data\_structures/}}
+\item{{\em bonus/fsharp/data\_structures/}}
 \end{itemize}
 
 
@@ -275,8 +276,8 @@ Queue implementations are provided at the following locations:
 \begin{itemize}
 \item{{\em csharp/data\_structures/queue/}}
 \item{{\em python\_3/data\_structures/}}
-\item{{\em fsharp/data\_structures/}}
 \item{{\em bonus/c/data\_structures/}}
+\item{{\em bonus/fsharp/data\_structures/}}
 \end{itemize}
 
 
@@ -302,7 +303,7 @@ integer to a range that fits in the array or list.
 \end{equation}
 
 \begin{equation}
-  hash\_map\_index = hash\_value \% hash\_map\_size
+  hash\_map\_index = hash\_value \ \% \ hash\_map\_size
 \end{equation}
 
 To determine whether the number of buckets is appropriate for the amount of elements to be inserted,
@@ -379,7 +380,8 @@ and all nodes are as far to the left as possible.
 \paragraph{Sources}
 A binary tree implementation is provided at the following location:
 \begin{itemize}
-\item{{\em fsharp/data\_structures/}}
+  
+\item{{\em bonus/fsharp/data\_structures/}}
 \end{itemize}
 
 
@@ -412,7 +414,7 @@ Heap implementations are provided at the following locations:
 \begin{itemize}
 \item{{\em csharp/data\_structures/heap/}}
 \item{{\em python\_3/data\_structures/}}
-\item{{\em fsharp/data\_structures/} (At the time of writing incomplete)}
+\item{{\em bonus/fsharp/data\_structures/} (At the time of writing incomplete)}
 \end{itemize}
 
 
@@ -493,8 +495,8 @@ Binary search tree implementations are provided at the following locations:
 \begin{itemize}
 \item{{\em csharp/data\_structures/binary\_search\_tree/}}
 \item{{\em python\_3/data\_structures/}}
-\item{{\em c/data\_structures/}}
-\item{{\em fsharp/data\_structures/}}
+\item{{\em bonus/c/data\_structures/}}
+\item{{\em bonus/fsharp/data\_structures/}}
 \end{itemize}
 
 
@@ -549,11 +551,20 @@ whether the left or right subtree is to be used for the rest of the search opera
 If they key is encountered, the search is succesful. If an empty tree is encountered instead,
 the search was not succesful as the key is not in the tree.
 
-% ATTENTION REQUIRED: COMPLEXITY NEEDS VERIFICATION
-\paragraph{Range search}
-The {\em range} operation is of \(O(\sqrt{n} + m)\) time complexity, where \(m\) denotes the output size.
+\paragraph{Range query}
+The {\em range query} operation is of \(O(\sqrt{n} + k)\) time complexity, where \(k\) denotes the number of
+reported points. In the 2-dimensional tree, this operation queries a rectangular section of the plane and
+returns the points contained within that section.
 
-% ATTENTION REQUIRED: INCOMPLETE SECTION
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=4cm]{2d_tree_3}
+  \caption{A range query is performed on the rectangular area \((2, 1.5, 9, 6.5)\)}
+\end{figure}
+
+As with the operation that searches for a single key, the range query must take notice of the orientation
+associated with each level. Rather than always continuing the query on a single child tree,
+the range query may continue on both children if the section covers space on both sides of the current key's split.
 
 \paragraph{Sources}
 A K-dimensional search tree implementation is provided at the following location:
@@ -562,23 +573,173 @@ A K-dimensional search tree implementation is provided at the following location
 \end{itemize}
 
 
-
-
-\iffalse
-
-
-
-
 \newpage
 
 
 \subsection{Graph}
+The {\em graph} may be used to represent a relational network of nodes called {\em vertices}.
+Vertices are connected via {\em edges}. Vertices that are connected to each other via a single edge are called
+{\em adjacent} or {\em neighbors}. A collection of edges connecting two vertices is a {\em path}. The graph does
+not imply any particular root, nor does it restrict the number of edges connecting any vertex to other vertices.
+
+\subsubsection{Weighted}
+A graph is {\em weighted} if each of its edges has a 'cost' associated with traversing it.
+Such graphs may, for instance, be used to map distances between locations on a map.
+
+\subsubsection{Directed}
+A graph is {\em directed} if each of its edges has an associated direction. This direction implies a restriction
+on the traversal, as only the direction given for each edge is allowed to be travelled. A directed graph is also
+called a {\em digraph}.
+
+\subsubsection{Dense versus sparse}
+Graphs are called {\em dense} if there are many edges connecting many vertices.
+Conversely, a graph may be called {\em sparse} if there are comparatively little edges connecting the vertices.
 
 \subsubsection{Adjacency list}
+Graphs may be structured as an {\em adjacency list}. This is a list of vertices, each of which is associated with
+all of its neighbors.
 
+% ATTENTION REQUIRED: INCLUDE THE GRAPH?
+\begin{figure}[H]
+  \centering
+  \begin{tabular}{|c|c c c|}
+    \hline
+    A  & B & C & D  \\ [0.5ex]
+    \hline
+    B  & A & D & \  \\
+    \hline
+    C  & D & A & \  \\
+    \hline
+    D  & C & B & A  \\
+    \hline
+  \end{tabular}
+  \quad
+  \begin{tabular}{|c|c c|}
+    \hline
+    A  & B & D  \\ [0.5ex]
+    \hline
+    B  & D & \  \\
+    \hline
+    C  & A & \  \\
+    \hline
+    D  & C & \  \\
+    \hline
+  \end{tabular}
+  \caption{Examples of adjacency lists. The right list is for a digraph}
+\end{figure}
+
+The adjacency list is the preferred representation when the graph is sparse.
+In a digraph, only edges that {\em emanate} from (start at) the vertex are recorded for that vertex.
 
 \subsubsection{Adjacency matrix}
+The {\em adjacency matrix} is a multi-dimensional array. The axes both contain each vertex in the graph.
+If two vertices are adjacent, it is recorded in the matrix. The recorded value may be a boolean type, in which
+case the value is \(true\) if the vertices are adjacent. If the graph is weighted, the value may contain the
+weight of the connecting edge instead of the boolean value. In this case, the weight for non-adjacent vertices
+could be recorded as being infinite.
+
+% ATTENTION REQUIRED: INCLUDE THE GRAPH?
+\begin{figure}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \  & A & B & C & D \\ [0.5ex] 
+    \hline
+    A  & F & T & T & T \\ 
+    \hline
+    B  & T & F & F & T \\
+    \hline
+    C  & T & F & F & T \\
+    \hline
+    D  & T & T & T & F \\
+    \hline
+  \end{tabular}
+  % ATTENTION REQUIRED: NO WEIGHTS IN THE WEIGHTED MATRIX... Digraphs?
+  \quad
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \  & A & B & C & D \\ [0.5ex] 
+    \hline
+    A  & \(\infty\) & T & T & T \\ 
+    \hline
+    B  & T & \(\infty\) & \(\infty\) & T \\
+    \hline
+    C  & T & \(\infty\) & \(\infty\) & T \\
+    \hline
+    D  & T & T & T & \(\infty\) \\
+    \hline
+  \end{tabular}
+  \caption{Examples of adjacency matrices. The right matrix is for a weighted graph}
+\end{figure}
+
+The adjacency matrix is the preferred representation when the graph is dense.
+
 \subsubsection{Incidence matrix}
+The {\em incidence matrix} shows the relationship between vertices (represented in the rows) and edges
+(represented in the columns) in a graph. If the vertices are incident upon (connected to) the edge, a boolean
+value or weight may be recorded in the matrix.
+
+% ATTENTION REQUIRED: INCLUDE THE GRAPH?
+\begin{figure}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \  & 0 & 1 & 2 & 3 \\ [0.5ex]
+    \hline
+    0  & F & T & T & T \\ 
+    \hline
+    1  & T & F & F & T \\
+    \hline
+    2  & T & F & F & T \\
+    \hline
+    3  & T & T & T & F \\
+    \hline
+  \end{tabular}
+  \quad
+  %ATTENTION REQUIRED: WEIGHTS ARE WRONG ... Digraphs?
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \  & 0 & 1 & 2 & 3 \\ [0.5ex]
+    \hline
+    0  & \(\infty\) & T & T & T \\
+    \hline
+    1  & T & \(\infty\) & \(\infty\) & T \\
+    \hline
+    2  & T & \(\infty\) & \(\infty\) & T \\
+    \hline
+    3  & T & T & T & \(\infty\) \\
+    \hline
+  \end{tabular}
+  \caption{Examples of incidence matrices. The right matrix is for a weighted digraph}
+\end{figure}
+
+In a digraph, edges that emanate from the row vertex are given the value 1. Edges that terminate at the row vertex
+are instead given the value -1.
+
+\subsubsection{Traversal}
+Here are listed two ways to visit each vertex in a graph,
+both of which are of linear time (\(O(n)\)) complexity.
+
+\paragraph{Breadth-first search}
+The {\em breadth-first search} uses the {\em queue} data structure. The general procedure is as follows:
+\begin{enumerate}
+\item{Enqueue the root vertex}
+\item{Dequeue a vertex. If this is the target, stop the search. Otherwise, enqueue all unvisited direct children}
+\item{If the queue is empty, the traversal is complete and the search was unsuccesful. Otherwise repeat step 2}
+\end{enumerate}
+
+% ATTENTION REQUIRED: INCLUDE GRAPHIC
+
+\paragraph{Depth-first search}
+The {\em depth-first traversal} uses the {\em stack} data structure. The general procedure is as follows:
+\begin{enumerate}
+\item{Start at the root vertex}
+\item{If the current vertex is the target, stop the search. Otherwise, continue at step 3}
+\item{Push the first unvisited neighboring vertex onto the stack}
+\item{Repeat step 3 until no more unvisited neighbors exist, then pop from the stack. Repeat from step 2}
+\end{enumerate}
+
+% ATTENTION REQUIRED: INCLUDE GRAPHIC
 
 
 \newpage
@@ -587,186 +748,236 @@ A K-dimensional search tree implementation is provided at the following location
 \section{Algorithms}
 \subsection{Searching}
 \subsubsection{Linear search}
-The linear search is a very simple algorithm. It linearly traverses a collection until either the requested
-element is found, or the end of the collection was reached.
+The {\em linear search} traverses a collection in linear fashion until either the requested element is found,
+or the end of the collection was reached. This is a linear time (\(O(n)\)) operation.
+Linear search is simple to implement and is well-suited to small unsorted collections.
 
 \paragraph{Sources}
-Linear implementations are provided at the following locations:
+Linear search implementations are provided at the following locations:
 \begin{itemize}
 \item{{\em csharp/algorithms/searching/}}
 \item{{\em python\_3/algorithms/}}
-\item{{\em c/algorithms/}}
-\item{{\em fsharp/algorithms/}}
-\item{{\em bonus/rust/search/}}
+\item{{\em bonus/c/algorithms/}}
+\item{{\em bonus/fsharp/algorithms/}}
+\item{{\em bonus/rust/searching/}}
 \item{{\em bonus/chicken\_scheme/algorithms/}}
 \end{itemize}
 
 \subsubsection{Binary search}
-If the collection is known to be sorted, binary search may yield a significant performance gain over regular insertion sort.
+If the collection is known to be sorted, the {\em binary search} algorithm may yield a significant performance
+gain compared to regular insertion sort. This is because the algorithm can use a pivot to intelligently search
+the collection. This is a logarithmic time (\(O(log n)\)) operation.
+
+% ATTENTION REQUIRED: RATHER SPARSE DESCRIPTION OF THE ALGORITHM
+
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/searching/}}
+\item{{\em python\_3/algorithms/}}
+\item{{\em bonus/rust/algorithms/searching/}}
+\end{itemize}
+
+
+\iffalse
+
+
 
 \newpage
 
 \subsection{Sorting}
 \subsubsection{Insertion sort}
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/searching/}}
+\item{{\em python\_3/algorithms/}}
+\item{{\em bonus/fsharp/algorithms/}}
+\item{{\em bonus/rust/algorithms/searching/}}
+\end{itemize}
 
 
 \subsubsection{Shell sort}
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/shell\_sort/}}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
+
 
 \subsubsection{Comb sort}
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/comb\_sort/}}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
 
+
+\iffalse
+% ATTENTION REQUIRED: RADIX SORT IS MISSING? DID I FORGET TO ADD IT TO THE REPOSITORY?
 \subsubsection{Radix sort}
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
+\fi
 
 \subsubsection{Counting sort}
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/counting\_sort/}}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
+
 
 \subsubsection{Bucket sort}
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/bucket\_sort/}}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
+
 
 \subsubsection{Heap sort}
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/heap\_sort/}}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
+
 
 \subsubsection{Merge sort}
 This sorting algorithm splits a collection into many small collections.
 Each of these small collections is sorted and subsequently merged with another small collection.
 Eventually this algorithm yields a sorted collection faster than a regular insertion sort.
 
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/merge\_sort/}}
+\item{{\em python\_3/algorithms/}}
+\item{{\em bonus/c/algorithms/}}
+\end{itemize}
+
+
 \subsubsection{Quick sort}
 Via the use of a pivot, the collection is divided and subsequently conquered.
+
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/quick\_sort/}}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
+
 
 \subsubsection{Monkey sort}
 Imagine having an unsorted deck of cards, then throwing it in the air and picking it up to see if the new distribution is sorted.
 If it's not, then you repeat the process. This is a quaint description of {\em Monkey sort}.
 It's a highly inefficient sorting algorithm, in which a random distribution of the collection is made every time.
 Subsequently, the new distribution goes through a process that verifies if it is sorted. If it is not sorted, a new distribution is made.
-Since this algorithm may never yield a sorted distribution, the complexity is unbounded ($O(\infty)$).
+Since this algorithm may never yield a sorted distribution, the complexity is unbounded (\(O(\infty)\)).
+
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
+
+
 
 \newpage
+
+
+
+\fi
+
+
 
 \subsection{Shortest path determination}
 In this section, each of the following algorithms is assumed to operate on the following graph:
 
-\includegraphics[width=\textwidth]{sample_graph}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{sample_graph}
+  \caption{A weighted graph}
+\end{figure}
 
-When recording this graph as data, letters are replaced with 0-based indices, such that \(A=0, B=1, C=2, \dots\). The graph is said to consist of a set of {\em vertices}, \(V\) and a set of {\em edges}, \(E\). Vertices may be connected to one another through one or more edges. Such a connection is called a {\em path}.
-The bar-notation is used to indicate the amount of elements in a set, such that \(|V|\) is the amount of vertices and \(|E|\) is the amount of edges.
+When recording this graph as data, letters are replaced with 0-based indices, such that \(A=0, B=1, C=2, \dots\).
 
+
+% ATTENTION REQUIRED: Graphics would be nice
 \subsubsection{Dijkstra}
-This algorithm finds all shortest path distances between a source vertex and all other vertices in a graph.
+{\em Dijkstra's} algorithm finds all shortest path distances between a {\em source} vertex and all other vertices
+in a graph. Dijkstra's algorithm runs in quadratic time (\(O(n^2)\)). It's possible to optimize Dijkstra's algorithm
+using a {\em Fibonacci heap} as a priority queue, although my implementation does not include one.
+
+\paragraph{Setup}
+The algorithm accepts as inputs a graph and a source vertex. First it sets up an array which will hold the result
+distances. This array is initially populated with the value \(\infty\), with the exception of the source vertex's
+distance to itself; which is 0.
+
+\paragraph{Process}
+All unvisited vertices are stored in a list, so that the algorithm may prevent itself from repeatedly
+processing previously visited vertices. As long as unvisited vertices remain, the algorithm will select the closest
+unvisited vertex and remove it from the list of unvisited vertices. For each neighboring vertex, the algorithm will
+check if the newly found distance to it is smaller than the currently recorded vertex. If it is, the new distance
+will be recorded in the distances array. When no unvisited vertices remain, the distances array will be populated
+with all shortest path distances.
+
+\paragraph{Chain}
 With a slight modification it becomes possible to also track the actual paths, rather than just the distances.
+During the setup phase, the algorithm should also create an array which will hold the chain information.
+Initially, all values will be set to null. Whenever a shorter distance is found, the current vertex will be
+recorded in the chain using the neighbor's ID as the index.
 
-Obviously Dijkstra requires a graph, so let us construct one.
-In my implementation, I have created two classes:
+\subparagraph{Shortest path}
+The {\em shortest path} operation can compute the actual shortest path when given two vertex ID's and a precomputed
+chain. It is a linear time (\(O(n)\)) algorithm. The result of the shortest path operation will be a list containing
+each step of the path. The operation starts at the target vertex. As long as the currently inspected vertex is not
+null, it is appended to the existing path. The next vertex to inspect may be located by using the current vertex ID
+as the index of the next path vertex in the chain.
 
-\begin{lstlisting}[language=Python]
-# Edge connected to a node in a graph
-class Edge:
-    def __init__(self, target_id, distance):
-        self.target_id = target_id
-        self.distance = distance
+\paragraph{Sources}
+Floyd-Warshall implementations are provided at the following locations:
+\begin{itemize}
+\item{{\em csharp/algorithms/dijkstra/}}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
 
-# Vertex in a graph
-class Node:
-    def __init__(self, id):
-        self.id = id
-        self.edges = []
-\end{lstlisting}
 
-Next, we need a simple way to specify connections between vertices.
-
-\begin{lstlisting}[language=Python]
-# Connect two nodes
-def connect(node_0, node_1, distance):
-    if node_0 != node_1 and \
-       node_1 not in node_0.edges and \
-       node_0 not in node_1.edges:
-        node_0.edges.append(Edge(node_1.id, distance))
-        node_1.edges.append(Edge(node_0.id, distance))
-\end{lstlisting}
-
-Using these constructs, we may build the final graph as follows:
-
-\begin{lstlisting}[language=Python]
-  # Build the graph and weighted paths
-    graph = [ Node(id) for id in range(6) ]
-    
-    connect(graph[0], graph[1], 8)
-    connect(graph[0], graph[2], 1)
-
-    connect(graph[1], graph[3], 2)
-
-    connect(graph[2], graph[3], 3)
-
-    connect(graph[3], graph[4], 4)
-    connect(graph[3], graph[5], 6)
-
-    connect(graph[4], graph[5], 1)
-\end{lstlisting}
-
+% ATTENTION REQUIRED: GRAPHICS WOULD BE NICE
 \subsubsection{Floyd-Warshall}
-Rather than Dijkstra's focus on a single source, Floyd-Warshall finds the shortest path between each vertex and all other vertices in a graph. In addition, it supports negative weights for the edges in the graph.
+Rather than Dijkstra's focus on a single source, {\em Floyd-Warshall} finds the shortest path between each vertex
+and all other vertices in a graph. Unlike Dijkstra's algorithm, Floyd-Warshall supports negative weights.
+Initially one might suspect that this algorithm somehow runs Dijkstra on each vertex, which would be rather
+inefficient. Fortunately, Floyd-Warshall uses a more clever approach.
 
-Initially, one might suspect that this algorithm somehow runs Dijkstra on each vertex.
-This would be rather inefficient. Fortunately, Floyd-Warshall uses a more clever approach.
+\paragraph{Setup}
+The algorithm expects a graph, which I've provided in the form of a weighted adjacency list. An initial 'guess' is
+prepared by setting up a matrix of distances between vertices in the graph. This matrix will at first contain the
+value \(\infty\) for each distance. To improve the initial guess, the matrix is populated with the known distances
+between adjacent vertices.
 
-To get started, we'll need to construct a graph and specify the weight of each edge.
-Python 3 allows us to record exactly this using a concise syntax:
+\paragraph{Process}
+There are three nested {\em for} loops, using the variables \(i\), \(j\), and \(k\). At each iteration,
+\(i\) and \(j\) are two vertices between which the algorithm is trying to find the shortest path. The most important
+aspect of the algorithm actually relies on \(k\). At each iteration, \(k\) represents a vertex between \(i\) and
+\(j\) that potentially yields a shorter path from \(i\) to \(j\). This means that each time we find a shorter path,
+we'll have to update the currently recorded value in our distance matrix. Since we have three nested {\em for} loops
+that each scale according to the amount of vertices in the graph, it naturally follows that our algorithm is of
+cubic time (\(O(n^3)\)) complexity.
 
-\begin{lstlisting}[language=Python]
-  graph = {
-    0: {1: 8. 2: 1},
-    1: {0: 8, 3: 2},
-    2: {0: 1, 3: 3},
-    3: {1: 2, 2: 3, 4: 4, 5: 6},
-    4: {3: 4, 5: 1},
-    5: {3: 6, 4: 1}
-  }
-\end{lstlisting}
+\paragraph{Sources}
+Floyd-Warshall implementations are provided at the following locations:
+\begin{itemize}
+\item{{\em csharp/algorithms/floyd\_warshall/}}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
 
-Which is essentially a weighted adjacency list which we will supply to the Floyd-Warshall algorithm to generate our final result.
-
-Now we set up the initial 'guess' of our algorithm.
-The first step is to set up a matrix of distances between vertices.
-Initially, this matrix will contain the value infinity for each distance.
-In my implementation, I've used a multidimensional list comprehension to generate this matrix:
-
-\begin{lstlisting}[language=Python]
-  distances = [
-    [
-      0 if x == y else inf \
-      for x in range(len(graph)) \
-    ] \
-    for y in range(len(graph))
-  ]
-\end{lstlisting}
-
-Then, we populate our matrix with a slightly better guess, containing the distances between vertices of just that share an edge.
-
-\begin{lstlisting}[language=Python]
-    for vertex, connections in graph.items():
-        for target, distance in connections.items():
-            distances[vertex][target] = distance
-\end{lstlisting}
-
-Finally, we must run the actually interesting part of the algorithm.
-This part is also what primarily defines the complexity class of this algorithm's running time.
-
-\begin{lstlisting}[language=Python]
-  for k in range(len(graph)):
-        for i in range(len(graph)):
-            for j in range(len(graph)):
-                if distances[i][j] > distances[i][k] + distances[k][j]:
-                    shorter_distance = distances[i][k] + distances[k][j]
-                    print("Improving {} -> {} from {} to {}"
-                          .format(i, j, distances[i][j], shorter_distance))
-                    distances[i][j] = shorter_distance
-\end{lstlisting}
-
-We have three {\em for} loops, using the variables {\em i}, {\em j}, and {\em k}.
-At each point, {\em i} and {\em j} are always two vertices between which we are trying to find the shortest path. The most interesting part of the algorithm actually relies on {\em k}.
-
-{\em k} at each iteration represents a vertex between {\em i} and {\em k}, which may potentially yield a shorter path from {\em i} to {\em j}. This means that each time we find a shorter path, we'll have to update the currently recorded value in our distance matrix.
-
-Since we have three {\em for} loops that each scale according to the amount of vertices in the graph,
-it naturally follows that the complexity class of our algorithm is \(O(n^3)\).
 
 \newpage
+
+
+
+\iffalse
+
+
 
 \section{Advanced C\# features}
 % ATTENTION REQUIRED: MARKED FOR SCRAPPING, VERY MUCH INCOMPLETE
@@ -881,7 +1092,19 @@ The primary purpose of this new interface is to guarantee proper interaction wit
 \newpage
 
 \section{Conclusion}
+% Something about mathematical proofs, more data structures / algorithms, set theory / category theory
 
+% ATTENTION REQUIRED: INCOMPLETE SECTION
+\section{Thanks}
+I'd like to especially thank the following people for supporting me in my research:
+\begin{itemize}
+\item{Giuseppe Maggiore}
+\item{Mohamed Abbadi}
+\item{Francesco di Giacomo}
+\item{Giulia }
+\item{Fernando Cabello Domingo}
+\item{}
+\end{itemize}
 
 \section{Bibliography}
 

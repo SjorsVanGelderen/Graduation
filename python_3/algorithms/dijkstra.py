@@ -40,7 +40,10 @@ def connect(node_0, node_1, distance):
         node_1.edges.append(Edge(node_0.id, distance))
 
 
-# Find index of vertex with minimal distance
+"""Find closest
+Finds the vertex with the currently closest recorded distance
+Complexity: O(n)
+"""
 def find_closest(distances, unvisited):
     min_distance = inf
     result_index = -1
@@ -76,18 +79,24 @@ def dijkstra(graph, source):
         unvisited.remove(index)
         
         for neighbor in current.edges:
+            # Verify if this is a shorter path than previously recorded
             alternate = distances[current.id] + neighbor.distance
             if alternate < distances[neighbor.target_id]:
                 print("ALTERNATE: {} -> {}".format(neighbor.target_id, alternate))
                 distances[neighbor.target_id] = alternate
+                
+                # Record the new shortest path segment
                 chain[neighbor.target_id] = index
-
+                
         print("DISTANCES: {}".format(distances))
         
     return distances, chain
 
 
-# Compute the shortest path based on a previously generated chain
+"""Find shortest
+Computes the shortest path based on a previously generated chain
+Complexity: O(n)
+"""
 def shortest_path(source, target, chain):
     path = []
     current = target

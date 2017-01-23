@@ -149,7 +149,10 @@ namespace Program
 	    }
 	}
 	
-	// Range-based search on the K-dimensional tree
+	/*
+	  Range-based search on the K-dimensional tree
+	  Complexity: O(sqrt(n) + k) where k is the number of reported points
+	*/
 	public static List<Vector2<T>> RangeSearch(Tree<T> _tree, Rectangle<T> _area, bool _vertical = true)
 	{
 	    var list = new List<Vector2<T>>();
