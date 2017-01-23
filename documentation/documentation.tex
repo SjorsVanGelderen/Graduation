@@ -11,6 +11,7 @@
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
+\usepackage{float}
 \usepackage{graphicx}
 \graphicspath{{images/}}
 
@@ -296,14 +297,21 @@ This is done using a {\em hash function} (hence, the name of the data structure)
 The hash function derives an integer from the provided data. The modulo operator then restricts the provided
 integer to a range that fits in the array or list.
 
-\begin{lstlisting}[language=Python]
+\begin{equation}
   hash\_value = hash\_function(data)
-  hash\_map\_index = hash\_value % hash\_map\_size
-\end{lstlisting}
+\end{equation}
+
+\begin{equation}
+  hash\_map\_index = hash\_value \% hash\_map\_size
+\end{equation}
 
 To determine whether the number of buckets is appropriate for the amount of elements to be inserted,
 the load factor may be calculated. The load factor is calculated as follows:
-\[number\_of\_entries / number\_of\_buckets\]
+
+\begin{equation}
+  \frac{number\_of\_entries}{number\_of\_buckets}
+\end{equation}
+
 A large load factor is indicative of an inappropriate amount of buckets.
 If the load factor is too small, however, it is possible a lot of buckets are unnecessarily taking up space.
 Some implementations of hash maps will resize when the load factor reaches a certain threshold.
@@ -408,6 +416,152 @@ Heap implementations are provided at the following locations:
 \end{itemize}
 
 
+\subsubsection{Binary search tree}
+Similar to the binary heap, the binary search tree must satisfy an ordering principle:
+the binary search tree property. This property allows for more efficient searching algorithms,
+as the partitioning of the tree is known. The binary search tree property states that all keys in the
+children of the current node must be less than the key of the current node, and all keys in the right
+children of the current node must be greater than the key of the current node.
+In a standard implementation, duplicate values are generally not allowed.
+
+
+\newpage
+
+
+\paragraph{Traversals}
+Visiting elements in a tree is called {\em traversing} the tree. The most common traversals are the following:
+
+\subparagraph{Pre-order traversal}
+Visit the root, visit the left subtree, visit the right subtree.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{pre_order_traversal}
+  \caption{Pre-order traversal diagram}
+\end{figure}
+
+\subparagraph{In-order traversal}
+Visit the left subtree, visit the root, visit the right subtree.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{in_order_traversal}
+  \caption{In-order traversal diagram}
+\end{figure}
+
+\subparagraph{Post-order traversal}
+Visit the left subtree, visit the right subtree, visit the root.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{post_order_traversal}
+  \caption{Post-order traversal diagram}
+\end{figure}
+
+
+\newpage
+
+
+\paragraph{Insert}
+The {\em insert} operation is used to insert new keys into the tree. This is a linear time (\(O(n)\)) operation.
+Since the binary search tree property must be maintained, the insert operation has to intelligently locate the
+correct position for the new element. The insert operation always starts from the root of the tree,
+which may be empty. If the current node is not empty, the algorithm will continue on the left subtree if
+the value to be inserted is less than the value in the current key. Otherwise, it will continue on the right
+subtree. This process is repeated until an empty node is found. When it is found, the new element will populate
+the empty node.
+
+\paragraph{Delete}
+The {\em delete} operation is used to delete existing keys from the tree. This is a linear time (\(O(n)\))
+operation. First, the element to be deleted must be located. Once the target key is found, the algorithm must
+establish how to proceed with the deletion. If the node to be deleted does not have any children, the delete
+operation is trivial, as the current node can simply be erased. If the node has a single child, that child will
+take the place of the node to be deleted. A more complex situation occurs if the node has two children, as the
+binary search tree property must be maintained. To do this, the algorithm must either locate the
+{\em in-order successor} or {\em in-order predecessor} of the target node. The located node's key then replaces
+the deletion target node's key. After this, the delete operation continues on the located node until one of the
+trivial cases occurs.
+
+\paragraph{Search}
+The {\em search} operation is a linear time (\(O(n)\)) operation that finds a target node based on its key.
+Since the binary search tree property holds, the search operation may from any key easily determine whether to
+branch the search operation to the left or right of said node. If an empty node is encountered, the key is
+not in the tree.
+
+\paragraph{Sources}
+Binary search tree implementations are provided at the following locations:
+\begin{itemize}
+\item{{\em csharp/data\_structures/binary\_search\_tree/}}
+\item{{\em python\_3/data\_structures/}}
+\item{{\em c/data\_structures/}}
+\item{{\em fsharp/data\_structures/}}
+\end{itemize}
+
+
+\subsubsection{K-dimensional tree}
+The {\em K-dimensional} tree expands upon the philosophy of the binary search tree, in that it
+must maintain a sorting order property. When using this tree in less than 4 dimensions,
+a simple geometric interpretation of its structure is possible. Beyond this, the analogy becomes
+more difficult to grasp as it involves the splitting of hyperplanes.
+
+\paragraph{Insert}
+The {\em insert} operation of a K-dimensional tree is of linear time (\(O(n)\)).
+Let's examine the construction of a {\em 2-dimensional} tree from the array \(A = [(3, 2), (6, 5), (7, 1)]\).
+The root key of the tree will be the first element in the array, in this case \((3, 2)\).
+We will record this key as a {\em vertical} split of the plane, like so:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=4cm]{2d_tree_0}
+  \caption{Node \((3, 2)\) is splitting the plane vertically}
+\end{figure}
+
+Since the next key in the collection - \((6, 5)\) - has a larger \(X\) coordinate than the root key(\(6 > 3\)),
+it will be stored to the left of the root key. Notice that this operation has added a new level to our tree.
+In a 2-dimensional tree each level of the tree will be recorded as being either {\em vertical} or {\em horizontal}.
+For this example, let's assume that even levels are vertical, whereas odd levels are horizontal.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=4cm]{2d_tree_1}
+  \caption{Node \((6, 5)\) is splitting the subsection of the plane horizontally}
+\end{figure}
+
+The next key in our collection - \((7, 1)\) - has a larger \(X\) coordinate than our root key(\(7 > 3\)),
+and so the key must be stored in the right subtree. The right subtree is not empty,
+therefore we must compare the right child of the root key to the key we're inserting.
+Since the right child of the root key is on an odd level in our tree, it corresponds to a {\em horizontal} split.
+The consequence of this difference is that we must now compare the \(Y\) coordinates - rather than the \(X\)
+coordinates - of our keys. Since the \(Y\) coordinate of our insertion key is less than that of the right child
+of the root key, we must store our new element to the left of the right child of the root key.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=4cm]{2d_tree_2}
+  \caption{Node \((7, 1)\) is making yet another vertical split}
+\end{figure}
+
+\paragraph{Search}
+The {\em search} operation for a key on a k-dimensional tree is of linear time (\(O(n)\)).
+When searching for a key, the orientation of each level must be taken into account.
+Similar to the insertion operation, the \(X\) or \(Y\) coordinates will be compared to determine
+whether the left or right subtree is to be used for the rest of the search operation.
+If they key is encountered, the search is succesful. If an empty tree is encountered instead,
+the search was not succesful as the key is not in the tree.
+
+% ATTENTION REQUIRED: COMPLEXITY NEEDS VERIFICATION
+\paragraph{Range search}
+The {\em range} operation is of \(O(\sqrt{n} + m)\) time complexity, where \(m\) denotes the output size.
+
+% ATTENTION REQUIRED: INCOMPLETE SECTION
+
+\paragraph{Sources}
+A K-dimensional search tree implementation is provided at the following location:
+\begin{itemize}
+\item{{\em csharp/data\_structures/kd\_tree/}}
+\end{itemize}
+
+
 
 
 \iffalse
@@ -415,48 +569,8 @@ Heap implementations are provided at the following locations:
 
 
 
-
-\subsubsection{Binary search tree}
-Contrary to the regular binary tree, the binary search tree must satisfy an ordering principle.
-This principle is known as the binary tree property. Thanks to this property,
-more efficient searching algorithms are possible.
-
-\paragraph{Sources}
-Binary search tree implementations are provided at the following locations:
-\begin{itemize}
-\item{{\em csharp/data\_structures/binary\_search\_tree/}}
-\item{{\em python\_3/data\_structures/}}
-\item{{\em c/data\_structures/}
-\item{{\em fsharp/data\_structures/}
-\end{itemize}
-
-\subsubsection{K-dimensional tree}
-The K-dimensional tree expands upon the philosophy of the binary search tree, in that it
-must maintain a sorting order property. When using this tree in less than 3 dimensions,
-a simple geometric interpretation of its structure is possible.
-
-\paragraph{Sources}
-Binary search tree implementation is provided at the following location:
-\begin{itemize}
-\item{{\em csharp/data\_structures/kd\_tree/}}
-\end{itemize}
-
-\paragraph{Construction}
-Let's examine the construction of a 2-dimensional tree from the array \(A = [(3, 2), (6, 5), (7, 1)]\).
-The root key of the tree will be the first element in the array, in this case (3, 2).
-We will record this key as a {\em vertical} split of the plane, like so:
-
-% ATTENTION REQUIRED: MISSING GRAPHIC
-
-Since the next key in the collection - (6, 1) - has a larger {\em X} coordinate than the root key(\(6 > 3\)), it will be stored to the left of the root key.
-
-Notice that this operation has added a new level to our tree. In a 2-dimensional tree, each level of the tree will be recorded as being either {\em vertical} or {\em horizontal}.
-
-For this example, let's assume that even levels are {\em vertical}, whereas odd levels are {\em horizontal}.
-
-The next key in our collection - (7, 1) - has a larget {\em X} coordinate than our root key(\(7 > 3\), so the key must be stored in the right subtree. However, the right subtree is not empty, and so we must compare the right child of the root key to the key from our insertion collection. Since the right child of the root key is on an odd level in our tree, it corresponds to a {\em horizontal} split. The consequence of this difference is that we must now compare the {\em Y coordinates} rather than the {\em X coordinates} of our keys. Since the {\em Y} coordinate of our insertion key is less than that of the right child of the root key, we must store our new element to the left the right child of the root key.
-
 \newpage
+
 
 \subsection{Graph}
 
@@ -481,10 +595,10 @@ Linear implementations are provided at the following locations:
 \begin{itemize}
 \item{{\em csharp/algorithms/searching/}}
 \item{{\em python\_3/algorithms/}}
-\item{{\em c/algorithms/}
-\item{{\em fsharp/algorithms/}
-\item{{\em bonus/rust/search/}
-\item{{\em bonus/chicken\_scheme/algorithms/}
+\item{{\em c/algorithms/}}
+\item{{\em fsharp/algorithms/}}
+\item{{\em bonus/rust/search/}}
+\item{{\em bonus/chicken\_scheme/algorithms/}}
 \end{itemize}
 
 \subsubsection{Binary search}

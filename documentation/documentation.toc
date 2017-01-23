@@ -48,3 +48,17 @@
 \contentsline {paragraph}{Insert}{14}
 \contentsline {paragraph}{Extract and heapify}{14}
 \contentsline {paragraph}{Sources}{14}
+\contentsline {subsubsection}{\numberline {3.6.3}Binary search tree}{14}
+\contentsline {paragraph}{Traversals}{15}
+\contentsline {subparagraph}{Pre-order traversal}{15}
+\contentsline {subparagraph}{In-order traversal}{15}
+\contentsline {subparagraph}{Post-order traversal}{15}
+\contentsline {paragraph}{Insert}{16}
+\contentsline {paragraph}{Delete}{16}
+\contentsline {paragraph}{Search}{16}
+\contentsline {paragraph}{Sources}{16}
+\contentsline {subsubsection}{\numberline {3.6.4}K-dimensional tree}{16}
+\contentsline {paragraph}{Insert}{17}
+\contentsline {paragraph}{Search}{18}
+\contentsline {paragraph}{Range search}{18}
+\contentsline {paragraph}{Sources}{18}
