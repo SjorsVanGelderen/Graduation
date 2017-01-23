@@ -778,14 +778,29 @@ the collection. This is a logarithmic time (\(O(log n)\)) operation.
 \end{itemize}
 
 
-\iffalse
-
-
-
 \newpage
 
+
 \subsection{Sorting}
+Here are described various sorting algorithms of which I have provided implementations in various programming
+languages.
+
 \subsubsection{Insertion sort}
+Perhaps the most basic sorting algorithm is {\em insertion sort}. Insertion sort must in the worst case compare
+each element to every other element in the collection. It is therefore of quadratic time (\(O(n^2)\)) complexity.
+The process is frequently compared to the steps involved in sorting a hand of playing cards.
+
+\paragraph{Setup}
+This algorithm expects as input a linear collection of sortable keys.
+
+\paragraph{Process}
+For each element in the collection:
+\begin{enumerate}
+\item{If the key has a left-side neighbor, compare it to that neighbor}
+\item{If the key is smaller than its neighbor, swap them}
+\item{Repeat from step 1 until either no more neighbor exists, or the key is larger than its neighbor}
+\end{enumerate}
+
 \paragraph{Sources}
 \begin{itemize}
 \item{{\em csharp/algorithms/searching/}}
@@ -794,8 +809,24 @@ the collection. This is a logarithmic time (\(O(log n)\)) operation.
 \item{{\em bonus/rust/algorithms/searching/}}
 \end{itemize}
 
-
 \subsubsection{Shell sort}
+The {\em shell sort} algorithm utilizes insertion sort in a {\em divide-and-conquer} strategy.
+Shell sort is a \(O(n log^2 n)\) time complexity algorithm.
+
+\paragraph{Setup}
+The algorithm expects as inputs a collection of sortable keys and a slice size. The collection will be cut up into
+slices according to the provided size. The results are stored into a buffer list or array.
+
+\paragraph{Process}
+\begin{enumerate}
+\item{For each slice:}
+  \begin{enumerate}
+  \item{Run insertion sort on the slice}
+  \item{Once complete, concatenate the sorted slice to the buffer}
+  \end{enumerate}
+\item{Run insertion sort on the buffer}
+\end{enumerate}
+
 \paragraph{Sources}
 \begin{itemize}
 \item{{\em csharp/algorithms/shell\_sort/}}
@@ -803,7 +834,34 @@ the collection. This is a logarithmic time (\(O(log n)\)) operation.
 \end{itemize}
 
 
+\subsubsection{Bubble sort}
+The {\em bubble sort} algorithm lets elements in an unsorted collection 'bubble' up to the correctly sorted position
+in the resulting collection. Bubble sort is of quadratic time (\(O(n^2)\)) complexity.
+
+\paragraph{Setup}
+The algorithm expects as input an unsorted collection. It keeps track of an index indicating how many keys are
+already sorted.
+
+\paragraph{Process}
+Until no more swaps are necessary:
+\begin{enumerate}
+\item{Take a slice from the index to the end of the collection and increment the index}
+\item{Take the rightmost key from the slice}
+\item{If the key does not have a left-side neighbor, the algorithm is complete}
+\item{If the left-side neighbor is smaller than the key, swap the keys. Otherwise, continue from step 1}
+\item{Repeat from step 1 until the algorithm is finished}
+\end{enumerate}
+
+\paragraph{Sources}
+\begin{itemize}
+\item{{\em csharp/algorithms/bubble\_sort/}}
+\item{{\em python\_3/algorithms/}}
+\end{itemize}
+
+
 \subsubsection{Comb sort}
+The {\em comb sort} algorithm addresses a problem with bubble sort % WHAT PROBLEM?
+
 \paragraph{Sources}
 \begin{itemize}
 \item{{\em csharp/algorithms/comb\_sort/}}
@@ -880,13 +938,7 @@ Since this algorithm may never yield a sorted distribution, the complexity is un
 \end{itemize}
 
 
-
 \newpage
-
-
-
-\fi
-
 
 
 \subsection{Shortest path determination}
