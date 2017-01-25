@@ -4,6 +4,7 @@ Copyright 2016, Sjors van Gelderen
 
 import random
 
+
 """Quicksort algorithm
 Complexity: O(n^2)
 """
@@ -45,13 +46,17 @@ def quicksort(collection, start, end):
         quicksort(collection, start, right)
         quicksort(collection, left, end)
 
+        
 # Main program logic
 def program():
+    print("Quick sort algorithm example - Copyright 2016, Sjors van Gelderen")
+    
     for i in range(4):
         collection = [ random.randrange(100) for i in range(16) ]
         print("Performing quicksort on: {}".format(collection))
         quicksort(collection, 0, len(collection) - 1)
         print("Result: {}".format(collection))
-        print()
 
+        
+# Run the program
 program()

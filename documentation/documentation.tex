@@ -29,9 +29,8 @@
 
 
 \section{Introduction}
-In this document I describe the materials studied during my graduation phase.
-The aim of the project was to prepare for professionally teaching students selective aspects of computer science.
-These aspects include:
+In this document I describe the materials studied during my graduation phase. The aim of the project was to prepare
+for professionally teaching students selective aspects of computer science. These aspects include:
 \begin{itemize}
 \item{The C\# and Python 3 programming languages}
 \item{Object-oriented design patterns}
@@ -345,37 +344,26 @@ this implementation may result in similar efficiency to simply using a single dy
 
 
 \subsection{Tree}
-Trees are hierarchical data structures consisting of {\em linked nodes}.
-Unless the tree is empty, there will be a top node called the {\em root node}.
-From this node spring all the {\em subtrees}.
-
-Any node other than the root node of the tree is called a {\em child node}.
-The predecessor of a child node is called its {\em parent}.
-The root node is the only node that does not have a parent.
-
-Nodes that don't have any children are called {\em leaves}, expanding on the analogy of the tree.
-Any node that has at least one child is an {\em internal node}.
-
-A tree is said to be {\em balanced} if the nodes are distributed evenly among the subtrees in the tree.
-A tree might be so poorly balanced that the nodes are organized much like a {\em linked list}.
-In this case, it's possible that the tree was not a suitable data structure for the relevant problem.
-
-The {\em depth} of a node is the amount of {\em edges} that must be traversed from the root to reach it.
-A collection of edges to traverse is called a {\em path}, the length of which is the amount of edges.
-All nodes of the same depth are said to be on the same {\em level}.
-
+Trees are hierarchical data structures consisting of {\em linked nodes}. Unless the tree is empty, there will be a
+top node called the {\em root node}. From this node spring all the {\em subtrees}. Any node other than the root node
+of the tree is called a {\em child node}. The predecessor of a child node is called its {\em parent}. The root node
+is the only node that does not have a parent. Nodes that don't have any children are called {\em leaves}, expanding
+on the analogy of the tree. Any node that has at least one child is an {\em internal node}. A tree is said to be
+{\em balanced} if the nodes are distributed evenly among the subtrees in the tree. A tree might be so poorly
+balanced that the nodes are organized much like a {\em linked list}. In this case, it's possible that the tree was
+not a suitable data structure for the relevant problem. The {\em depth} of a node is the amount of {\em edges} that
+must be traversed from the root to reach it. A collection of edges to traverse is called a {\em path}, the length of
+which is the amount of edges. All nodes of the same depth are said to be on the same {\em level}.
 In this section are described a number of data structures that may be called trees.
 
 
 \subsubsection{Binary tree}
 The binary tree - also called {\em bifurcating arborescence} - consists of nodes containing at most one parent,
-and at most two children. There is no particular property governing where new elements are inserted.
-This is because the binary tree does not inherently imply any particular sorting order.
-
-A binary tree is said to be {\em full} if all of its leaves are on the same level,
-and each internal node has two children. This is different from the notion of completeness,
-as a {\em complete} binary tree is a tree where each level other than possibly the last is fully populated,
-and all nodes are as far to the left as possible.
+and at most two children. There is no particular property governing where new elements are inserted. This is because
+the binary tree does not inherently imply any particular sorting order. A binary tree is said to be {\em full} if
+all of its leaves are on the same level, and each internal node has two children. This is different from the notion
+of completeness, as a {\em complete} binary tree is a tree where each level other than possibly the last is fully
+populated, and all nodes are as far to the left as possible.
 
 \paragraph{Sources}
 A binary tree implementation is provided at the following location:
@@ -419,12 +407,11 @@ Heap implementations are provided at the following locations:
 
 
 \subsubsection{Binary search tree}
-Similar to the binary heap, the binary search tree must satisfy an ordering principle:
-the binary search tree property. This property allows for more efficient searching algorithms,
-as the partitioning of the tree is known. The binary search tree property states that all keys in the
-children of the current node must be less than the key of the current node, and all keys in the right
-children of the current node must be greater than the key of the current node.
-In a standard implementation, duplicate values are generally not allowed.
+Similar to the binary heap, the binary search tree must satisfy an ordering principle: the binary search tree
+property. This property allows for more efficient searching algorithms, as the partitioning of the tree is known.
+The binary search tree property states that all keys in the children of the current node must be less than the key
+of the current node, and all keys in the right children of the current node must be greater than the key of the
+current node. In a standard implementation, duplicate values are generally not allowed.
 
 
 \newpage
@@ -746,6 +733,12 @@ The {\em depth-first traversal} uses the {\em stack} data structure. The general
 
 
 \section{Algorithms}
+\subsection{Aspects of algorithms}
+\subparagraph{Time and space complexity}
+\subparagraph{Asynchronous / concurrent algorithms}
+\subparagraph{Divide and conquer}
+\subparagraph{Greedy algorithms}
+
 \subsection{Searching}
 \subsubsection{Linear search}
 The {\em linear search} traverses a collection in linear fashion until either the requested element is found,
@@ -770,6 +763,10 @@ the collection. This is a logarithmic time (\(O(log n)\)) operation.
 
 % ATTENTION REQUIRED: RATHER SPARSE DESCRIPTION OF THE ALGORITHM
 
+\subsubsection{Peak finding}
+
+\subsubsection{Hill climbing}
+
 \paragraph{Sources}
 \begin{itemize}
 \item{{\em csharp/algorithms/searching/}}
@@ -784,6 +781,10 @@ the collection. This is a logarithmic time (\(O(log n)\)) operation.
 \subsection{Sorting}
 Here are described various sorting algorithms of which I have provided implementations in various programming
 languages.
+
+\paragraph{Aspects of sorting algorithms}
+\subparagraph{Stability}
+\subparagraph{Comparison sort}
 
 \subsubsection{Insertion sort}
 Perhaps the most basic sorting algorithm is {\em insertion sort}. Insertion sort must in the worst case compare
@@ -885,16 +886,26 @@ length of the input collection multiplied by the shrink factor.
 \end{itemize}
 
 
-\iffalse
-% ATTENTION REQUIRED: RADIX SORT IS MISSING? DID I FORGET TO ADD IT TO THE REPOSITORY?
-\subsubsection{Radix sort}
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
-\fi
-
 \subsubsection{Counting sort}
+The {\em counting sort} algorithm involves generating a histogram of key frequencies. This algorithm is of
+\(O(n+k)\) time complexity where \(k\) is the number of possible values in the min-max range.
+
+\paragraph{Setup}
+This algorithm expects as input an unsorted collection of keys. First, the maximum value in the collection is
+determined. Then, an array of the size of that value is populated with 0's.
+
+\paragraph{Process}
+\begin{enumerate}
+\item{Using the keys in the collection as indices for the histogram array, count key frequencies}
+\item{Set a sorting index to 0}
+\item{For each index in the histogram, so long as the frequency is more than 0:}
+  \begin{enumerate}
+  \item{Set the value at the sorting index in the collection to the index in the histogram}
+  \item{Increment the sorting index}
+  \item{Decrease the frequency in the histogram}
+  \end{enumerate}
+\end{enumerate}
+
 \paragraph{Sources}
 \begin{itemize}
 \item{{\em csharp/algorithms/counting\_sort/}}
@@ -903,6 +914,30 @@ length of the input collection multiplied by the shrink factor.
 
 
 \subsubsection{Bucket sort}
+The {\em bucket sort} algorithm divides the input collection into a series of 'buckets' depending on the minimum and
+maximum values in the input collection. It is of quadratic time \(O(n^2)\) complexity. Bucket sort can use other
+algorithms to sort the buckets it generates.
+
+\paragraph{Setup}
+This algorithm expects as input an unsorted collection and a maximum size for the buckets. First, an array of
+buckets - each of which is its own array - is generated according to the minimum and maximum values in the
+collection, as well as the specified maximum bucket size. In addition, a list is created which will hold the
+result of the sorting process.
+
+\paragraph{Process}
+\begin{enumerate}
+\item{For each key in the input collection:}
+  \begin{enumerate}
+  \item{Find the bucket index by subtracting the minimum value from the key}
+  \item{Append the key to its appointed bucket}
+  \end{enumerate}
+\item{For each bucket:}
+  \begin{enumerate}
+  \item{Run insertion sort or an alternative sorting algorithm on the bucket}
+  \item{Concatenate the sorted bucket to the sorted list}
+  \end{enumerate}
+\end{enumerate}
+
 \paragraph{Sources}
 \begin{itemize}
 \item{{\em csharp/algorithms/bucket\_sort/}}
@@ -910,18 +945,29 @@ length of the input collection multiplied by the shrink factor.
 \end{itemize}
 
 
-\subsubsection{Heap sort}
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/heap\_sort/}}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
-
-
 \subsubsection{Merge sort}
-This sorting algorithm splits a collection into many small collections.
-Each of these small collections is sorted and subsequently merged with another small collection.
-Eventually this algorithm yields a sorted collection faster than a regular insertion sort.
+This sorting algorithm splits a collection into many small collections. Each of these small collections is sorted and
+subsequently merged with another small collection. Since at each step the smaller collections that are being merged
+are already sorted, sorting the merged collection takes less time than sorting a badly sorted collection of the same
+size. {\em Merge sort} is of \(O(n log n)\) time complexity.
+
+\paragraph{Setup}
+This algorithm expects as input an an unsorted collection. In addition, it expects a left, middle and right pivot.
+Initially these will be set to the extremeties of the collection and its center.
+
+\paragraph{Process}
+\begin{enumerate}
+\item{{\em Divide (split)} - Recursively split the collection by calling the divide function on both halves of the
+current input collection until the right index is no longer greater than the left index}
+\item{{\em Conquer (merge)} - At the end of each resurfacing step of the division algorithm:}
+  \begin{enumerate}
+  \item{Take two segments, sort them by comparing the top elements of these collections and concatenating the smaller
+    one to the sorted buffer}
+  \item{If either of the collections runs out, concatenate the remaining elements (which are already sorted) to the
+    sorted buffer}
+  \item{When the merge is complete, continue surfacing from the division recursion}
+  \end{enumerate}
+\end{enumerate}
 
 \paragraph{Sources}
 \begin{itemize}
@@ -932,7 +978,28 @@ Eventually this algorithm yields a sorted collection faster than a regular inser
 
 
 \subsubsection{Quick sort}
-Via the use of a pivot, the collection is divided and subsequently conquered.
+Via the use of a pivot, the {\em quick sort} algorithm recursively partitions and conquers the input collection.
+Quick sort is of quadratic time (\(O(n^2)\)) complexity.
+
+\paragraph{Setup}
+This algorithm expects as input an unsorted collection and a start and end index. The start and end indices are
+initially set to the extremities of the collection.
+
+\paragraph{Process}
+As long as the end index is greater than the start index:
+\begin{enumerate}
+\item{Set a left index to the start index and a right index to the end index}
+\item{Set a valid pivot. In my implementation, the left index is also used as the pivot}
+\item{As long as the left index is less than the right index:}
+  \begin{enumerate}
+  \item{Increment the left index until a key greater than the pivot is encountered}
+  \item{Increment the right index until a key less than the pivot is encountered}
+  \item{Swap the keys at the left and right indices in the collection}
+  \item{Increment the left index, decrement the right index}
+  \end{enumerate}
+\item{Recurse on the segment from the new start index to the new right index}
+\item{Recurse on the segment from the left index to the new end index}
+\end{enumerate}
 
 \paragraph{Sources}
 \begin{itemize}
@@ -946,8 +1013,9 @@ Imagine having an unsorted deck of cards, then throwing it in the air and pickin
 distribution is sorted. If it's not, then you repeat the process. This approach to sorting is a description of
 {\em monkey sort}. It's a highly inefficient sorting algorithm, in which a random distribution of the collection
 is made every time. Subsequently, the new distribution goes through a process that verifies if it is sorted.
-If it isn't, a new distribution is made. Since this algorithm may never yield a sorted distribution,
-the time complexity is unbounded (\(O(\infty)\)).
+If it isn't, a new distribution is made. Since this algorithm may never yield a sorted distribution, the time
+complexity is unbounded (\(O(\infty)\)). The primary point of this algorithm is to demonstrate the importance of
+proving that your algorithm can reasonably be assumed to complete within an acceptable time-frame.
 
 \paragraph{Sources}
 \begin{itemize}
@@ -961,6 +1029,7 @@ the time complexity is unbounded (\(O(\infty)\)).
 \subsection{Shortest path determination}
 In this section, each of the following algorithms is assumed to operate on the following graph:
 
+% ATTENTION REQUIRED: This graph is not used anywhere in the explanations
 \begin{figure}[H]
   \centering
   \includegraphics[width=6cm]{sample_graph}
@@ -1120,7 +1189,9 @@ Using this feature, programmers may easily specify new types with a comfortable 
 \subsubsection{The coroutine monad}
 \subsection{Threading}
 
+
 \newpage
+
 
 \section{Design patterns}
 
