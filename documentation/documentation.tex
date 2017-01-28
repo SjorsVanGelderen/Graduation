@@ -2,6 +2,7 @@
 % Copyright 2016-2017, Sjors van Gelderen
 
 % Document settings
+% \documentclass[draft]{article}
 \documentclass{article}
 \author{Sjors van Gelderen}
 \title{Exploring advanced programming concepts}
@@ -20,64 +21,72 @@
 
 \maketitle{}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+
 
 \tableofcontents{}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
 \section{Introduction}
-In this document I describe the materials studied during my graduation phase. The aim of the project was to prepare
+In this document I describe the materials studied during my graduation phase. The aim of my research was to prepare
 for professionally teaching students selective aspects of computer science. These aspects include:
-\begin{itemize}
-\item{The C\# and Python 3 programming languages}
-\item{Object-oriented design patterns}
+\begin{enumerate}
 \item{Data structures, algorithms and complexity analysis}
-\end{itemize}
+\item{Object-oriented design patterns}
+\item{The {\em C\#} and {\em Python 3} programming languages}
+\end{enumerate}
 
-% ATTENTION REQUIRED: MISSING EXPLANATION
-% ATTENTION REQUIRED: MISSING REPOSITORY LOCATION
-\paragraph{}
-I have provided many example implementations in a variety of programming languages.
-All provided complexities in this document and related implementations are worst-case complexities.
+\paragraph{Relevance to video game development}
+To write interesting software, the programmer must make clever use of the limited processing power available.
+Without data structures and algorithms it is impossible to write meaningful and efficient programs. Well-designed data
+structures and algorithms are what push the boundaries of the technology that drives video games.
+
+\paragraph{Examples}
+I have provided many example implementations in a variety of programming languages. The source code is available
+at: \\ {\em https://github.com/sjorsvangelderen/Graduation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
 
 \subsection{Primary languages}
 Here is a brief description of the main languages used.
 
 \subsubsection{C\#}
-% ATTENTION REQUIRED: CITATION NEEDED
-C\# is Microsoft's most popular .NET programming language.
-The language strikes me as a much higher level variant of C++.
-With its rich .NET ecosystem, modern features (LINQ, anonymous methods, tasks, etcetera),
-C\# is certainly a powerful programming language.
+This is Microsoft's highly popular {\em .NET} programming language. {\em C\#} is reminiscent of a much higher level
+variant of {\em C++}. With the rapidly growing {\em .NET} ecosystem and modern features such as {\em LINQ},
+anonymous methods and {\em tasks}, {\em C\#} is certainly a powerful programming language.
 
 \paragraph{Sources}
-C\# code is provided in the subdirectory {\em csharp/}.
+All {\em C\#} source code is provided in the subdirectory {\em csharp/}.
 
 \subsubsection{Python 3}
-Advantages of this language include its concise syntax and its portability.
-Because of Python 3's high-level nature, the programmer can focus exclusively on the actual logic of an algorithm,
-rather than the low-level memory management involved. This is removes a significant source of potential distraction.
-Unfortunately, the absence of a strict compiler means frequent run-time debugging sessions are necessary.
+Advantages of this language include its concise syntax and its portability. Because of {\em Python 3}'s high-level
+nature, the programmer can focus exclusively on the actual logic of an algorithm rather than the low-level memory
+management involved. This removes a significant source of potential distraction. Unfortunately, the absence of a
+strict compiler means frequent run-time debugging sessions are necessary.
 
 \paragraph{Sources}
-Python 3 code is provided in the subdirectory {\em python\_3/}.
+All {\em Python 3} source code is provided in the subdirectory {\em python\_3/}.
 
 \subsubsection{F\#}
-% ATTENTION REQUIRED: CITATION NEEDED
-Being a more recent addition to the .NET family of programming languages,
-F\# has not quite gained the popularity of C\#.
-The F\# programming language enables the programmer to tackle problems
-using high-level concepts such as recursion, higher order functions,
-partial application and currying, computation expressions
-(syntactic sugar for monads) and more.
+Being a more recent addition to the {\em .NET} family of programming languages, {\em F\#} has not quite gained the
+popularity of {\em C\#}. The {\em F\#} programming language enables the programmer to tackle problems using
+high-level concepts including recursion, higher order functions, partial application, currying, computation
+expressions (syntactic sugar for monads) and more.
 
 \paragraph{Sources}
-F\# code is provided in the subdirectory {\em bonus/fsharp/}.
+All {\em F\#} source code is provided in the subdirectory {\em bonus/fsharp/}.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
@@ -85,99 +94,152 @@ F\# code is provided in the subdirectory {\em bonus/fsharp/}.
 These languages were only used sparingly, out of curiosity rather than necessity.
 
 \subsubsection{C}
-Virtually any programmer will at some point in their career encounter this venerable,
-fast and portable programming language. Because this low-level language doesn't use a garbage collector,
-the programmer must exercise great caution with the manual management of memory.
-Many security problems that affect us today are a direct consequence of a failure to do so.
-This language is well-suited to studying the low-level implementation of algorithms and data structures.
+Virtually any programmer will at some point in their career encounter this venerable, fast and portable programming
+language. Because this low-level language doesn't use a garbage collector, the programmer must exercise great caution
+with the manual management of memory. Many security problems that affect us today are a direct consequence of the
+programmer's failure to do so. This language is well-suited to studying the low-level implementation details of
+algorithms and data structures.
 
 \paragraph{Sources}
-C code is provided in the subdirectory {\em bonus/c/}.
+All {\em C} source code is provided in the subdirectory {\em bonus/c/}.
 
 \subsubsection{Rust}
-Developed by Mozilla, Rust aims to be a modern solution for safe, asynchronous programming.
-With default immutable variables, as well as borrowing and lifetimes, the compiler makes it
-very difficult indeed to write a program that contains run-time errors relating to incorrect memory access.
+Developed by Mozilla, {\em Rust} aims to be a modern solution for safe, asynchronous programming.
+With default immutable variables, as well as {\em borrowing} and {\em lifetimes}, the compiler makes it very
+difficult indeed to write a program that contains run-time errors relating to incorrect memory access.
 
 \paragraph{Sources}
-Rust code is provided in the subdirectory {\em bonus/rust/}.
+All {\em Rust} source code is provided in the subdirectory {\em bonus/rust/}.
 
 \subsubsection{Chicken Scheme}
-% ATTENTION REQUIRED: CITATION NEEDED
-The LISP family of programming languages has two major dialects; these being Common LISP and Scheme.
-Chicken Scheme is a modern implementation of the Scheme dialect.
-It has a very minimalistic syntax, revolving around the use of parentheses and prefix notation.
-Chicken Scheme is a functional programming language.
+The {\em LISP} family of programming languages has two major dialects; these being {\em Common LISP} and {\em Scheme}.
+{\em Chicken Scheme} is a modern implementation of the {\em Scheme} dialect. It has a very minimalistic syntax,
+revolving around the use of parentheses and prefix notation. {\em Chicken Scheme} is a high-level functional
+programming language.
 
 \paragraph{Sources}
-Chicken Scheme code is provided in the subdirectory {\em bonus/chicken\_scheme/}.
+All {\em Chicken Scheme} source code is provided in the subdirectory {\em bonus/chicken\_scheme/}.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
 \section{Analysis}
-% ATTENTION REQUIRED: VERY MUCH INCOMPLETE
 
 \subsection{Empirical analysis}
 Empirical analysis refers to inferring a program's expected performance based on measurements taken while running a
 program with various configurations. A typical scenario involves the measurement of performance in terms of running
-time by the use of a 'stopwatch'.
+time with a {\em stopwatch} program. By measuring the performance with increasing {\em problem sizes} (typically the
+size of the input collection) and plotting the results, an expected performance curve may be extrapolated.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8cm]{empirical_measurement}
+  \caption{Empirical observations are used to plot a performance curve}
+\end{figure}
+
+This technique is really only useful when the target hardware is known and available for testing or simulation, since the
+performance measurements may greatly differ depending on the properties of the underlying hardware. For this project the
+focus is not on any single piece of hardware, and as such this document won't delve further into empirical analysis.
+
 
 \subsection{Complexity analysis}
-Complexity analysis is different from empirical analysis in that it uses reasoning
-- rather than experiment - to determine a program's expected performance.
+Complexity analysis is different from empirical analysis in that it uses reasoning, rather than experiment, to determine
+a program's expected performance. Using mathematical models, an algorithm can be analyzed and an expected performance class
+may be inferred. There exist several performance-related notations of interest:
+
+\begin{samepage}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{theta_o_omega}
+    \caption{Functions used for analyzing different aspects of growth in a given complexity context}
+  \end{figure}
+  
+  \paragraph{\(\boldsymbol \Omega\)}
+  This symbol - pronounced {\em omega} - denotes a function that allows the programmer to determine the lower bound of a
+  function's growth. The lower bound corresponds to the best case performance.
+  
+  \paragraph{\(\boldsymbol O\)}
+  This symbol - pronounced {\em 'big oh'} - denotes a function that allows the programmer to determine the upper bound of a
+  function's growth. The upper bound corresponds to the worst case performance.
+  
+  \paragraph{\(\boldsymbol \Theta\)}
+  This symbol - pronounced {\em theta} - denotes a function that allows the programmer to determine both an upper and lower
+  bound of a function's growth. The \(\Theta\) class corresponds to the average case performance.
+\end{samepage}
+
+\paragraph{}
+All complexities provided in this document and related example implementations are worst case complexities. These enable
+the programmer to understand the minimum expected performance of the algorithms. Although the other complexity classes
+can help to provide a more realistic estimation of the algorithm's actual performance, I have limited my scope to the
+investigation of worst case (\(O\)) complexities.
+
+\subsection{Correctness}
+In a mission-critical scenario, proving the correctness of algorithms is vital. This is done via the construction of a
+mathematical proof. There exist many approaches to creating such a proof, but due to my limited mathematical background
+this subject is unfortunately mostly out of the scope of this project. Unless an algorithm is proven to be to correct,
+there exists a chance that the algorithm will fail to provide the correct results. Worse, the algorithm may cause the
+program to exhibit undefined behaviour, which may in medical or military scenarios even lead to fatalities.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
 \section{Data structures}
-As the manner in which data is stored affects the efficiency of and compatibility with a given algorithm,
-it is appropriate to discuss the studied data structures now.
+Any given implementation for an algorithm will expect a certain shape of data as its input. The shape of the data
+can heavily affect the efficiency of a given operation. To control the shape of data, a programmer writes {\em data
+structures}. In this section I describe various examples of common data structures.
 
 
 \subsection{Array}
-Among the most common data structures for collections is the array.
-All elements in the array are stored contiguously in memory,
-and may be accessed in constant time(\(O(1)\)) through their respective indices.
-Arrays have excellent cache-alignment, making them very fast indeed.
+Among the most common data structures for collections is the array. All elements in the array are stored
+{\em contiguously} in memory, and may be accessed in constant time(\(O(1)\)) through their respective indices.
+Arrays have excellent {\em cache-alignment}, adding to their already excellent access time.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{array}
+  \caption{Array data structure with 0-based indices}
+\end{figure}
 
 The location of an element in an array at some given index {\em i} will be
 \[base\_address\_of\_array + i * s\]
-In which {\em s} is the size of a single element.
-This size depends on the data type of the array.
+In which {\em s} is the size of a single element. This size depends on the type of data stored in the array.
 
 \subsubsection{Size}
-
 \paragraph{Fixed size}
-By default, arrays are generally of {\em fixed size}; meaning the array will take up constant space ({\em O(1)}).
-Since less elements might be stored in the array than its total capacity allows for,
-space might be wasted on unused memory. The amount of elements that are actually being used is
+By default, arrays are generally of {\em fixed size}. Since less elements might be stored in the array than its total
+capacity allows for, space might be wasted on unused memory. The amount of elements that are actually being used is
 called the {\em logical size} of the array.
 
 \paragraph{Dynamic size}
-When an array is of dynamic size, the programmer must carefully specify the amount by
-which the array will be resized. If the programmer adds more elements than some given threshold will allow,
-the array must perform a resize operation. Since the resize operation is costly (typically \(O(n)\)),
-frequent resizes ought to be avoided. In some implementations, dynamic size arrays will also shrink when
-the logical size becomes less than a given threshold.
+When an array is of dynamic size, the programmer must carefully specify the amount by which the array will be resized.
+If the programmer adds more elements than some given threshold will allow, the array must perform a resize operation.
+Since the resize operation is costly (typically \(O(n)\)), frequent resizes ought to be avoided. In some implementations,
+dynamic size arrays will also shrink when the logical size becomes less than a given threshold.
 
 \subsubsection{Dimensionality}
 Arrays may have more than one dimension. Such a construction may also be called a matrix.
 Elements in the multidimensional array may be accessed with multiple indices describing the relevant coordinates.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
 \subsection{Linked list}
-The {\em linked list} is a linear, dynamic size data structure for storing collections of elements.
-Contrary to arrays, elements are not guaranteed to be stored contiguously.
-This makes it possible to store elements in a fragmented fashion,
-which is useful when the collection is larger than any available contiguous block of memory.
-Since elements in the linked list are stored in a fragmented fashion, direct access through indices
-as done with the array becomes impossible.
+The {\em linked list} is a linear, dynamic size data structure for storing collections of elements. Contrary to arrays,
+elements are not guaranteed to be stored contiguously. This makes it possible to store elements in a fragmented fashion,
+which is useful when the collection is larger than any available contiguous block of memory. Since elements in the linked
+list are stored in a fragmented fashion, direct access through indices as done with the array becomes impossible.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{linked_list}
+  \caption{Singly-linked list data structure}
+\end{figure}
 
 The linked list consists of several segments, each of which has up to two references to other
 elements in the sequence. The last element of the sequence will point to an empty segment,
@@ -192,38 +254,43 @@ since where singly-linked lists only allow forward traversal, doubly-linked list
 
 \paragraph{Insert}
 Elements are inserted at the root of the list. Since no traversal is required to locate the root,
-the insertion operation is one of constant time \(O(1)\). The inserted element becomes the new root,
+the insertion operation is of constant time \(O(1)\). The inserted element becomes the new root,
 and is given a reference to the next segment. This next segment is the old root segment.
 
-When inserting at the end - rather than the beginning - of a list,
-the list must be traversed until a given segment references a null link as the next element in the sequence.
-The reference to the empty segment may be replaced with a reference the element to be inserted.
-Due to the traversal, the worst case complexity of such an insertion is of linear time \(O(n)\).
-If the list is {\em doubly-linked}, the new element's {\em previous} variable should reference
+When inserting at the end - rather than the beginning - of a list, the list must be traversed until a given segment
+references a null link as the next element in the sequence. The reference to the empty segment may be replaced with
+a reference the element to be inserted. Due to the traversal, the worst case complexity of such an insertion is of
+linear time \(O(n)\). If the list is {\em doubly-linked}, the new element's {\em previous} variable should reference
 the last element of the current list.
 
 \paragraph{Delete}
 Locating the element to be deleted will in the worst case require a complete traversal of the list,
 which is a linear time (\(O(n)\) operation. If the current segment's {\em next} variable references
 the element to be deleted, it must be changed to point to the segment in the sequence that succeeds
-the element to be deleted (which may be {\em null}). If the root element is deleted,
-the next segment in the list becomes the root.
+the element to be deleted (which may be {\em null}). If the root element is deleted, the next segment
+in the list becomes the root.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
 \subsection{Stack}
-The {\em stack} is a {\em LIFO} (Last In, First Out) data structure.
-Data is always inserted on and removed from the top of the stack.
-Only the top element of the stack may be inspected at any time.
-Regardless of which structure is used to store the stack contents,
-the interface must always offer the following operations: {\em push}, {\em pop} and {\em peek}.
+The {\em stack} is a {\em LIFO} (Last In, First Out) data structure. Data is always inserted on and removed
+from the top of the stack. Only the top element of the stack may be inspected at any time. Regardless of which
+structure is used to store the stack contents, the interface must always offer the following operations:
+{\em push}, {\em pop} and {\em peek}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10cm]{stack}
+  \caption{Stack data structure and the workings of its operations}
+\end{figure}
 
 \paragraph{Push}
 The {\em push operation} puts a new element on top of the stack. This is a constant time (\(O(1)\)) operation.
-If the stack has a size limit, this operation throws a {\em stack overflow} exception
-when the stack's capacity is exceeded.
+If the stack has a size limit, this operation throws a {\em stack overflow} exception when the stack's capacity
+is exceeded.
 
 \paragraph{Pop}
 The pop operation removes the top element from the stack. This is a constant time (\(O(1)\)) operation.
@@ -233,24 +300,33 @@ exception, as there are no elements to remove.
 \paragraph{Peek}
 The peek operation gives the programmer access to the current top element of the stack.
 This is a constant time (\(O(1)\)) operation. If the stack is empty, this operation will throw an
-{\em invalid operation} exception, as there are no elements on the stack to reveal.
+{\em invalid operation} exception, as there are no elements on the stack to reveal. \\
 
-\paragraph{Sources}
-Stack implementations are provided at the following locations:
-\begin{itemize}
-\item{{\em csharp/data\_structures/stack/}}
-\item{{\em python\_3/data\_structures/}}
-\item{{\em bonus/c/data\_structures/}}
-\item{{\em bonus/fsharp/data\_structures/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  Stack implementations are provided at the following locations:
+  \begin{itemize}
+  \item{{\em csharp/data\_structures/stack/}}
+  \item{{\em python\_3/data\_structures/}}
+  \item{{\em bonus/c/data\_structures/}}
+  \item{{\em bonus/fsharp/data\_structures/}}
+  \end{itemize}
+\end{samepage}
 
 
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
 
 
 \subsection{Queue}
 Contrary to the stack, the queue is a {\em FIFO} (First In, First Out) data structure.
 Elements are inserted at the back of the queue, and removed from the front of the queue.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10cm]{queue}
+  \caption{Queue data structure and the workings of its operations}
+\end{figure}
 
 \paragraph{Enqueue}
 The {\em enqueue} operation adds a new element at the front of the queue.
@@ -266,56 +342,74 @@ This is a constant time (\(O(1)\)) operation. It can be used to prevent queue un
 
 \paragraph{Rear and front}
 The {\em rear} and {\em front} operations provide access to the front and rear elements of the queue.
-These operations are optional and as such are not provided in all implementations.
-Both operations are constant time (\(O(1)\)) operations for arrays.
-The rear operation is linear time (\(O(n)\)) and the front operation is constant time (\(O(1)\)) for linked-lists.
+These operations are optional and as such are not provided in all implementations. Both operations are
+constant time (\(O(1)\)) operations for arrays. The rear operation is linear time (\(O(n)\)) and the
+front operation is constant time (\(O(1)\)) for linked-lists.
 
-\paragraph{Sources}
-Queue implementations are provided at the following locations:
-\begin{itemize}
-\item{{\em csharp/data\_structures/queue/}}
-\item{{\em python\_3/data\_structures/}}
-\item{{\em bonus/c/data\_structures/}}
-\item{{\em bonus/fsharp/data\_structures/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  Queue implementations are provided at the following locations:
+  \begin{itemize}
+  \item{{\em csharp/data\_structures/queue/}}
+  \item{{\em python\_3/data\_structures/}}
+  \item{{\em bonus/c/data\_structures/}}
+  \item{{\em bonus/fsharp/data\_structures/}}
+  \end{itemize}
+\end{samepage}
 
 
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
 
 
 \subsection{Hashmap}
-This data structure - also known as a {\em dictionary} or {\em hash table} -
-is used to store a list of key-value pairs. This kind of structure is also called an {\em associative array}.
-The data structure consists of a list or array of {\em buckets} or {\em slots} containing one or
-more elements. The amount of elements that may be stored in a given bucket depends on the implementation of said
-bucket. The underlying data structure may, for example, be a fixed-size array or a linked-list.
+This data structure - also known as a {\em dictionary} or {\em hash table} - is used to store a list of
+key-value pairs. This kind of structure is also called an {\em associative array}. The data structure
+consists of a list or array of {\em buckets} or {\em slots} containing one or more elements. The amount
+of elements that may be stored in a given bucket depends on the implementation of said bucket.
+The underlying data structure may, for example, be a fixed-size array or a linked-list.
 
-Of primary interest is the way the indices of the relevant bucket are determined.
-Unlike standard arrays, indices need not be integers. Indices may instead be derived from any kind of data type.
-This is done using a {\em hash function} (hence, the name of the data structure).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=6cm]{hash_map}
+    \caption{Hashmap data structure}
+\end{figure}
 
-The hash function derives an integer from the provided data. The modulo operator then restricts the provided
-integer to a range that fits in the array or list.
+\begin{samepage}
+  Of primary interest is the way the indices of the relevant bucket are determined. Unlike standard arrays,
+  indices need not be integers. Indices may instead be derived from any kind of data type. This is done using
+  a {\em hash function} (hence, the name of the data structure). The hash function derives an integer from the
+  provided data. The modulo operator then restricts the provided integer to a range that fits in the array or list.
+  
+  \begin{equation}
+    hash\_value = hash\_function(data)
+  \end{equation}
+  
+  \begin{equation}
+    hash\_map\_index = hash\_value \ \% \ hash\_map\_size
+  \end{equation}
+\end{samepage}
 
-\begin{equation}
-  hash\_value = hash\_function(data)
-\end{equation}
+\begin{samepage}
+  To determine whether the number of buckets is appropriate for the amount of elements to be inserted,
+  the load factor may be calculated. The load factor is calculated as follows:
+  
+  \begin{equation}
+    \frac{number\_of\_entries}{number\_of\_buckets}
+  \end{equation}
 
-\begin{equation}
-  hash\_map\_index = hash\_value \ \% \ hash\_map\_size
-\end{equation}
+  \paragraph{}
+  A large load factor is indicative of an inappropriate amount of buckets.
+  If the load factor is too small, however, it is possible a lot of buckets are unnecessarily taking up space.
+  Some implementations of hash maps will resize when the load factor reaches a certain threshold.
+  This is a costly operation, seeing as all elements will have to be redistributed according to the new size.
+\end{samepage}
 
-To determine whether the number of buckets is appropriate for the amount of elements to be inserted,
-the load factor may be calculated. The load factor is calculated as follows:
-
-\begin{equation}
-  \frac{number\_of\_entries}{number\_of\_buckets}
-\end{equation}
-
-A large load factor is indicative of an inappropriate amount of buckets.
-If the load factor is too small, however, it is possible a lot of buckets are unnecessarily taking up space.
-Some implementations of hash maps will resize when the load factor reaches a certain threshold.
-This is a costly operation, seeing as all elements will have to be redistributed according to the new size.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{load_factor}
+  \caption{Diagram of several aspects of the hashmap}
+\end{figure}
 
 It is possible that two different pieces of data generate the same hash map index.
 Such a situation is called a {\em collision}. If there are many collisions, the distribution of the values
@@ -340,7 +434,8 @@ implemented by making each bucket into a dynamic size array or linked-list. If h
 this implementation may result in similar efficiency to simply using a single dynamic size array or linked list.
 
 
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
 
 
 \subsection{Tree}
@@ -357,6 +452,7 @@ which is the amount of edges. All nodes of the same depth are said to be on the 
 In this section are described a number of data structures that may be called trees.
 
 
+\begin{samepage}
 \subsubsection{Binary tree}
 The binary tree - also called {\em bifurcating arborescence} - consists of nodes containing at most one parent,
 and at most two children. There is no particular property governing where new elements are inserted. This is because
@@ -365,12 +461,19 @@ all of its leaves are on the same level, and each internal node has two children
 of completeness, as a {\em complete} binary tree is a tree where each level other than possibly the last is fully
 populated, and all nodes are as far to the left as possible.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{binary_tree}
+  \caption{Binary tree data structure}
+\end{figure}
+
 \paragraph{Sources}
 A binary tree implementation is provided at the following location:
 \begin{itemize}
   
 \item{{\em bonus/fsharp/data\_structures/}}
 \end{itemize}
+\end{samepage}
 
 
 \subsubsection{Binary heap}
@@ -378,6 +481,12 @@ This complete binary tree maintains the {\em heap property}, which is said to be
 A heap that satisfies the {\em max heap property} is called a {\em max heap}.
 Accordingly, a heap that satisfies the {\em min heap property} is called a {\em min heap}.
 The property determines the order in which the elements are stored inside the heap.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{binary_heap}
+  \caption{Diagram of a binary max heap}
+\end{figure}
 
 In a max heap each key must be greater than every key stored inside its children.
 Conversely, in a min heap each key must be less than every key stored inside its children.
@@ -394,7 +503,7 @@ The {\em extract} operation removes the root node from the binary heap. It does 
 the root key with the last key in the heap. After this step, the {\em heapify} operation is used to
 restore the heap property if it is be violated by the new root. In such case, the root is compared
 to its children. Depending on the relevant property, the root is swapped with either its smaller child in a
-min-heap, or its larger child in a max-heap. The process is then repeated from the old root's new location,
+min-heap, or its larger child in a max heap. The process is then repeated from the old root's new location,
 which is the index of the child it was swapped with. Eventually, the heap property must be restored.
 
 \paragraph{Sources}
@@ -414,41 +523,45 @@ of the current node, and all keys in the right children of the current node must
 current node. In a standard implementation, duplicate values are generally not allowed.
 
 
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
 
 
-\paragraph{Traversals}
-Visiting elements in a tree is called {\em traversing} the tree. The most common traversals are the following:
+\begin{samepage}
+  \paragraph{Traversals}
+  Visiting elements in a tree is called {\em traversing} the tree. The most common traversals are the following:
 
-\subparagraph{Pre-order traversal}
-Visit the root, visit the left subtree, visit the right subtree.
+  \subparagraph{Pre-order traversal}
+  Visit the root, visit the left subtree, visit the right subtree.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=6cm]{pre_order_traversal}
-  \caption{Pre-order traversal diagram}
-\end{figure}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=4cm]{pre_order_traversal}
+    \caption{Pre-order traversal diagram}
+  \end{figure}
 
-\subparagraph{In-order traversal}
-Visit the left subtree, visit the root, visit the right subtree.
+  \subparagraph{In-order traversal}
+  Visit the left subtree, visit the root, visit the right subtree.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=6cm]{in_order_traversal}
-  \caption{In-order traversal diagram}
-\end{figure}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=4cm]{in_order_traversal}
+    \caption{In-order traversal diagram}
+  \end{figure}
 
-\subparagraph{Post-order traversal}
-Visit the left subtree, visit the right subtree, visit the root.
+  \subparagraph{Post-order traversal}
+  Visit the left subtree, visit the right subtree, visit the root.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=6cm]{post_order_traversal}
-  \caption{Post-order traversal diagram}
-\end{figure}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=4cm]{post_order_traversal}
+    \caption{Post-order traversal diagram}
+  \end{figure}
+\end{samepage}
 
 
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
 
 
 \paragraph{Insert}
@@ -477,15 +590,16 @@ Since the binary search tree property holds, the search operation may from any k
 branch the search operation to the left or right of said node. If an empty node is encountered, the key is
 not in the tree.
 
-\paragraph{Sources}
-Binary search tree implementations are provided at the following locations:
-\begin{itemize}
-\item{{\em csharp/data\_structures/binary\_search\_tree/}}
-\item{{\em python\_3/data\_structures/}}
-\item{{\em bonus/c/data\_structures/}}
-\item{{\em bonus/fsharp/data\_structures/}}
-\end{itemize}
-
+\begin{samepage}
+  \paragraph{Sources}
+  Binary search tree implementations are provided at the following locations:
+  \begin{itemize}
+  \item{{\em csharp/data\_structures/binary\_search\_tree/}}
+  \item{{\em python\_3/data\_structures/}}
+  \item{{\em bonus/c/data\_structures/}}
+  \item{{\em bonus/fsharp/data\_structures/}}
+  \end{itemize}
+\end{samepage}
 
 \subsubsection{K-dimensional tree}
 The {\em K-dimensional} tree expands upon the philosophy of the binary search tree, in that it
@@ -553,14 +667,17 @@ As with the operation that searches for a single key, the range query must take 
 associated with each level. Rather than always continuing the query on a single child tree,
 the range query may continue on both children if the section covers space on both sides of the current key's split.
 
-\paragraph{Sources}
-A K-dimensional search tree implementation is provided at the following location:
-\begin{itemize}
-\item{{\em csharp/data\_structures/kd\_tree/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  A K-dimensional search tree implementation is provided at the following location:
+  \begin{itemize}
+  \item{{\em csharp/data\_structures/kd\_tree/}}
+  \end{itemize}
+\end{samepage}
 
 
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
 
 
 \subsection{Graph}
@@ -568,6 +685,12 @@ The {\em graph} may be used to represent a relational network of nodes called {\
 Vertices are connected via {\em edges}. Vertices that are connected to each other via a single edge are called
 {\em adjacent} or {\em neighbors}. A collection of edges connecting two vertices is a {\em path}. The graph does
 not imply any particular root, nor does it restrict the number of edges connecting any vertex to other vertices.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{graph}
+  \caption{A directed acyclic graph without weights}
+\end{figure}
 
 \subsubsection{Weighted}
 A graph is {\em weighted} if each of its edges has a 'cost' associated with traversing it.
@@ -729,7 +852,8 @@ The {\em depth-first traversal} uses the {\em stack} data structure. The general
 % ATTENTION REQUIRED: INCLUDE GRAPHIC
 
 
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
 
 
 \section{Algorithms}
@@ -745,16 +869,18 @@ The {\em linear search} traverses a collection in linear fashion until either th
 or the end of the collection was reached. This is a linear time (\(O(n)\)) operation.
 Linear search is simple to implement and is well-suited to small unsorted collections.
 
-\paragraph{Sources}
-Linear search implementations are provided at the following locations:
-\begin{itemize}
-\item{{\em csharp/algorithms/searching/}}
-\item{{\em python\_3/algorithms/}}
-\item{{\em bonus/c/algorithms/}}
-\item{{\em bonus/fsharp/algorithms/}}
-\item{{\em bonus/rust/searching/}}
-\item{{\em bonus/chicken\_scheme/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  Linear search implementations are provided at the following locations:
+  \begin{itemize}
+  \item{{\em csharp/algorithms/searching/}}
+  \item{{\em python\_3/algorithms/}}
+  \item{{\em bonus/c/algorithms/}}
+  \item{{\em bonus/fsharp/algorithms/}}
+  \item{{\em bonus/rust/searching/}}
+  \item{{\em bonus/chicken\_scheme/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 \subsubsection{Binary search}
 If the collection is known to be sorted, the {\em binary search} algorithm may yield a significant performance
@@ -767,14 +893,17 @@ the collection. This is a logarithmic time (\(O(log n)\)) operation.
 
 \subsubsection{Hill climbing}
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/searching/}}
-\item{{\em python\_3/algorithms/}}
-\item{{\em bonus/rust/algorithms/searching/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em csharp/algorithms/searching/}}
+  \item{{\em python\_3/algorithms/}}
+  \item{{\em bonus/rust/algorithms/searching/}}
+  \end{itemize}
+\end{samepage}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
@@ -802,13 +931,15 @@ For each element in the collection:
 \item{Repeat from step 1 until either no more neighbor exists, or the key is larger than its neighbor}
 \end{enumerate}
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/searching/}}
-\item{{\em python\_3/algorithms/}}
-\item{{\em bonus/fsharp/algorithms/}}
-\item{{\em bonus/rust/algorithms/searching/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em csharp/algorithms/searching/}}
+  \item{{\em python\_3/algorithms/}}
+  \item{{\em bonus/fsharp/algorithms/}}
+  \item{{\em bonus/rust/algorithms/searching/}}
+  \end{itemize}
+\end{samepage}
 
 \subsubsection{Shell sort}
 The {\em shell sort} algorithm utilizes insertion sort in a {\em divide-and-conquer} strategy.
@@ -828,11 +959,13 @@ slices according to the provided size. The results are stored into a buffer list
 \item{Run insertion sort on the buffer}
 \end{enumerate}
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/shell\_sort/}}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em csharp/algorithms/shell\_sort/}}
+  \item{{\em python\_3/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 
 \subsubsection{Bubble sort}
@@ -853,11 +986,13 @@ Until the index is equal to the size of the collection:
 \item{Continue from step 3}
 \end{enumerate}
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/bubble\_sort/}}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em csharp/algorithms/bubble\_sort/}}
+  \item{{\em python\_3/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 
 \subsubsection{Comb sort}
@@ -879,11 +1014,13 @@ length of the input collection multiplied by the shrink factor.
 \item{Increment the index and continue from step 4}
 \end{enumerate}
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/comb\_sort/}}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em csharp/algorithms/comb\_sort/}}
+  \item{{\em python\_3/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 
 \subsubsection{Counting sort}
@@ -906,11 +1043,13 @@ determined. Then, an array of the size of that value is populated with 0's.
   \end{enumerate}
 \end{enumerate}
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/counting\_sort/}}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em csharp/algorithms/counting\_sort/}}
+  \item{{\em python\_3/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 
 \subsubsection{Bucket sort}
@@ -938,11 +1077,13 @@ result of the sorting process.
   \end{enumerate}
 \end{enumerate}
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/bucket\_sort/}}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em csharp/algorithms/bucket\_sort/}}
+  \item{{\em python\_3/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 
 \subsubsection{Merge sort}
@@ -969,12 +1110,14 @@ current input collection until the right index is no longer greater than the lef
   \end{enumerate}
 \end{enumerate}
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/merge\_sort/}}
-\item{{\em python\_3/algorithms/}}
-\item{{\em bonus/c/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em csharp/algorithms/merge\_sort/}}
+  \item{{\em python\_3/algorithms/}}
+  \item{{\em bonus/c/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 
 \subsubsection{Quick sort}
@@ -1001,12 +1144,13 @@ As long as the end index is greater than the start index:
 \item{Recurse on the segment from the left index to the new end index}
 \end{enumerate}
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em csharp/algorithms/quick\_sort/}}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
-
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em csharp/algorithms/quick\_sort/}}
+  \item{{\em python\_3/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 \subsubsection{Monkey sort}
 Imagine having an unsorted deck of cards, then throwing it in the air and picking it up to see if the new
@@ -1017,12 +1161,15 @@ If it isn't, a new distribution is made. Since this algorithm may never yield a 
 complexity is unbounded (\(O(\infty)\)). The primary point of this algorithm is to demonstrate the importance of
 proving that your algorithm can reasonably be assumed to complete within an acceptable time-frame.
 
-\paragraph{Sources}
-\begin{itemize}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  \begin{itemize}
+  \item{{\em python\_3/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
@@ -1071,12 +1218,14 @@ each step of the path. The operation starts at the target vertex. As long as the
 null, it is appended to the existing path. The next vertex to inspect may be located by using the current vertex ID
 as the index of the next path vertex in the chain.
 
-\paragraph{Sources}
-Floyd-Warshall implementations are provided at the following locations:
-\begin{itemize}
-\item{{\em csharp/algorithms/dijkstra/}}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  Floyd-Warshall implementations are provided at the following locations:
+  \begin{itemize}
+  \item{{\em csharp/algorithms/dijkstra/}}
+  \item{{\em python\_3/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 
 % ATTENTION REQUIRED: GRAPHICS WOULD BE NICE
@@ -1101,14 +1250,17 @@ we'll have to update the currently recorded value in our distance matrix. Since 
 that each scale according to the amount of vertices in the graph, it naturally follows that our algorithm is of
 cubic time (\(O(n^3)\)) complexity.
 
-\paragraph{Sources}
-Floyd-Warshall implementations are provided at the following locations:
-\begin{itemize}
-\item{{\em csharp/algorithms/floyd\_warshall/}}
-\item{{\em python\_3/algorithms/}}
-\end{itemize}
+\begin{samepage}
+  \paragraph{Sources}
+  Floyd-Warshall implementations are provided at the following locations:
+  \begin{itemize}
+  \item{{\em csharp/algorithms/floyd\_warshall/}}
+  \item{{\em python\_3/algorithms/}}
+  \end{itemize}
+\end{samepage}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
@@ -1181,7 +1333,10 @@ Using this feature, programmers may easily specify new types with a comfortable 
 
 \subsection{Indexers and enumerators}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+
 
 \section{Asynchronous programming}
 \subsection{Async and await}
@@ -1190,6 +1345,7 @@ Using this feature, programmers may easily specify new types with a comfortable 
 \subsection{Threading}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 
@@ -1229,27 +1385,43 @@ To deal with this situation efficiently, the programmer may employ a technique c
 The adapter pattern consists of building a new interface to existing code.
 The primary purpose of this new interface is to guarantee proper interaction with the existing code.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
-\section{Conclusion}
-% Something about mathematical proofs, more data structures / algorithms, set theory / category theory
 
-% ATTENTION REQUIRED: INCOMPLETE SECTION
-\section{Thanks}
+\section{Conclusion}
+With this research project, I have succesfully prepared myself for teaching data structures and algorithms to bachelor students.
+My interest in this field goes beyond what I have done so far. There is much to be learned about proving the correctness of
+algorithms, writing asynchronous algorithms, and about data structures not covered in this project. To do this, I will keep
+reading my copy of {\em Introduction to Algorithms} (which was kindly provided to me by {\em Hogeschool Rotterdam}).
+
+\paragraph{Set theory and category theory}
+Among the most useful mathematical tools for programmers are {\em set theory} and {\em category theory}. These enable the
+programmer to achieve a greater understanding of data and logic. In this research I have encountered examples where these
+tools would be extremely useful. Alas, I have limited understanding of the subjects, and require more time to study them
+extensively.
+
+\paragraph{Special thanks}
 I'd like to especially thank the following people for supporting me in my research:
-\begin{itemize}
-\item{Giuseppe Maggiore}
-\item{Mohamed Abbadi}
-\item{Francesco di Giacomo}
-\item{Giulia }
-\item{Fernando Cabello Domingo}
-\item{}
-\end{itemize}
+
+\subparagraph{Giuseppe Maggiore, Mohamed Abbadi, Francesco di Giacomo, Giulia Constantini}
+For patiently teaching me about high - sometimes almost esoteric - level programming and for greatly boosting the start of my
+career.
+
+\subparagraph{Fernando Cabello Domingo}
+For his inspiring never-ending enthusiasm and optimism. For always answering my phone calls and messages in a timely fashion
+during stressful moments of uncertainty.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
 
 \section{Bibliography}
 
-
-\fi
+Breadth-first and depth-first search diagrams are by Alexander Drichel and were available under the following license: \\
+{\em https://creativecommons.org/licenses/by-sa/3.0/deed.en}
 
 
 \end{document}
