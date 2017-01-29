@@ -43,9 +43,9 @@ for professionally teaching students selective aspects of computer science. Thes
 \end{enumerate}
 
 \paragraph{Relevance to video game development}
-To write interesting software, the programmer must make clever use of the limited processing power available.
-Without data structures and algorithms it is impossible to write meaningful and efficient programs. Well-designed data
-structures and algorithms are what push the boundaries of the technology that drives video games.
+To write interesting software, the programmer must make clever use of the limited processing power available. Without data
+structures and algorithms it is impossible to write meaningful and efficient programs. Well-designed data structures and
+algorithms are what push the boundaries of the technology that drives video games.
 
 \paragraph{Examples}
 I have provided many example implementations in a variety of programming languages. The source code is available
@@ -522,6 +522,12 @@ The binary search tree property states that all keys in the children of the curr
 of the current node, and all keys in the right children of the current node must be greater than the key of the
 current node. In a standard implementation, duplicate values are generally not allowed.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=6cm]{binary_search_tree}
+    \caption{Binary search tree}
+  \end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \newpage
@@ -709,7 +715,12 @@ Conversely, a graph may be called {\em sparse} if there are comparatively little
 Graphs may be structured as an {\em adjacency list}. This is a list of vertices, each of which is associated with
 all of its neighbors.
 
-% ATTENTION REQUIRED: INCLUDE THE GRAPH?
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=4cm]{adjacency_list_graph}
+  \caption{The graph described by the adjacency list}
+\end{figure}
+
 \begin{figure}[H]
   \centering
   \begin{tabular}{|c|c c c|}
@@ -838,7 +849,11 @@ The {\em breadth-first search} uses the {\em queue} data structure. The general 
 \item{If the queue is empty, the traversal is complete and the search was unsuccesful. Otherwise repeat step 2}
 \end{enumerate}
 
-% ATTENTION REQUIRED: INCLUDE GRAPHIC
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{breadth_first_search}
+  \caption{Order of visited vertices in a graph using breadth-first search}
+\end{figure}
 
 \paragraph{Depth-first search}
 The {\em depth-first traversal} uses the {\em stack} data structure. The general procedure is as follows:
@@ -849,7 +864,11 @@ The {\em depth-first traversal} uses the {\em stack} data structure. The general
 \item{Repeat step 3 until no more unvisited neighbors exist, then pop from the stack. Repeat from step 2}
 \end{enumerate}
 
-% ATTENTION REQUIRED: INCLUDE GRAPHIC
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=6cm]{depth_first_search}
+  \caption{Order of visited vertices in a graph using depth-first search}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -857,17 +876,48 @@ The {\em depth-first traversal} uses the {\em stack} data structure. The general
 
 
 \section{Algorithms}
-\subsection{Aspects of algorithms}
-\subparagraph{Time and space complexity}
-\subparagraph{Asynchronous / concurrent algorithms}
-\subparagraph{Divide and conquer}
-\subparagraph{Greedy algorithms}
+Executable instructions for solving a problem are called {\em algorithms}. Many algorithms may exist for solving the same
+problem, but some will be better suited to the task.
+
+\paragraph{Complexity}
+When measuring {\em complexity}, a programmer measures how a given factor scales according to the problem {\em problem size}.
+An example of a problem size is the size of the input collection for a sorting algorithm. The most common categories to measure
+are {\em time complexity}, which has to do with the {\em running time} of an algorithm, and {\em space complexity}, which reveals
+how much memory the algorithm will occupy according to the problem size.
+
+\paragraph{Divide-and-conquer}
+Algorithms that cut the problem into several subproblems in order to speed up the process are called {\em divide-and-conquer}
+algorithms. Examples of divide-and-conquer algorithms include merge sort and binary search.
+
+\paragraph{Stability}
+The concept of {\em stability} in a sorting algorithm has to do with maintaining the original order of duplicate entries in the
+input collection. Imagine a hand of cards containing both an ace of spades and an ace of clubs. These cards share their rank, but
+not their suit. The sorting algorithm might sort according to rank only. In a stable sort, the cards must appear in the same
+order with respect to each other after the sorting algorithm is complete.
+
+\paragraph{Greedy algorithms}
+Some algorithms will quickly find a result, but they are so {\em greedy} that the result is sub-optimal. If the result need
+not be completely accurate, greedy algorithms sometimes offer a fast alternative to their more meticulous counterparts.
+
 
 \subsection{Searching}
 \subsubsection{Linear search}
 The {\em linear search} traverses a collection in linear fashion until either the requested element is found,
 or the end of the collection was reached. This is a linear time (\(O(n)\)) operation.
 Linear search is simple to implement and is well-suited to small unsorted collections.
+
+\paragraph{Setup}
+This algorithm expects as input a collection of keys and a target key to find in the collection. An index is used to keep track
+of which key is to be scanned next.
+
+\paragraph{Process}
+\begin{enumerate}
+\item{If the index is outside of the bounds of the collection, the search is complete but the target key was not found.
+  Otherwise, continue from step 2}
+\item{If the key at the current index in the collection is the target key, the search is complete and the target key was found.
+  Otherwise, continue from step 3}
+\item{Increment the index and continue from step 1}
+\end{enumerate}
 
 \begin{samepage}
   \paragraph{Sources}
@@ -887,11 +937,22 @@ If the collection is known to be sorted, the {\em binary search} algorithm may y
 gain compared to regular insertion sort. This is because the algorithm can use a pivot to intelligently search
 the collection. This is a logarithmic time (\(O(log n)\)) operation.
 
+\paragraph{Setup}
+This algorithm expects as input a sorted collection of keys, a starting position for the pivot and the target key to find in
+the collection.
+
+\paragraph{Process}
+\begin{enumerate}
+\item{If the key at the pivot is the target key, the search is complete. Otherwise, continue from step 2}
+\item{If the key is less than the key at the pivot, the pivot becomes the middle of the collection's segment to the left of the pivot. Otherwise, the pivot will become the middle of the collection's segment to the right of the pivot}
+\item{If the pivot is the same as it was in the last iteration, the search is complete, but the key was not found. Otherwise, continue from step 1}
+\end{enumerate}
+
 % ATTENTION REQUIRED: RATHER SPARSE DESCRIPTION OF THE ALGORITHM
 
-\subsubsection{Peak finding}
-
-\subsubsection{Hill climbing}
+% ATTENTION REQUIRED: MARKED FOR SCRAPPING
+% \subsubsection{Peak finding}
+% \subsubsection{Hill climbing}
 
 \begin{samepage}
   \paragraph{Sources}
@@ -942,7 +1003,7 @@ For each element in the collection:
 \end{samepage}
 
 \subsubsection{Shell sort}
-The {\em shell sort} algorithm utilizes insertion sort in a {\em divide-and-conquer} strategy.
+The {\em shell sort} algorithm utilizes insertion sort in a divide-and-conquer strategy.
 Shell sort is a \(O(n log^2 n)\) time complexity algorithm.
 
 \paragraph{Setup}
@@ -1176,17 +1237,9 @@ proving that your algorithm can reasonably be assumed to complete within an acce
 \subsection{Shortest path determination}
 In this section, each of the following algorithms is assumed to operate on the following graph:
 
-% ATTENTION REQUIRED: This graph is not used anywhere in the explanations
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=6cm]{sample_graph}
-  \caption{A weighted graph}
-\end{figure}
 
 When recording this graph as data, letters are replaced with 0-based indices, such that \(A=0, B=1, C=2, \dots\).
 
-
-% ATTENTION REQUIRED: Graphics would be nice
 \subsubsection{Dijkstra}
 {\em Dijkstra's} algorithm finds all shortest path distances between a {\em source} vertex and all other vertices
 in a graph. Dijkstra's algorithm runs in quadratic time (\(O(n^2)\)). It's possible to optimize Dijkstra's algorithm
@@ -1264,126 +1317,87 @@ cubic time (\(O(n^3)\)) complexity.
 \newpage
 
 
-
-\iffalse
-
-
-
-\section{Advanced C\# features}
-% ATTENTION REQUIRED: MARKED FOR SCRAPPING, VERY MUCH INCOMPLETE
-\subsection{Properties}
-This concept allows the programmer to specify how data inside a class may be accessed.
-With this feature, manually writing {\em get} and {\em set} functions becomes obsolete.
-
-\subsection{Interfaces}
-Interfaces are contracts that guarantee a class implements certain methods.
-
-\subsection{Events}
-
-
-\subsection{Extension methods}
-In order to extend the functionality offered by base types, a programmer may use extension methods.
-
-\subsection{Lambdas, delegates and higher order functions}
-Higher order functions are part of what makes functional programming so powerful.
-In C\#, delegates and lambdas offer the features required for higher order functions.
-
-Here are several examples of how these concepts may be applied.
-
-\paragraph{Iter}
-This operation iterates over a sequence of elements. For each of these elements the provided lambda will be executed.
-
-\begin{lstlisting}[language=Python]
-  // This function prints all elements in the collection
-  List.iter (fun element -> printfn "%A" element) collection
-\end{lstlisting}
-
-\paragraph{Filter}
-This operation iterates over a sequence of elements. For each of these elements, the provided lambda predicate will be executed.
-Elements for which this predicate returns True will be in the resulting list. Contrastingly, elements for which the predicate returns False will be discarded.
-
-\begin{lstlisting}[language=Python]
-  // This function returns all elements in the collection that are even
-  List.filter (fun element -> element % 2 == 0) collection
-\end{lstlisting}
-
-\paragraph{Map and reduce}
-This operation iterates over a sequence of elements. For each of these elements, the provided lambda will be executed.
-The lambda contains a function that manipulates the current element. The result of this operation is the list of transformed elements.
-
-\begin{lstlisting}[language=Python]
-  //This function returns all transformed elements in the collection
-  List.map (fun element -> element + 4) collection
-\end{lstlisting}
-  
-\paragraph{Fold}
-
-\paragraph{LINQ}
-
-
-\subsection{Anonymous types}
-Using this feature, programmers may easily specify new types with a comfortable syntax.
-
-\begin{lstlisting}[language=Python]
-  var some_type = { SomeProperty = 5 };
-\end{lstlisting}
-
-\subsection{Iterators and state machines}
-
-
-\subsection{Indexers and enumerators}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-
-
-\section{Asynchronous programming}
-\subsection{Async and await}
-\subsection{Coroutines}
-\subsubsection{The coroutine monad}
-\subsection{Threading}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-
-
-\section{Design patterns}
+\section{Object-oriented design patterns}
+To maximally exploit the advantages of object-oriented programming, {\em design patterns} should be employed. These patterns
+help specify common code constructions that emphasize {\em maintainability}, {\em modularity}, {\em reliability} and
+{\em safety}. Here are described several such patterns.
 
 \subsection{Option and Visitor}
-These design patterns when combined form a great answer to the infamous null-reference-exception.
-In essence, the {\em option} pattern offers a syntactical construct that forces the programmer to deal with missing data at {\em compile time}.
-Data in the option is said to be either {\em some data} or {\em none}, the latter of which replaces the traditional {\em null}.
-Since {\em none} is {\em no data} rather than {\em missing data}, a null-reference-exception shan't occur.
+These design patterns combined form a solution to the infamous null-reference-exception. The {\em option} pattern offers a
+syntactic construct that forces the programmer to deal with missing data at {\em compile time}. The program will refuse to
+compile if the code doesn't deal explicitly with a situation in which the required data is unavailable. Data in the option
+is said to be either {\em some data} or {\em none}, the latter of which becomes the substitute for {\em null}. Since {\em none}
+is {\em no data} rather than {\em missing data} (a subtle distinction), a null-reference-exception won't occur. The option
+pattern's counterpart in this configuration is the {\em visitor}, which offers a syntactic construct to perform different
+operations depending on whether data is missing({\em none}) or available ({\em some data}).
 
-The option's counterpart is the {\em visitor}, which offers a syntactical construct to perform different operations depending on whether data
-is missing({\em none}) or readily available ({\em some data}).
+\begin{samepage}
+  \paragraph{Sources}
+  An option and visitor pattern implementation is provided at the following location:
+  \begin{itemize}
+  \item{{\em csharp/design\_patterns/option\_and\_visitor/}}
+  \end{itemize}
+\end{samepage}
 
-The following example demonstrates this process:
 
-\begin{lstlisting}[language=Python]
-\end{lstlisting}
+\subsection{Abstract factory}
+The {\em abstract factory} pattern allows the programmer to create an interface for {\em factories} sharing a common
+theme without specifying their concrete implementations. The concrete factories implement this common interface, through
+which the programmer may interact with them. The interface contains methods for creating 'products'. In my example, there
+exists an abstract class for motor-factories which produce both vehicles and drivers. Two concrete factories are then
+made which produce distinct products, but both adhere to the same interface specification.
 
-The two variables({\em noneData} and {\em someData}) are defined to be of type {\em Option String}.
-That is to say, the variables may either hold actual data({\em some}) or not{\em none}.
-When interacting with {\em Option} data, the programmer must use a {\em match} expression.
-Such an expression is forced by the compiler to deal with both possible cases({\em some} and {\em none}.
-Notice how {\em some} comes with a {\em data} object, {\em none} does not.
+\begin{samepage}
+  \paragraph{Sources}
+  An abstract factory pattern implementation is provided at the following location:
+  \begin{itemize}
+  \item{{\em csharp/design\_patterns/abstract\_factory/}}
+  \end{itemize}
+\end{samepage}
 
-\subsection{Factory}
+
 \subsection{Strategy}
-The strategy pattern is used where different strategies may be optimal depending on context.
-For instance, if we know a collection to be mostly sorted, we might choose to use a different sorting algorithm than when the collection is mostly unsorted.
+The {\em strategy} pattern is effective when different strategies are be optimal depending on a given context. For instance,
+if we know a collection to be mostly sorted we might choose to use a different sorting algorithm than when the collection is
+mostly unsorted. The strategy pattern is very flexible. It can even be used by a software-controlled player to adapting its
+behaviour to some game situation.
+
+\begin{samepage}
+  \paragraph{Sources}
+  A strategy pattern implementation is provided at the following location:
+  \begin{itemize}
+  \item{{\em csharp/design\_patterns/strategy/}}
+  \end{itemize}
+\end{samepage}
 
 
 \subsection{Adapter}
-Programmers will frequently encounter situations in which they must deal with error-prone code.
+Programmers will frequently encounter situations in which they must deal with error-prone code. This code may not always be
+open for modification. To deal with this situation efficiently, the programmer may employ a technique called the
+{\em adapter} pattern. The adapter pattern involves building a new interface that will 'wrap' around existing code.
+The primary purpose of this new interface is to guarantee such interaction with the code as will circumvent known problems.
 
-Unfortunately, one is frequently not allowed to modify existing code.
-To deal with this situation efficiently, the programmer may employ a technique called the {\em adapter pattern}.
-The adapter pattern consists of building a new interface to existing code.
-The primary purpose of this new interface is to guarantee proper interaction with the existing code.
+\begin{samepage}
+  \paragraph{Sources}
+  An adapter pattern implementation is provided at the following location:
+  \begin{itemize}
+  \item{{\em csharp/design\_patterns/adapter/}}
+  \end{itemize}
+\end{samepage}
+
+
+\subsection{Observer}
+When several objects are interested in messages dispatched by multiple services the {\em observer} pattern can be used.
+An abstract class is defined for a given subject that will dispatch messages, and another for objects that want to monitor
+(observe) the subject. Observers can be attached to subjects, which may in turn dispatch messages to their subscribers.
+
+\begin{samepage}
+  \paragraph{Sources}
+  An observer pattern implementation is provided at the following location:
+  \begin{itemize}
+  \item{{\em csharp/design\_patterns/observer/}}
+  \end{itemize}
+\end{samepage}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1405,13 +1419,19 @@ extensively.
 \paragraph{Special thanks}
 I'd like to especially thank the following people for supporting me in my research:
 
-\subparagraph{Giuseppe Maggiore, Mohamed Abbadi, Francesco di Giacomo, Giulia Constantini}
+\subparagraph{Giuseppe Maggiore, Mohamed Abbadi, Francesco di Giacomo}
 For patiently teaching me about high - sometimes almost esoteric - level programming and for greatly boosting the start of my
 career.
 
 \subparagraph{Fernando Cabello Domingo}
-For his inspiring never-ending enthusiasm and optimism. For always answering my phone calls and messages in a timely fashion
+For his inspiring, never-ending enthusiasm and optimism. For always answering my phone calls and messages in a timely fashion
 during stressful moments of uncertainty.
+
+\subparagraph{Hogeschool Rotterdam}
+For providing me with a challenging and engaging job. For giving me access to their services during my internship.
+
+\subparagraph{My students}
+For their interesting questions, helpful comments and good company.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
