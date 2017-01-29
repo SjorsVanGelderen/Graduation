@@ -9,10 +9,12 @@
 \date{\today{}}
 
 % Packages
-\usepackage{amsmath}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
 \usepackage{listings}
 \usepackage{float}
+\usepackage{biblatex}
+\addbibresource{bibliography.bib}
 \usepackage{graphicx}
 \graphicspath{{images/}}
 
@@ -48,8 +50,7 @@ structures and algorithms it is impossible to write meaningful and efficient pro
 algorithms are what push the boundaries of the technology that drives video games.
 
 \paragraph{Examples}
-I have provided many example implementations in a variety of programming languages. The source code is available
-at: \\ {\em https://github.com/sjorsvangelderen/Graduation}
+I have provided many example implementations in a variety of programming languages \cite{graduation_repository}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -694,7 +695,7 @@ not imply any particular root, nor does it restrict the number of edges connecti
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=6cm]{graph}
+  \includegraphics[width=6cm]{graph_0}
   \caption{A directed acyclic graph without weights}
 \end{figure}
 
@@ -711,15 +712,15 @@ called a {\em digraph}.
 Graphs are called {\em dense} if there are many edges connecting many vertices.
 Conversely, a graph may be called {\em sparse} if there are comparatively little edges connecting the vertices.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=4cm]{weighted_directed_graph}
+  \caption{The weighted digraph used in the following examples. In some examples, the direction is ignored}
+\end{figure}
+
 \subsubsection{Adjacency list}
 Graphs may be structured as an {\em adjacency list}. This is a list of vertices, each of which is associated with
 all of its neighbors.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=4cm]{adjacency_list_graph}
-  \caption{The graph described by the adjacency list}
-\end{figure}
 
 \begin{figure}[H]
   \centering
@@ -749,17 +750,15 @@ all of its neighbors.
   \caption{Examples of adjacency lists. The right list is for a digraph}
 \end{figure}
 
-The adjacency list is the preferred representation when the graph is sparse.
-In a digraph, only edges that {\em emanate} from (start at) the vertex are recorded for that vertex.
+The adjacency list is the preferred representation when the graph is sparse. In a digraph, only edges that {\em emanate} from
+(start at) the vertex are recorded for that vertex.
 
 \subsubsection{Adjacency matrix}
-The {\em adjacency matrix} is a multi-dimensional array. The axes both contain each vertex in the graph.
-If two vertices are adjacent, it is recorded in the matrix. The recorded value may be a boolean type, in which
-case the value is \(true\) if the vertices are adjacent. If the graph is weighted, the value may contain the
-weight of the connecting edge instead of the boolean value. In this case, the weight for non-adjacent vertices
-could be recorded as being infinite.
+The {\em adjacency matrix} is a multi-dimensional array. The axes both contain each vertex in the graph. If two vertices are
+adjacent, it is recorded in the matrix. The recorded value may be a boolean type, in which case the value is \(true\) if the
+vertices are adjacent. If the graph is weighted, the value may contain the weight of the connecting edge instead of the boolean
+value. In this case, the weight for non-adjacent vertices could be recorded as being infinite.
 
-% ATTENTION REQUIRED: INCLUDE THE GRAPH?
 \begin{figure}[H]
   \centering
   \begin{tabular}{|c|c|c|c|c|}
@@ -775,19 +774,18 @@ could be recorded as being infinite.
     D  & T & T & T & F \\
     \hline
   \end{tabular}
-  % ATTENTION REQUIRED: NO WEIGHTS IN THE WEIGHTED MATRIX... Digraphs?
   \quad
   \begin{tabular}{|c|c|c|c|c|}
     \hline
-    \  & A & B & C & D \\ [0.5ex] 
+    \  & A          & B          & C          & D \\ [0.5ex] 
     \hline
-    A  & \(\infty\) & T & T & T \\ 
+    A  & 0          & 1          & \(\infty\) & \(\infty\) \\ 
     \hline
-    B  & T & \(\infty\) & \(\infty\) & T \\
+    B  & \(\infty\) & 0          & \(\infty\) & 4 \\
     \hline
-    C  & T & \(\infty\) & \(\infty\) & T \\
+    C  & 3          & \(\infty\) & 0          & \(\infty\) \\
     \hline
-    D  & T & T & T & \(\infty\) \\
+    D  & \(\infty\) & \(\infty\) & 5          & 0 \\
     \hline
   \end{tabular}
   \caption{Examples of adjacency matrices. The right matrix is for a weighted graph}
@@ -796,46 +794,35 @@ could be recorded as being infinite.
 The adjacency matrix is the preferred representation when the graph is dense.
 
 \subsubsection{Incidence matrix}
-The {\em incidence matrix} shows the relationship between vertices (represented in the rows) and edges
-(represented in the columns) in a graph. If the vertices are incident upon (connected to) the edge, a boolean
-value or weight may be recorded in the matrix.
+The {\em incidence matrix} shows the relationship between vertices (represented in the rows) and edges (represented in the
+columns) in a graph. If the vertices are incident upon (connected to) the edge, a boolean value or weight may be recorded
+in the matrix. In a digraph, edges that emanate from the row vertex are given the value 1. Edges that terminate at the row vertex
+are instead given the value -1.
 
-% ATTENTION REQUIRED: INCLUDE THE GRAPH?
 \begin{figure}[H]
   \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
-    \  & 0 & 1 & 2 & 3 \\ [0.5ex]
-    \hline
-    0  & F & T & T & T \\ 
-    \hline
-    1  & T & F & F & T \\
-    \hline
-    2  & T & F & F & T \\
-    \hline
-    3  & T & T & T & F \\
-    \hline
-  \end{tabular}
-  \quad
-  %ATTENTION REQUIRED: WEIGHTS ARE WRONG ... Digraphs?
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
-    \  & 0 & 1 & 2 & 3 \\ [0.5ex]
-    \hline
-    0  & \(\infty\) & T & T & T \\
-    \hline
-    1  & T & \(\infty\) & \(\infty\) & T \\
-    \hline
-    2  & T & \(\infty\) & \(\infty\) & T \\
-    \hline
-    3  & T & T & T & \(\infty\) \\
-    \hline
-  \end{tabular}
-  \caption{Examples of incidence matrices. The right matrix is for a weighted digraph}
+  \includegraphics[width=4cm]{incidence_graph}
+  \caption{The graph described by the incidence matrix}
 \end{figure}
 
-In a digraph, edges that emanate from the row vertex are given the value 1. Edges that terminate at the row vertex
-are instead given the value -1.
+\begin{figure}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \  & e1 & e2 & e3 & e4 \\ [0.5ex]
+    \hline
+    A  & T  & T  & T  & F  \\ 
+    \hline
+    B  & T  & F  & F  & F  \\
+    \hline
+    C  & F  & T  & F  & T  \\
+    \hline
+    D  & F  & F  & T  & T  \\
+    \hline
+  \end{tabular}
+  \caption{Example of an incidence matrix}
+\end{figure}
+
 
 \subsubsection{Traversal}
 Here are listed two ways to visit each vertex in a graph,
@@ -1437,11 +1424,17 @@ For their interesting questions, helpful comments and good company.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
+\printbibliography
 
-\section{Bibliography}
+\iffalse
 
-Breadth-first and depth-first search diagrams are by Alexander Drichel and were available under the following license: \\
-{\em https://creativecommons.org/licenses/by-sa/3.0/deed.en}
+\begin{thebibliography}{9}
+\bibitem{BFS_DFS_diagrams}
+  Alexander Drichel
+  \textit{Breadth-first and depth-first search diagrams}
+  \texttt{https://creativecommons.org/licenses/by-sa/3.0/deed.en}
+\end{thebibliography}
 
+\fi
 
 \end{document}
