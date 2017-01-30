@@ -1,0 +1,327 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Introduction}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Relevance to video game development}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Examples}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}Primary languages}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.1.1}C\#}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.1.2}Python 3}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.1.3}F\#}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}Secondary languages}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.2.1}C}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.2.2}Rust}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.2.3}Chicken Scheme}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Analysis}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}Empirical analysis}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Complexity analysis}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\(\boldsymbol \Omega \)}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\(\boldsymbol O\)}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\(\boldsymbol \Theta \)}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Correctness}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Data structures}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Array}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.1.1}Size}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Fixed size}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Dynamic size}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.1.2}Dimensionality}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}Linked list}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Singly-linked and doubly-linked}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Insert}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Delete}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3}Stack}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Push}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Pop}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Peek}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4}Queue}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Enqueue}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Dequeue}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{IsEmpty}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Rear and front}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5}Hashmap}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.5.1}Linear and quadratic probing}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.5.2}Dynamic size buckets}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.6}Tree}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.6.1}Binary tree}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.6.2}Binary heap}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Insert}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Extract and heapify}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.6.3}Binary search tree}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Traversals}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Pre-order traversal}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{In-order traversal}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Post-order traversal}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Insert}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Delete}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Search}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.6.4}K-dimensional tree}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Insert}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Search}{21}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Range query}{21}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.7}Graph}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.7.1}Weighted}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.7.2}Directed}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.7.3}Dense versus sparse}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.7.4}Adjacency list}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.7.5}Adjacency matrix}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.7.6}Incidence matrix}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.7.7}Traversal}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Breadth-first search}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Depth-first search}{25}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Algorithms}{25}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Complexity}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Divide-and-conquer}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Stability}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Greedy algorithms}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Searching}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.1.1}Linear search}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.1.2}Binary search}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Sorting}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Aspects of sorting algorithms}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Stability}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Comparison sort}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.1}Insertion sort}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.2}Shell sort}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.3}Bubble sort}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.4}Comb sort}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.5}Counting sort}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.6}Bucket sort}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.7}Merge sort}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.8}Quick sort}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.2.9}Monkey sort}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Shortest path determination}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.3.1}Dijkstra}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Chain}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Shortest path}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.3.2}Floyd-Warshall}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Setup}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Process}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Object-oriented design patterns}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Option and Visitor}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2}Abstract factory}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3}Strategy}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4}Adapter}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5}Observer}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Sources}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Conclusion}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Set theory and category theory}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Special thanks}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Giuseppe Maggiore, Mohamed Abbadi, Francesco di Giacomo}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Fernando Cabello Domingo}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{Hogeschool Rotterdam}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {subparagraph}{My students}{38}

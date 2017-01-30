@@ -13,7 +13,8 @@
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage{float}
-\usepackage{biblatex}
+\usepackage[english]{babel}
+\usepackage[backend=biber,style=numeric]{biblatex}
 \addbibresource{bibliography.bib}
 \usepackage{graphicx}
 \graphicspath{{images/}}
@@ -36,7 +37,7 @@
 
 
 \section{Introduction}
-In this document I describe the materials studied during my graduation phase. The aim of my research was to prepare
+In this document I describe the materials studied during my graduation phase. The aim of my research is to prepare
 for professionally teaching students selective aspects of computer science. These aspects include:
 \begin{enumerate}
 \item{Data structures, algorithms and complexity analysis}
@@ -50,7 +51,7 @@ structures and algorithms it is impossible to write meaningful and efficient pro
 algorithms are what push the boundaries of the technology that drives video games.
 
 \paragraph{Examples}
-I have provided many example implementations in a variety of programming languages \cite{graduation_repository}.
+I have provided many example implementations in a variety of programming languages\cite{repo}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -61,27 +62,26 @@ I have provided many example implementations in a variety of programming languag
 Here is a brief description of the main languages used.
 
 \subsubsection{C\#}
-This is Microsoft's highly popular {\em .NET} programming language. {\em C\#} is reminiscent of a much higher level
-variant of {\em C++}. With the rapidly growing {\em .NET} ecosystem and modern features such as {\em LINQ},
+This is Microsoft's highly popular\cite{popularity-index} {\em .NET} programming language. {\em C\#} is kind of like a much
+higher level variant of {\em C++}. With the rapidly growing {\em .NET} ecosystem and modern features such as {\em LINQ},
 anonymous methods and {\em tasks}, {\em C\#} is certainly a powerful programming language.
 
 \paragraph{Sources}
 All {\em C\#} source code is provided in the subdirectory {\em csharp/}.
 
 \subsubsection{Python 3}
-Advantages of this language include its concise syntax and its portability. Because of {\em Python 3}'s high-level
-nature, the programmer can focus exclusively on the actual logic of an algorithm rather than the low-level memory
-management involved. This removes a significant source of potential distraction. Unfortunately, the absence of a
-strict compiler means frequent run-time debugging sessions are necessary.
+Advantages of this language include its concise syntax and its portability. Because of {\em Python 3}'s high-level nature,
+the programmer can focus exclusively on the actual logic of an algorithm rather than the low-level memory management involved.
+This removes a significant source of potential distraction. For all its flexibility, it is error-prone. This means frequent
+run-time debugging sessions are inevitable.
 
 \paragraph{Sources}
 All {\em Python 3} source code is provided in the subdirectory {\em python\_3/}.
 
 \subsubsection{F\#}
-Being a more recent addition to the {\em .NET} family of programming languages, {\em F\#} has not quite gained the
-popularity of {\em C\#}. The {\em F\#} programming language enables the programmer to tackle problems using
-high-level concepts including recursion, higher order functions, partial application, currying, computation
-expressions (syntactic sugar for monads) and more.
+Being a more recent addition to the {\em .NET} family of programming languages, {\em F\#} has not quite gained the popularity of
+{\em C\#}. The {\em F\#} programming language enables the programmer to tackle problems using high-level concepts including
+recursion, higher order functions, partial application, currying, computation expressions (syntactic sugar for monads) and more.
 
 \paragraph{Sources}
 All {\em F\#} source code is provided in the subdirectory {\em bonus/fsharp/}.
@@ -129,32 +129,34 @@ All {\em Chicken Scheme} source code is provided in the subdirectory {\em bonus/
 \section{Analysis}
 
 \subsection{Empirical analysis}
-Empirical analysis refers to inferring a program's expected performance based on measurements taken while running a
-program with various configurations. A typical scenario involves the measurement of performance in terms of running
-time with a {\em stopwatch} program. By measuring the performance with increasing {\em problem sizes} (typically the
-size of the input collection) and plotting the results, an expected performance curve may be extrapolated.
+Empirical analysis is about inferring a program's expected performance based on measurements taken while running it. A typical
+scenario involves the measurement of performance in terms of running time with a {\em stopwatch} program. By measuring the
+performance with increasing {\em problem sizes} (generally the size of the input collection\cite[p.25]{introduction-to-algorithms})
+and plotting the results, an expected performance curve may be extrapolated.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=8cm]{empirical_measurement}
-  \caption{Empirical observations are used to plot a performance curve}
+  \caption{Empirical observations are used to plot a performance curve\cite[p.17]{empirical-analysis-princeton}}
 \end{figure}
 
-This technique is really only useful when the target hardware is known and available for testing or simulation, since the
-performance measurements may greatly differ depending on the properties of the underlying hardware. For this project the
-focus is not on any single piece of hardware, and as such this document won't delve further into empirical analysis.
+This technique may suffice if the target hardware is available for testing. If it is not, at least a simulation is necessary.
+If neither of these is possible it will be difficult to get accurate measurements, because the hardware on which the experiments
+are performed may differ greatly from the target hardware\cite[p.22]{empirical-analysis-princeton}.
 
 
 \subsection{Complexity analysis}
 Complexity analysis is different from empirical analysis in that it uses reasoning, rather than experiment, to determine
 a program's expected performance. Using mathematical models, an algorithm can be analyzed and an expected performance class
-may be inferred. There exist several performance-related notations of interest:
+may be inferred from the asymptotic growth of the function{\cite[p.43-49]{introduction-to-algorithms}. There exist several
+performance-related functions of interest:
 
 \begin{samepage}
   \begin{figure}[H]
     \centering
     \includegraphics[width=10cm]{theta_o_omega}
-    \caption{Functions used for analyzing different aspects of growth in a given complexity context}
+    \caption{Functions used for analyzing different aspects of growth in a given complexity context
+     \cite[p.45]{introduction-to-algorithms}}
   \end{figure}
   
   \paragraph{\(\boldsymbol \Omega\)}
@@ -171,17 +173,21 @@ may be inferred. There exist several performance-related notations of interest:
 \end{samepage}
 
 \paragraph{}
-All complexities provided in this document and related example implementations are worst case complexities. These enable
-the programmer to understand the minimum expected performance of the algorithms. Although the other complexity classes
-can help to provide a more realistic estimation of the algorithm's actual performance, I have limited my scope to the
-investigation of worst case (\(O\)) complexities.
+All complexities provided in this document and related example implementations are worst case complexities. Although the other
+complexity classes can help to provide a more complete estimation of the algorithm's actual performance, I have limited my
+scope to the investigation of worst case (\(O\)) complexities for the following reasons
+\cite[p.27-28]{introduction-to-algorithms}:
+\begin{enumerate}
+\item{The worst case complexity provides the programmer with the guaranteed minimum performance}
+\item{The worst case occurs frequently}
+\item{The average case is usually close to the worst case}
+\end{enumerate}
 
 \subsection{Correctness}
 In a mission-critical scenario, proving the correctness of algorithms is vital. This is done via the construction of a
 mathematical proof. There exist many approaches to creating such a proof, but due to my limited mathematical background
-this subject is unfortunately mostly out of the scope of this project. Unless an algorithm is proven to be to correct,
-there exists a chance that the algorithm will fail to provide the correct results. Worse, the algorithm may cause the
-program to exhibit undefined behaviour, which may in medical or military scenarios even lead to fatalities.
+this subject is unfortunately out of the scope of this document. Unless an algorithm is proven to be to correct, there
+exists a chance that the algorithm will fail to provide the correct results.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -839,7 +845,7 @@ The {\em breadth-first search} uses the {\em queue} data structure. The general 
 \begin{figure}[H]
   \centering
   \includegraphics[width=6cm]{breadth_first_search}
-  \caption{Order of visited vertices in a graph using breadth-first search}
+  \caption{Order of visited vertices in a graph using breadth-first search\cite{bfs}}
 \end{figure}
 
 \paragraph{Depth-first search}
@@ -854,7 +860,7 @@ The {\em depth-first traversal} uses the {\em stack} data structure. The general
 \begin{figure}[H]
   \centering
   \includegraphics[width=6cm]{depth_first_search}
-  \caption{Order of visited vertices in a graph using depth-first search}
+  \caption{Order of visited vertices in a graph using depth-first search\cite{dfs}}
 \end{figure}
 
 
@@ -863,23 +869,25 @@ The {\em depth-first traversal} uses the {\em stack} data structure. The general
 
 
 \section{Algorithms}
-Executable instructions for solving a problem are called {\em algorithms}. Many algorithms may exist for solving the same
-problem, but some will be better suited to the task.
+Executable instructions for transforming some input to some output are called {\em algorithms}
+\cite[p.5]{introduction-to-algorithms}. Many algorithms may exist for solving a given problem, but some will be better suited
+to the task than others.
 
 \paragraph{Complexity}
 When measuring {\em complexity}, a programmer measures how a given factor scales according to the problem {\em problem size}.
 An example of a problem size is the size of the input collection for a sorting algorithm. The most common categories to measure
-are {\em time complexity}, which has to do with the {\em running time} of an algorithm, and {\em space complexity}, which reveals
-how much memory the algorithm will occupy according to the problem size.
+are {\em time complexity}, which has to do with the {\em running time} of an algorithm, and {\em space complexity}, which
+reveals how much memory the algorithm will occupy according to the problem size.
 
 \paragraph{Divide-and-conquer}
 Algorithms that cut the problem into several subproblems in order to speed up the process are called {\em divide-and-conquer}
-algorithms. Examples of divide-and-conquer algorithms include merge sort and binary search.
+algorithms\cite[p.30-38]{introduction-to-algorithms}. Examples of divide-and-conquer algorithms include merge sort and binary
+search.
 
 \paragraph{Stability}
 The concept of {\em stability} in a sorting algorithm has to do with maintaining the original order of duplicate entries in the
-input collection. Imagine a hand of cards containing both an ace of spades and an ace of clubs. These cards share their rank, but
-not their suit. The sorting algorithm might sort according to rank only. In a stable sort, the cards must appear in the same
+input collection. Imagine a hand of cards containing both an ace of spades and an ace of clubs. These cards share their rank,
+but not their suit. The sorting algorithm might sort according to rank only. In a stable sort, the cards must appear in the same
 order with respect to each other after the sorting algorithm is complete.
 
 \paragraph{Greedy algorithms}
@@ -931,15 +939,11 @@ the collection.
 \paragraph{Process}
 \begin{enumerate}
 \item{If the key at the pivot is the target key, the search is complete. Otherwise, continue from step 2}
-\item{If the key is less than the key at the pivot, the pivot becomes the middle of the collection's segment to the left of the pivot. Otherwise, the pivot will become the middle of the collection's segment to the right of the pivot}
-\item{If the pivot is the same as it was in the last iteration, the search is complete, but the key was not found. Otherwise, continue from step 1}
+\item{If the key is less than the key at the pivot, the pivot becomes the middle of the collection's segment to the left of the
+    pivot. Otherwise, the pivot will become the middle of the collection's segment to the right of the pivot}
+\item{If the pivot is the same as it was in the last iteration, the search is complete, but the key was not found. Otherwise,
+    continue from step 1}
 \end{enumerate}
-
-% ATTENTION REQUIRED: RATHER SPARSE DESCRIPTION OF THE ALGORITHM
-
-% ATTENTION REQUIRED: MARKED FOR SCRAPPING
-% \subsubsection{Peak finding}
-% \subsubsection{Hill climbing}
 
 \begin{samepage}
   \paragraph{Sources}
@@ -958,10 +962,6 @@ the collection.
 \subsection{Sorting}
 Here are described various sorting algorithms of which I have provided implementations in various programming
 languages.
-
-\paragraph{Aspects of sorting algorithms}
-\subparagraph{Stability}
-\subparagraph{Comparison sort}
 
 \subsubsection{Insertion sort}
 Perhaps the most basic sorting algorithm is {\em insertion sort}. Insertion sort must in the worst case compare
@@ -1222,10 +1222,7 @@ proving that your algorithm can reasonably be assumed to complete within an acce
 
 
 \subsection{Shortest path determination}
-In this section, each of the following algorithms is assumed to operate on the following graph:
-
-
-When recording this graph as data, letters are replaced with 0-based indices, such that \(A=0, B=1, C=2, \dots\).
+There are various ways of determining shortest paths in a graph, two of which are described in this section.
 
 \subsubsection{Dijkstra}
 {\em Dijkstra's} algorithm finds all shortest path distances between a {\em source} vertex and all other vertices
@@ -1268,7 +1265,6 @@ as the index of the next path vertex in the chain.
 \end{samepage}
 
 
-% ATTENTION REQUIRED: GRAPHICS WOULD BE NICE
 \subsubsection{Floyd-Warshall}
 Rather than Dijkstra's focus on a single source, {\em Floyd-Warshall} finds the shortest path between each vertex
 and all other vertices in a graph. Unlike Dijkstra's algorithm, Floyd-Warshall supports negative weights.
@@ -1410,7 +1406,7 @@ I'd like to especially thank the following people for supporting me in my resear
 For patiently teaching me about high - sometimes almost esoteric - level programming and for greatly boosting the start of my
 career.
 
-\subparagraph{Fernando Cabello Domingo}
+\subparagraph{Fernando Cabello}
 For his inspiring, never-ending enthusiasm and optimism. For always answering my phone calls and messages in a timely fashion
 during stressful moments of uncertainty.
 
@@ -1424,17 +1420,7 @@ For their interesting questions, helpful comments and good company.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
+
 \printbibliography
-
-\iffalse
-
-\begin{thebibliography}{9}
-\bibitem{BFS_DFS_diagrams}
-  Alexander Drichel
-  \textit{Breadth-first and depth-first search diagrams}
-  \texttt{https://creativecommons.org/licenses/by-sa/3.0/deed.en}
-\end{thebibliography}
-
-\fi
 
 \end{document}
