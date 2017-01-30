@@ -14,6 +14,7 @@
 \usepackage{listings}
 \usepackage{float}
 \usepackage[english]{babel}
+\usepackage{csquotes}
 \usepackage[backend=biber,style=numeric]{biblatex}
 \addbibresource{bibliography.bib}
 \usepackage{graphicx}
@@ -51,18 +52,17 @@ structures and algorithms it is impossible to write meaningful and efficient pro
 algorithms are what push the boundaries of the technology that drives video games.
 
 \paragraph{Examples}
-I have provided many example implementations in a variety of programming languages\cite{repo}.
+I have provided many example implementations in a variety of programming languages \cite{repo}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 
 
 \subsection{Primary languages}
 Here is a brief description of the main languages used.
 
 \subsubsection{C\#}
-This is Microsoft's highly popular\cite{popularity-index} {\em .NET} programming language. {\em C\#} is kind of like a much
+This is Microsoft's highly popular \cite{popularity-index} {\em .NET} programming language. {\em C\#} can be considered a much
 higher level variant of {\em C++}. With the rapidly growing {\em .NET} ecosystem and modern features such as {\em LINQ},
 anonymous methods and {\em tasks}, {\em C\#} is certainly a powerful programming language.
 
@@ -81,14 +81,11 @@ All {\em Python 3} source code is provided in the subdirectory {\em python\_3/}.
 \subsubsection{F\#}
 Being a more recent addition to the {\em .NET} family of programming languages, {\em F\#} has not quite gained the popularity of
 {\em C\#}. The {\em F\#} programming language enables the programmer to tackle problems using high-level concepts including
-recursion, higher order functions, partial application, currying, computation expressions (syntactic sugar for monads) and more.
+tail-recursion, higher order functions, partial application, currying, computation expressions (syntactic sugar for monads) and
+more.
 
 \paragraph{Sources}
 All {\em F\#} source code is provided in the subdirectory {\em bonus/fsharp/}.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 
 
 \subsection{Secondary languages}
@@ -131,24 +128,24 @@ All {\em Chicken Scheme} source code is provided in the subdirectory {\em bonus/
 \subsection{Empirical analysis}
 Empirical analysis is about inferring a program's expected performance based on measurements taken while running it. A typical
 scenario involves the measurement of performance in terms of running time with a {\em stopwatch} program. By measuring the
-performance with increasing {\em problem sizes} (generally the size of the input collection\cite[p.25]{introduction-to-algorithms})
-and plotting the results, an expected performance curve may be extrapolated.
+performance with increasing {\em problem sizes} (generally the size of the input collection
+\cite[p.25]{introduction-to-algorithms}) and plotting the results, an expected performance curve may be extrapolated.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=8cm]{empirical_measurement}
-  \caption{Empirical observations are used to plot a performance curve\cite[p.17]{empirical-analysis-princeton}}
+  \caption{Empirical observations are used to plot a performance curve \cite[p.17]{empirical-analysis-princeton}}
 \end{figure}
 
 This technique may suffice if the target hardware is available for testing. If it is not, at least a simulation is necessary.
 If neither of these is possible it will be difficult to get accurate measurements, because the hardware on which the experiments
-are performed may differ greatly from the target hardware\cite[p.22]{empirical-analysis-princeton}.
+are performed may differ greatly from the target hardware \cite[p.22]{empirical-analysis-princeton}.
 
 
 \subsection{Complexity analysis}
 Complexity analysis is different from empirical analysis in that it uses reasoning, rather than experiment, to determine
 a program's expected performance. Using mathematical models, an algorithm can be analyzed and an expected performance class
-may be inferred from the asymptotic growth of the function{\cite[p.43-49]{introduction-to-algorithms}. There exist several
+may be inferred from the asymptotic growth of the function \cite[p.43-49]{introduction-to-algorithms}. There exist several
 performance-related functions of interest:
 
 \begin{samepage}
@@ -176,7 +173,7 @@ performance-related functions of interest:
 All complexities provided in this document and related example implementations are worst case complexities. Although the other
 complexity classes can help to provide a more complete estimation of the algorithm's actual performance, I have limited my
 scope to the investigation of worst case (\(O\)) complexities for the following reasons
-\cite[p.27-28]{introduction-to-algorithms}:
+ \cite[p.27-28]{introduction-to-algorithms}:
 \begin{enumerate}
 \item{The worst case complexity provides the programmer with the guaranteed minimum performance}
 \item{The worst case occurs frequently}
@@ -228,12 +225,11 @@ Since the resize operation is costly (typically \(O(n)\)), frequent resizes ough
 dynamic size arrays will also shrink when the logical size becomes less than a given threshold.
 
 \subsubsection{Dimensionality}
-Arrays may have more than one dimension. Such a construction may also be called a matrix.
-Elements in the multidimensional array may be accessed with multiple indices describing the relevant coordinates.
+Arrays may have more than one dimension. Such a construction is also be called a matrix. Elements in the multidimensional
+array are be accessed with multiple indices describing the relevant coordinates.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 
 
 \subsection{Linked list}
@@ -279,7 +275,6 @@ in the list becomes the root.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 
 
 \subsection{Stack}
@@ -307,7 +302,7 @@ exception, as there are no elements to remove.
 \paragraph{Peek}
 The peek operation gives the programmer access to the current top element of the stack.
 This is a constant time (\(O(1)\)) operation. If the stack is empty, this operation will throw an
-{\em invalid operation} exception, as there are no elements on the stack to reveal. \\
+{\em invalid operation} exception, as there are no elements on the stack to reveal.
 
 \begin{samepage}
   \paragraph{Sources}
@@ -322,7 +317,6 @@ This is a constant time (\(O(1)\)) operation. If the stack is empty, this operat
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newpage
 
 
 \subsection{Queue}
@@ -366,7 +360,6 @@ front operation is constant time (\(O(1)\)) for linked-lists.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newpage
 
 
 \subsection{Hashmap}
@@ -424,25 +417,24 @@ will be poor. As a consequence, the data structure will be inefficient.
 If all keys are known before the data is inserted into the hash map, it is possible to generate a perfect
 hashing function. This means each piece of data provided will result in a unique hash map index.
 
+\paragraph{Collision resolution}
 There exist several solutions to the collision problem, three of which are described in the next sections.
 
-\subsubsection{Linear and quadratic probing}
+\subparagraph{Linear and quadratic probing}
 When performing {\em linear probing}, a collision causes the hash map index to be increased successively by one,
 until an empty bucket is found. Similarly, {\em quadratic probing} successively increases the hash map index using
-values from a quadratic polynomial to find a new hash map index for the colliding element.
-Usually, both of these probing methods will wrap around if the resulting hash map index is outside of the range
-of the bucket array. These methods may cause elements to occupy buckets that would otherwise be populated by
-other pieces of data. In addition, these probing methods may cause infinite loops when an acceptable bucket is
-never found.
+values from a quadratic polynomial to find an appropriate bucket for the colliding element. Usually both of these
+probing methods will wrap around if the resulting hash map index is outside of the range of the bucket array.
+These methods may cause elements to occupy buckets that would otherwise be populated by other pieces of data.
+In addition, these probing methods may cause infinite loops when an acceptable bucket is never found.
 
-\subsubsection{Dynamic size buckets}
+\subparagraph{Dynamic size buckets}
 Another solution to the collision problem is to allow multiple values per bucket. Such a solution could be
-implemented by making each bucket into a dynamic size array or linked-list. If hash function or load-factor is bad,
+implemented by making each bucket into a dynamic size array or linked list. If hash function or load-factor is bad,
 this implementation may result in similar efficiency to simply using a single dynamic size array or linked list.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newpage
 
 
 \subsection{Tree}
@@ -503,7 +495,8 @@ The {\em insert} operation adds a new key at the end of the heap. If the heap pr
 it may be restored by letting the key 'swim' to the correct position. When 'swimming', the key
 is compared to its parent. If the a violation of the heap property is found, the key and its parent
 are swapped. This process is repeated until the heap property is no longer violated. Note that the
-heap property is also restored if this key becomes the new root of the heap.
+heap property is also restored if this key becomes the new root of the heap. This is an \(O(log n)\)
+operation.
 
 \paragraph{Extract and heapify}
 The {\em extract} operation removes the root node from the binary heap. It does this by replacing
@@ -512,6 +505,7 @@ restore the heap property if it is be violated by the new root. In such case, th
 to its children. Depending on the relevant property, the root is swapped with either its smaller child in a
 min-heap, or its larger child in a max heap. The process is then repeated from the old root's new location,
 which is the index of the child it was swapped with. Eventually, the heap property must be restored.
+This is a \(O(log n)\) operation.
 
 \paragraph{Sources}
 Heap implementations are provided at the following locations:
@@ -534,11 +528,6 @@ current node. In a standard implementation, duplicate values are generally not a
     \includegraphics[width=6cm]{binary_search_tree}
     \caption{Binary search tree}
   \end{figure}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newpage
-
 
 \begin{samepage}
   \paragraph{Traversals}
@@ -571,11 +560,6 @@ current node. In a standard implementation, duplicate values are generally not a
     \caption{Post-order traversal diagram}
   \end{figure}
 \end{samepage}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newpage
-
 
 \paragraph{Insert}
 The {\em insert} operation is used to insert new keys into the tree. This is a linear time (\(O(n)\)) operation.
@@ -613,6 +597,7 @@ not in the tree.
   \item{{\em bonus/fsharp/data\_structures/}}
   \end{itemize}
 \end{samepage}
+
 
 \subsubsection{K-dimensional tree}
 The {\em K-dimensional} tree expands upon the philosophy of the binary search tree, in that it
@@ -690,7 +675,6 @@ the range query may continue on both children if the section covers space on bot
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newpage
 
 
 \subsection{Graph}
@@ -706,8 +690,8 @@ not imply any particular root, nor does it restrict the number of edges connecti
 \end{figure}
 
 \subsubsection{Weighted}
-A graph is {\em weighted} if each of its edges has a 'cost' associated with traversing it.
-Such graphs may, for instance, be used to map distances between locations on a map.
+A graph is {\em weighted} if each of its edges has a 'cost' associated with traversing it. Such graphs may,
+for instance, be used to map distances between locations on a map.
 
 \subsubsection{Directed}
 A graph is {\em directed} if each of its edges has an associated direction. This direction implies a restriction
@@ -715,8 +699,8 @@ on the traversal, as only the direction given for each edge is allowed to be tra
 called a {\em digraph}.
 
 \subsubsection{Dense versus sparse}
-Graphs are called {\em dense} if there are many edges connecting many vertices.
-Conversely, a graph may be called {\em sparse} if there are comparatively little edges connecting the vertices.
+Graphs are called {\em dense} if there are many edges connecting many vertices. Conversely, a graph may be called
+{\em sparse} if there are comparatively few edges connecting the vertices.
 
 \begin{figure}[H]
   \centering
@@ -756,7 +740,7 @@ all of its neighbors.
   \caption{Examples of adjacency lists. The right list is for a digraph}
 \end{figure}
 
-The adjacency list is the preferred representation when the graph is sparse. In a digraph, only edges that {\em emanate} from
+The adjacency list is the preferred representation when the graph is sparse. In a digraph, only edges that {\em emanate from}
 (start at) the vertex are recorded for that vertex.
 
 \subsubsection{Adjacency matrix}
@@ -783,15 +767,15 @@ value. In this case, the weight for non-adjacent vertices could be recorded as b
   \quad
   \begin{tabular}{|c|c|c|c|c|}
     \hline
-    \  & A          & B          & C          & D \\ [0.5ex] 
+    \  & A          & B          & C          & D          \\ [0.5ex] 
     \hline
-    A  & 0          & 1          & \(\infty\) & \(\infty\) \\ 
+    A  & \(infty\)  & 1          & \(\infty\) & 2          \\ 
     \hline
-    B  & \(\infty\) & 0          & \(\infty\) & 4 \\
+    B  & \(\infty\) & \(\infty\) & \(\infty\) & 4          \\
     \hline
-    C  & 3          & \(\infty\) & 0          & \(\infty\) \\
+    C  & 3          & \(\infty\) & \(\infty\) & \(\infty\) \\
     \hline
-    D  & \(\infty\) & \(\infty\) & 5          & 0 \\
+    D  & \(\infty\) & \(\infty\) & 5          & \(\infty\) \\
     \hline
   \end{tabular}
   \caption{Examples of adjacency matrices. The right matrix is for a weighted graph}
@@ -801,9 +785,9 @@ The adjacency matrix is the preferred representation when the graph is dense.
 
 \subsubsection{Incidence matrix}
 The {\em incidence matrix} shows the relationship between vertices (represented in the rows) and edges (represented in the
-columns) in a graph. If the vertices are incident upon (connected to) the edge, a boolean value or weight may be recorded
-in the matrix. In a digraph, edges that emanate from the row vertex are given the value 1. Edges that terminate at the row vertex
-are instead given the value -1.
+columns) in a graph. If the vertices are {\em incident upon} (connected to) the edge, a boolean value or weight is be recorded
+in the matrix. In a digraph, edges that emanate from the row vertex are given the value 1. Edges that {\em terminate at} (end
+at) the row vertex are instead given the value -1.
 
 \begin{figure}[H]
   \centering
@@ -845,7 +829,7 @@ The {\em breadth-first search} uses the {\em queue} data structure. The general 
 \begin{figure}[H]
   \centering
   \includegraphics[width=6cm]{breadth_first_search}
-  \caption{Order of visited vertices in a graph using breadth-first search\cite{bfs}}
+  \caption{Order of visited vertices in a graph using breadth-first search \cite{bfs}}
 \end{figure}
 
 \paragraph{Depth-first search}
@@ -860,17 +844,17 @@ The {\em depth-first traversal} uses the {\em stack} data structure. The general
 \begin{figure}[H]
   \centering
   \includegraphics[width=6cm]{depth_first_search}
-  \caption{Order of visited vertices in a graph using depth-first search\cite{dfs}}
+  \caption{Order of visited vertices in a graph using depth-first search \cite{dfs}}
 \end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newpage
+\newpage
 
 
 \section{Algorithms}
 Executable instructions for transforming some input to some output are called {\em algorithms}
-\cite[p.5]{introduction-to-algorithms}. Many algorithms may exist for solving a given problem, but some will be better suited
+ \cite[p.5]{introduction-to-algorithms}. Many algorithms may exist for solving a given problem, but some will be better suited
 to the task than others.
 
 \paragraph{Complexity}
@@ -881,7 +865,7 @@ reveals how much memory the algorithm will occupy according to the problem size.
 
 \paragraph{Divide-and-conquer}
 Algorithms that cut the problem into several subproblems in order to speed up the process are called {\em divide-and-conquer}
-algorithms\cite[p.30-38]{introduction-to-algorithms}. Examples of divide-and-conquer algorithms include merge sort and binary
+algorithms \cite[p.30-38]{introduction-to-algorithms}. Examples of divide-and-conquer algorithms include merge sort and binary
 search.
 
 \paragraph{Stability}
@@ -953,10 +937,6 @@ the collection.
   \item{{\em bonus/rust/algorithms/searching/}}
   \end{itemize}
 \end{samepage}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 
 
 \subsection{Sorting}
@@ -1204,10 +1184,18 @@ As long as the end index is greater than the start index:
 Imagine having an unsorted deck of cards, then throwing it in the air and picking it up to see if the new
 distribution is sorted. If it's not, then you repeat the process. This approach to sorting is a description of
 {\em monkey sort}. It's a highly inefficient sorting algorithm, in which a random distribution of the collection
-is made every time. Subsequently, the new distribution goes through a process that verifies if it is sorted.
-If it isn't, a new distribution is made. Since this algorithm may never yield a sorted distribution, the time
-complexity is unbounded (\(O(\infty)\)). The primary point of this algorithm is to demonstrate the importance of
+is made every time. Since this algorithm may never yield a sorted distribution, the time complexity is unbounded
+(\(O(\infty)\)). The primary point of this algorithm is to demonstrate the importance of
 proving that your algorithm can reasonably be assumed to complete within an acceptable time-frame.
+
+\paragraph{Setup}
+This algorithm expects as input a collection of keys.
+
+\paragraph{Process}
+\begin{enumerate}
+\item{If the collection is sorted, the algorithm has completed succesfully. If not, continue at step 2}
+\item{Make some permutation of the input collection, go to step 1}
+\end{enumerate}
 
 \begin{samepage}
   \paragraph{Sources}
@@ -1215,10 +1203,6 @@ proving that your algorithm can reasonably be assumed to complete within an acce
   \item{{\em python\_3/algorithms/}}
   \end{itemize}
 \end{samepage}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 
 
 \subsection{Shortest path determination}
@@ -1235,12 +1219,29 @@ distances. This array is initially populated with the value \(\infty\), with the
 distance to itself; which is 0.
 
 \paragraph{Process}
+\begin{enumerate}
+\item{Store all unvisited vertices in a list, so that the algorithm may prevent itself from repeatedly processing previously
+    visited vertices}
+\item{While unvisited vertices remain:}
+  \begin{enumerate}
+  \item{Select the closest unvisited vertex and remove it from the list of unvisited vertices}
+  \item{For each vertex neighboring the selected vertex:}
+    \begin{enumerate}
+    \item{Compare the newly found distance to the selected vertex with the currently recorded distance. If it is shorter,
+        the new distance will be recorded in the distances array}
+    \end{enumerate}
+  \end{enumerate}
+\item{The distances array is now populated with all shortest path distances and the algorithm has succesfully completed}
+\end{enumerate}
+
+\iffalse
 All unvisited vertices are stored in a list, so that the algorithm may prevent itself from repeatedly
 processing previously visited vertices. As long as unvisited vertices remain, the algorithm will select the closest
 unvisited vertex and remove it from the list of unvisited vertices. For each neighboring vertex, the algorithm will
 check if the newly found distance to it is smaller than the currently recorded vertex. If it is, the new distance
 will be recorded in the distances array. When no unvisited vertices remain, the distances array will be populated
 with all shortest path distances.
+\fi
 
 \paragraph{Chain}
 With a slight modification it becomes possible to also track the actual paths, rather than just the distances.
@@ -1267,17 +1268,10 @@ as the index of the next path vertex in the chain.
 
 \subsubsection{Floyd-Warshall}
 Rather than Dijkstra's focus on a single source, {\em Floyd-Warshall} finds the shortest path between each vertex
-and all other vertices in a graph. Unlike Dijkstra's algorithm, Floyd-Warshall supports negative weights.
+and {\em all} other vertices in a graph. Unlike Dijkstra's algorithm, Floyd-Warshall supports negative weights.
 Initially one might suspect that this algorithm somehow runs Dijkstra on each vertex, which would be rather
 inefficient. Fortunately, Floyd-Warshall uses a more clever approach.
 
-\paragraph{Setup}
-The algorithm expects a graph, which I've provided in the form of a weighted adjacency list. An initial 'guess' is
-prepared by setting up a matrix of distances between vertices in the graph. This matrix will at first contain the
-value \(\infty\) for each distance. To improve the initial guess, the matrix is populated with the known distances
-between adjacent vertices.
-
-\paragraph{Process}
 There are three nested {\em for} loops, using the variables \(i\), \(j\), and \(k\). At each iteration,
 \(i\) and \(j\) are two vertices between which the algorithm is trying to find the shortest path. The most important
 aspect of the algorithm actually relies on \(k\). At each iteration, \(k\) represents a vertex between \(i\) and
@@ -1285,6 +1279,27 @@ aspect of the algorithm actually relies on \(k\). At each iteration, \(k\) repre
 we'll have to update the currently recorded value in our distance matrix. Since we have three nested {\em for} loops
 that each scale according to the amount of vertices in the graph, it naturally follows that our algorithm is of
 cubic time (\(O(n^3)\)) complexity.
+
+\paragraph{Setup}
+This algorithm expects as input a graph, which I've provided in the form of a weighted adjacency list.
+
+\paragraph{Process}
+\begin{enumerate}
+\item{Prepare an initial 'guess' by setting up a matrix of distances between vertices in the graph. Populate the matrix with all
+    known distances between adjacent vertices. Each unknown distance at first contains the value \(\infty\).}
+\item{For each vertex \(i\) in the graph:}
+  \begin{enumerate}
+  \item{For each vertex \(j\) in the graph:}
+    \begin{enumerate}
+    \item{For each vertex \(k\) in the graph:}
+      \begin{enumerate}
+      \item{If the distance from \(i\) to \(j\) is greater than the distance from \(i\) to \(k\) and subsequently to \(j\),
+          record this shorter distance in the distances matrix}
+      \end{enumerate}
+    \end{enumerate}    
+  \end{enumerate}
+\item{The distances matrix now contains all shortest path distances and the algorithm has completed succesfully.}
+\end{enumerate}
 
 \begin{samepage}
   \paragraph{Sources}
@@ -1421,6 +1436,6 @@ For their interesting questions, helpful comments and good company.
 \newpage
 
 
-\printbibliography
+\printbibliography[heading=bibintoc]
 
 \end{document}
