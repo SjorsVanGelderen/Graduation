@@ -3,7 +3,7 @@ author:
 	name: Sjors van Gelderen 090338
 	url: http://sjors.musings.eu
 output: panel_presentation.html
-<!-- controls: true -->
+controls: false
 theme: sjaakvandenberg/cleaver-light
 
 
@@ -70,8 +70,10 @@ theme: sjaakvandenberg/cleaver-light
 
 ### Design patterns
 
-* State-of-the-art *OOP*
+* State-of-the-art *OOP*  
+
 * Maintainability, modularity, reliability, efficiency
+
 * Adapter, observer, strategy, abstract factory
 
 
@@ -111,6 +113,9 @@ theme: sjaakvandenberg/cleaver-light
 * Usually inaccurate
 
 * Hardware-dependent
+
+
+--
 
 
 ### Complexity analysis
