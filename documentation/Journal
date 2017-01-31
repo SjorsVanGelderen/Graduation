@@ -1,0 +1,380 @@
+commit 0d5820d9b695cc89e39c58272c3d03f3efd8c0d4
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Tue Jan 31 22:59:40 2017 +0100
+
+    Updating presentation
+
+commit d748b7eecb243dd3c6cd420d5c964315d7596f9c
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Tue Jan 31 22:50:37 2017 +0100
+
+    Adding panel presentation
+
+commit e947cd89270e49c4c961fc25ed940f6093916542
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 30 21:14:49 2017 +0100
+
+    Updating documentation
+
+commit f82a085a04d6b9d67d354a7e139703199d0946a9
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 30 14:46:08 2017 +0100
+
+    Updating documentation
+
+commit 72231befbed873f7d3470b97ed36ad6606709fb9
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 30 14:01:55 2017 +0100
+
+    Updating documentation
+
+commit abcf20463f0fd5f1958b7a3848d4bfba78d5a062
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sun Jan 29 20:05:20 2017 +0100
+
+    Updating documentation and bibliography
+
+commit ff3a51aac8439537f4824f98e4723ce0d76533df
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sun Jan 29 12:52:41 2017 +0100
+
+    Uploading updated documentation
+
+commit 8cf43ba68e91198a5360c5188f5c9b9e7041faa9
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sat Jan 28 11:43:30 2017 +0100
+
+    Updating documentation
+
+commit 65c4769f26a6559da8b9f47aaacf2d88efad3a8b
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Wed Jan 25 22:25:20 2017 +0100
+
+    Adding PDF and updating some code slightly
+
+commit 3b0a9b04a8e8ebaeb8e23d88cc917638b5ac228b
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 23 21:57:18 2017 +0100
+
+    Updating documentation
+
+commit 8fb4a58602bd7b3be7f7303a76dfce198f13e5e6
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 23 21:34:28 2017 +0100
+
+    Updating documentation
+
+commit eaa0854bd2dc2775aea91404f8e737ff9a0b6714
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 23 20:38:06 2017 +0100
+
+    Updating documentation
+
+commit cf4962889ab847cdc4eee0d2ee3ef88fff257b3f
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 23 18:29:15 2017 +0100
+
+    Updating documentation, tweaking some programs
+
+commit 46c2170d5fc02d009729d8b9c1aeacb72b020504
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 23 09:07:34 2017 +0100
+
+    Updating documentation
+
+commit 807c8557a08717ac148de188980813f151963bd8
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sun Jan 22 14:47:04 2017 +0100
+
+    Wrapping up project. Restructuring directories and updating
+    documentation.
+
+commit 70e1d519bed37d56ee063451a04a217b691cb2f4
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Thu Jan 19 22:55:18 2017 +0100
+
+    Cleaning up project and adding heap
+
+commit d7822d71a806a4e41720e909e1eae205cdbcfce6
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Sun Jan 15 22:46:54 2017 +0100
+
+    Updating queue
+
+commit d8c9a743361f4e6d6e54c9a83aee87e9ce48efb5
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Sun Jan 15 22:37:12 2017 +0100
+
+    Adding lots of data structures
+
+commit f3d411fbd7c7c8dab33843ba8d26fd3fd303202e
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Fri Jan 13 14:37:18 2017 +0100
+
+     On branch master
+
+commit bb69c634c33a982f9f2c9fa438fa110c33e685d4
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Thu Jan 12 22:53:29 2017 +0100
+
+    Updating binary search tree, updating K-dimensional tree, updating binary search tree in F#
+
+commit 1a116fe05d7e4bc95b6ff39bba056126b91bd1b3
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Thu Jan 12 09:37:31 2017 +0100
+
+    Updating KD-tree
+
+commit f4f77ec899f2facc0a5ed81c8f472187dce13163
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Thu Jan 12 00:21:49 2017 +0100
+
+    Uploading proper binary search tree
+
+commit a610d41a7bf7a08940ed1d25ba36c02e14bb590d
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 9 22:31:13 2017 +0100
+
+    Adding LINQ example
+
+commit 72fa5f28d360e48082ea7827a6814bd6aba4ca79
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 9 21:41:22 2017 +0100
+
+    Uploading Dijkstra, modifying Floyd-Warshall
+
+commit a35fc8bfdd27e5ad4623a3b52d9bac9e65fdecbe
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Mon Jan 9 14:15:48 2017 +0100
+
+    Floyd-warshall base code
+
+commit 939538344d9f8a4a8613ca066b3628533c4f422b
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sun Jan 8 22:42:35 2017 +0100
+
+    Adding async monad demonstration F#
+
+commit 788049e7b230b18b47ae904db59ffa1a2c4647a3
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sun Jan 8 22:08:07 2017 +0100
+
+    Adding parser combinator monad, threading code and regular expressions
+
+commit 51032348b12aac7eac196ccc3b1dee14f6f04781
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sat Jan 7 22:31:59 2017 +0100
+
+    Adding Python 3 async (aiohttp) sample and updating C# threading sample
+
+commit a5dc2bd34d64d4fd4514650091f82225cd8c014e
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sat Jan 7 09:30:06 2017 +0100
+
+    Moving files around, deleting some garbage, adding async features, modifying documentation
+
+commit bf8d3e3a7b8d5487188a0ee4594d6e782abb1ced
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 2 21:30:11 2017 +0100
+
+    Adding adapter and strategy design patterns
+
+commit b6f45dbf2855757c43d77892f7b3639d3df6226f
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Jan 2 16:41:36 2017 +0100
+
+    Adding abstract factory and observer design patterns
+
+commit 813edf1b7fccf41ec21e0ede9d4209f613962f52
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Fri Dec 30 22:10:35 2016 +0100
+
+    Adding searching algorithms for C#.
+    Adding queue data structure for C#.
+    Updating stack data structure for C#.
+    Adding part of abstract factory pattern in C#.
+    Adding option and visitor patterns in C#.
+    Updating binary search algorithm in Python 3.
+
+commit ce8ab9cac6cefbe1e345d76bd5b519a02ba22fc0
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Fri Dec 30 16:25:25 2016 +0100
+
+    Updating documentation and adding stack in C#
+
+commit 8ed776f4e11b2da860618a10d617dd489144d8d4
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Thu Dec 29 15:51:11 2016 +0100
+
+    Removing garbage, changing style
+
+commit e15c26996cbe61bdd0a9558e9a3f950ac8d6f1b5
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Thu Dec 29 15:44:19 2016 +0100
+
+    Modifying documentation
+
+commit 4ac317ab9f0fb56a3e3e7488cc02f4faf8f24692
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Thu Dec 29 15:15:56 2016 +0100
+
+    Removing some garbage
+
+commit 058a5da3c9584633307097f3556028f0401983d9
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Thu Dec 29 15:11:47 2016 +0100
+
+    Adding documentation, some code
+
+commit b4979d5864094cfadc06b266a4a5a451f2b22dd0
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Tue Dec 13 11:28:01 2016 +0100
+
+    Updating complexity in Dijkstra
+
+commit 7025f37eb21fbce54fb19b470f8919118ca6e7a1
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Tue Dec 13 11:24:30 2016 +0100
+
+    Updating complexity in Dijkstra
+
+commit 1ab4bca5078d353da90dc5c47afd6a21c2978ace
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Tue Dec 13 11:22:41 2016 +0100
+
+    Updating Dijkstra algorithm
+
+commit a97be1c3ce804da4d8c288ef44b732d11c4a02b2
+Author: sjorsvangelderen <sjors@lucrece.local>
+Date:   Mon Dec 12 22:42:41 2016 +0100
+
+    Adding incomplete Dijkstra
+
+commit 0267b7e9a995a1ee2d219ecfc74b30eebb04a178
+Author: Sjors van Gelderen <sjors@lucrece.local>
+Date:   Sun Dec 11 22:51:40 2016 +0100
+
+    Adding a number of F# data structures and algorithms
+
+commit 9becb002b31a5736a8af64b615a0f979ff0db36e
+Author: cmi <cmi@145-24-218-57.wlan.hro.nl>
+Date:   Thu Dec 8 16:53:59 2016 +0100
+
+    Adding part of kd-tree
+
+commit 72d0b7d96081c13b114fe860c5f7c7f451a21a5b
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sat Dec 3 18:52:45 2016 +0100
+
+    Updating linear search LISP
+
+commit 681e1f1b395c79cb095bb16184536e0ab7ef45af
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Fri Dec 2 16:39:22 2016 +0100
+
+    Adding linear search in Chicken Scheme
+
+commit fb05690059403d2e523f35ac1af8d95b65b861ba
+Merge: 1961fa4 03feee5
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Fri Dec 2 10:53:14 2016 +0100
+
+    Merge branch 'master' of https://github.com/sjorsvangelderen/Graduation
+
+commit 1961fa4368806aba25f689db60cc98d8b3777216
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Fri Dec 2 10:52:44 2016 +0100
+
+    Adding updated quicksort algorithm
+
+commit 03feee5f14ea509e8674ba3e602b29e423f60f15
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Tue Nov 29 21:02:21 2016 +0100
+
+    Update binary_search_tree.py
+
+commit 54d2ff626efcdecf3571b663fd9d5023469c3de1
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Tue Nov 29 11:04:59 2016 +0100
+
+    Adding merge sort in C
+
+commit 006ce23006ca56dd4821d4f8c580216242d9b507
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Mon Nov 28 20:44:11 2016 +0100
+
+    Updating merge sort
+
+commit 489dfc0957f8bd671033150da14e0223c26a07e6
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Sun Nov 27 21:34:58 2016 +0100
+
+    Updating lots of items
+
+commit a1a22b3b5a20aa83241070d3bc36efb713f40b7e
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Thu Oct 27 22:32:16 2016 +0200
+
+    Adding yet more algorithms and samples of features
+
+commit 6ffe8688cada2e31a92aa7907a2c5b994454a373
+Merge: a028af1 c25a80d
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Wed Oct 19 20:58:14 2016 +0200
+
+    Merge branch 'master' of https://github.com/sjorsvangelderen/Graduation
+
+commit a028af119a7a41d21cfaca8923a8a30e66c40a0b
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Wed Oct 19 20:58:01 2016 +0200
+
+    Updating scraps
+
+commit c25a80d3d11f12dd93cb27a7cc25ccf842e0d30e
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Wed Oct 19 15:25:46 2016 +0200
+
+    Delete main.rs
+
+commit 8eaee5e6ac27841b0eda01f3fb7f3a5d1d88e703
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Wed Oct 19 15:24:48 2016 +0200
+
+    Adding various scraps
+
+commit 1df1ccab9f79e90274b002e67a97adbafb37d154
+Merge: 66f6f8b b4b3a34
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Wed Oct 19 12:02:21 2016 +0200
+
+    Merge branch 'master' of https://github.com/sjorsvangelderen/Graduation
+
+commit 66f6f8b6c4f803bafe4eabb5614a1d88f1845d2a
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Wed Oct 19 12:01:57 2016 +0200
+
+    Adding base source code
+
+commit b4b3a34359f7c9e84a8ba3826821c570d932cd54
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Tue Oct 18 18:52:13 2016 +0200
+
+    Update README.md
+
+commit c3f1ad3bad4c41edd556d2fbb889172b10d0160e
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Tue Oct 18 18:52:00 2016 +0200
+
+    Update README.md
+
+commit 6251deaacb862ef5dfdf6740a41d457fee088ac1
+Author: Sjors van Gelderen <sjors@openmailbox.org>
+Date:   Tue Oct 18 18:50:31 2016 +0200
+
+    Adding base files
+
+commit a9676aa1728c38876c0a9888e6d22964425ac892
+Author: Sjors van Gelderen <sjors@musings.eu>
+Date:   Tue Oct 18 18:47:18 2016 +0200
+
+    Initial commit
