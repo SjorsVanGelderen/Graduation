@@ -12,6 +12,7 @@ theme: sjaakvandenberg/cleaver-light
 
 # 090338
 ## Sjors van Gelderen
+## Exploring advanced programming concepts
 
 
 --
@@ -36,6 +37,18 @@ theme: sjaakvandenberg/cleaver-light
 * Teaching B.Sc students at Hogeschool Rotterdam
 
 * Desire to improve my own knowledge and skills
+
+
+--
+
+
+### Different culture
+
+* Emphasis on stability, modularity, security
+
+* Formal logic
+
+* Higher level languages
 
 
 --
@@ -96,7 +109,7 @@ theme: sjaakvandenberg/cleaver-light
 
 **Searching** - Linear search, binary search
 
-**Sorting** - Merge sort, bucket sort, quick sort
+**Sorting** - Monkey sort, merge sort, quick sort
 
 **Path-finding** - Dijkstra, Floyd-Warshall
 
