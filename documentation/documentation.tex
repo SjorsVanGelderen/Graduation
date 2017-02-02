@@ -51,7 +51,7 @@ To write interesting software, the programmer must make clever use of the limite
 structures and algorithms it is impossible to write meaningful and efficient programs. Well-designed data structures and
 algorithms are what push the boundaries of the technology that drives video games.
 
-\paragraph{Examples}
+\paragraph{Source code}
 I have provided many example implementations in a variety of programming languages \cite{repo}.
 
 
@@ -212,6 +212,11 @@ The location of an element in an array at some given index {\em i} will be
 \[base\_address\_of\_array + i * s\]
 In which {\em s} is the size of a single element. This size depends on the type of data stored in the array.
 
+\paragraph{Use case}
+The array is ubiquitous. It can be used to store all sorts of data, is easy to use and incredibly fast. Many data
+structures internally rely on the array. Example use cases include keeping track of items in an inventory or storing vertices of
+a 3-dimensional model.
+
 \subsubsection{Size}
 \paragraph{Fixed size}
 By default, arrays are generally of {\em fixed size}. Since less elements might be stored in the array than its total
@@ -247,6 +252,12 @@ list are stored in a fragmented fashion, direct access through indices as done w
 The linked list consists of several segments, each of which has up to two references to other
 elements in the sequence. The last element of the sequence will point to an empty segment,
 which may be called a {\em null link}. Traversing the linked list is a linear time (\(O(n)\)) operation.
+
+\paragraph{Use case}
+Since the linked list is very easy to implement and use, it is a popular dynamically sized data structure. Imagine a game
+where on occasion lots of objects are flying all over the screen in some sections, but where other sections have very few
+objects. The array might reserve a lot of unused memory in these more empty sections, whereas the linked list would dynamically
+resize according to the amount of objects. This means the otherwise unoccupied memory is now available for other uses.
 
 \paragraph{Singly-linked and doubly-linked}
 The {\em singly-linked} list consists of segments that contain a value and a reference to the next
@@ -289,6 +300,12 @@ structure is used to store the stack contents, the interface must always offer t
   \caption{Stack data structure and the workings of its operations}
 \end{figure}
 
+\paragraph{Use case}
+The most famous use of the stack is the {\em call stack}, which keeps track of information relating to a program's active
+subroutines. The call stack grows with each nested subroutine. Hence, recursive procedures are prone to causing the infamous
+{\em stack overflow} exception. The stack may also be used to keep track of objectives, where the last added objective has to be
+finished first.
+
 \paragraph{Push}
 The {\em push operation} puts a new element on top of the stack. This is a constant time (\(O(1)\)) operation.
 If the stack has a size limit, this operation throws a {\em stack overflow} exception when the stack's capacity
@@ -328,6 +345,11 @@ Elements are inserted at the back of the queue, and removed from the front of th
   \includegraphics[width=10cm]{queue}
   \caption{Queue data structure and the workings of its operations}
 \end{figure}
+
+\paragraph{Use case}
+This data structure can be used as a priority queue in which the first element has to be processed before any other element.
+The queue may quite literally be used to simulate a queue for a ride in a virtual theme park. It can also be used to force a
+server to dedicate all its resources to resolving the first arrived user request before moving to the next.
 
 \paragraph{Enqueue}
 The {\em enqueue} operation adds a new element at the front of the queue.
@@ -369,12 +391,19 @@ consists of a list or array of {\em buckets} or {\em slots} containing one or mo
 of elements that may be stored in a given bucket depends on the implementation of said bucket.
 The underlying data structure may, for example, be a fixed-size array or a linked-list.
 
+\paragraph{Use case}
+Imagine a persistent data-driven game. A player's client application might have to collect data from the game's online database.
+The online database could contain lots of information stored with player ID-numbers as the primary key. Since the hashmap is an
+associative array, it is good at storing key value pairs of this type. After querying the database, the hashmap can be quickly
+interrogated for any necessary data about other players in the persistent game world.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=6cm]{hash_map}
     \caption{Hashmap data structure}
 \end{figure}
 
+\paragraph{Hashing}
 \begin{samepage}
   Of primary interest is the way the indices of the relevant bucket are determined. Unlike standard arrays,
   indices need not be integers. Indices may instead be derived from any kind of data type. This is done using
@@ -413,9 +442,9 @@ The underlying data structure may, for example, be a fixed-size array or a linke
 
 It is possible that two different pieces of data generate the same hash map index.
 Such a situation is called a {\em collision}. If there are many collisions, the distribution of the values
-will be poor. As a consequence, the data structure will be inefficient.
-If all keys are known before the data is inserted into the hash map, it is possible to generate a perfect
-hashing function. This means each piece of data provided will result in a unique hash map index.
+will be poor. As a consequence, the data structure will be inefficient. If all keys are known before the data
+is inserted into the hash map, it is possible to generate a perfect hashing function. This means each piece of
+data provided will result in a unique hash map index.
 
 \paragraph{Collision resolution}
 There exist several solutions to the collision problem, three of which are described in the next sections.
@@ -490,6 +519,14 @@ The property determines the order in which the elements are stored inside the he
 In a max heap each key must be greater than every key stored inside its children.
 Conversely, in a min heap each key must be less than every key stored inside its children.
 
+\paragraph{Use case}
+Thanks to the heap property, the binary heap can be used as a priority queue. Imagine storing a list of jobs to be processed
+in a binary heap with the urgency of the job as the key. Since the root key corresponds to the job with the highest (max heap)
+or lowest (min heap) urgency, it is easy to determine which job to process next. This could be used in a competitive card-game.
+Imagine a participant plays a card with a spell-effect which will damage her opponent's resources. It's possible the opponent
+has her own spell-card that reduces the effectiveness of the attack. Since this defensive card has a higher priority than the
+offensive card, the priority queue would resolve the matter nicely.
+
 \paragraph{Insert}
 The {\em insert} operation adds a new key at the end of the heap. If the heap property is violated,
 it may be restored by letting the key 'swim' to the correct position. When 'swimming', the key
@@ -524,10 +561,10 @@ of the current node, and all keys in the right children of the current node must
 current node. In a standard implementation, duplicate values are generally not allowed.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=6cm]{binary_search_tree}
-    \caption{Binary search tree}
-  \end{figure}
+  \centering
+  \includegraphics[width=6cm]{binary_search_tree}
+  \caption{Binary search tree}
+\end{figure}
 
 \begin{samepage}
   \paragraph{Traversals}
@@ -604,6 +641,17 @@ The {\em K-dimensional} tree expands upon the philosophy of the binary search tr
 must maintain a sorting order property. When using this tree in less than 4 dimensions,
 a simple geometric interpretation of its structure is possible. Beyond this, the analogy becomes
 more difficult to grasp as it involves the splitting of hyperplanes.
+
+\paragraph{Use case}
+A popular variant of the k-dimensional tree is the quad-tree. The quad-tree is frequently used in 2-dimensional games to
+efficiently resolve collisions. As with my implementation, the game space is partitioned. Only when two entities are in the same
+segment will they be subject to a collision check. If the number of entities in a segment of the space grows to a given
+threshold, a new subdivision is made. Because the areas of the game space that have the most entities will be most frequently
+subdivided, the 'attention' of the collision algorithm is mostly focused on actually plausible collisions.
+
+Another variant of the k-dimensional tree is the {\em binary space partitioning tree}, which is used to store information useful
+for rendering in 3-dimensional games. For instance, the tree can be used to rapidly determine the front-to-back ordering of
+surfaces with respect to the player's viewpoint.
 
 \paragraph{Insert}
 The {\em insert} operation of a K-dimensional tree is of linear time (\(O(n)\)).
@@ -688,6 +736,11 @@ not imply any particular root, nor does it restrict the number of edges connecti
   \includegraphics[width=6cm]{graph_0}
   \caption{A directed acyclic graph without weights}
 \end{figure}
+
+\paragraph{Use case}
+The graph is often used to map paths between locations in a game world. Another example use case of graphs includes paths that
+can be taken in a visual novel style game. In such a game, players are usually presented with choices at certain points in
+the story. Depending on the choices made by the player, the story will progress differently.
 
 \subsubsection{Weighted}
 A graph is {\em weighted} if each of its edges has a 'cost' associated with traversing it. Such graphs may,
@@ -880,6 +933,13 @@ not be completely accurate, greedy algorithms sometimes offer a fast alternative
 
 
 \subsection{Searching}
+Here are provided various searching algorithms of which I have provided implementations in various programming languages.
+
+\paragraph{Use case}
+Searching algorithms can be used to rapidly locate data within a collection. For instance, checking if a player is active in
+an online game might require a search on the player collection to determine the location of the player's data in the database.
+Another example is when a locked door requires a key, and the player's inventory must be queried for the presence of said key.
+
 \subsubsection{Linear search}
 The {\em linear search} traverses a collection in linear fashion until either the requested element is found,
 or the end of the collection was reached. This is a linear time (\(O(n)\)) operation.
@@ -942,6 +1002,14 @@ the collection.
 \subsection{Sorting}
 Here are described various sorting algorithms of which I have provided implementations in various programming
 languages.
+
+\paragraph{Use case}
+Sorting algorithms are used in many situations. Some examples of possible use cases include:
+\begin{itemize}
+\item{Alphabetical sorting of nicknames in a hi-score list}
+\item{Sorting of particles according to distance from the camera in a special effect}
+\item{Elegantly representing a hand of cards sorted according to rank and suit}
+\end{itemize}
 
 \subsubsection{Insertion sort}
 Perhaps the most basic sorting algorithm is {\em insertion sort}. Insertion sort must in the worst case compare
@@ -1208,6 +1276,12 @@ This algorithm expects as input a collection of keys.
 \subsection{Shortest path determination}
 There are various ways of determining shortest paths in a graph, two of which are described in this section.
 
+\paragraph{Use case}
+The graph is often associated with maps. This is because the graph is great for modelling connections between places. Modern
+open-world games boast complex map-systems, which display the shortest path to the target location (which may be related to the
+player's current objective). To calculate the shortest path between the player and the target location, an algorithm operates on
+a provided graph of the game world's locations and paths.
+
 \subsubsection{Dijkstra}
 {\em Dijkstra's} algorithm finds all shortest path distances between a {\em source} vertex and all other vertices
 in a graph. Dijkstra's algorithm runs in quadratic time (\(O(n^2)\)). It's possible to optimize Dijkstra's algorithm
@@ -1408,27 +1482,54 @@ My interest in this field goes beyond what I have done so far. There is much to 
 algorithms, writing asynchronous algorithms, and about data structures not covered in this project. To do this, I will keep
 reading my copy of {\em Introduction to Algorithms} (which was kindly provided to me by {\em Hogeschool Rotterdam}).
 
+\subsection{Challenges}
+\paragraph{Culture shock}
+During my internship at {\em Hogeschool Rotterdam} I encountered a vastly different culture from what I was used to in the game
+development circle. Because my internship focused on a more abstract kind of computer science, the kind of people and materials
+I worked with had very different interests and knowledge from the typical game developer. Many of my peers during this time were
+highly skilled in formal logic, which is quite different from the more geometry-focused mathematics taught at {\em NHTV}.
+
+The biggest difference, however, is in the art practiced. At {\em NHTV}, students work hard on providing the most amazing
+interactive experiences. These are often audiovisually pleasing, and contain elaborate settings and stories. Not so at
+{\em Hogeschool Rotterdam}, where emphasis is on correct and reliable software rather than designing an engaging experience!
+Make no mistake, however! The joy of the art of computer science at {\em Hogeschool Rotterdam} is ever present. It is found in
+the cleverness of solutions, the elegance of a software architecture, and in complex data manipulations. Students at
+{\em Hogeschool Rotterdam} truly celebrate the beauty of formal logic in their work!
+
+\paragraph{Academic reading material}
+Reading academic material is something I've grown accustomed to quite recently. At first I felt daunted by the strong focus on
+mathematics and formal notation. At the end of this project, however, I'm excited to find that I can not only understand the
+material; I can actually contribute to it!
+
 \paragraph{Set theory and category theory}
 Among the most useful mathematical tools for programmers are {\em set theory} and {\em category theory}. These enable the
 programmer to achieve a greater understanding of data and logic. In this research I have encountered examples where these
 tools would be extremely useful. Alas, I have limited understanding of the subjects, and require more time to study them
 extensively.
 
-\paragraph{Special thanks}
+\subsection{Experience}
+I have learned so very much from my experiences these last months. I've met some very talented and clever people and have had
+stimulating conversations with ambitious students. It's quite interesting to finally see the {\em teacher's} perspective, rather
+than the {\em student's} that I had been seeing thus far. There were certainly some struggles during my academic career, and
+only now do I have a better appreciation of the cause of these struggles. I am now certain that a lot of the problems I blamed
+on teachers were really the issues they were trying desperately to solve! I'm left with greater respect for those who have
+invested their energy in sharing their knowledge and wisdom with me during my time at {\em NHTV}.
+
+\subsection{Special thanks}
 I'd like to especially thank the following people for supporting me in my research:
 
-\subparagraph{Giuseppe Maggiore, Mohamed Abbadi, Francesco di Giacomo}
+\paragraph{Giuseppe Maggiore, Mohamed Abbadi, Francesco di Giacomo}
 For patiently teaching me about high - sometimes almost esoteric - level programming and for greatly boosting the start of my
 career.
 
-\subparagraph{Fernando Cabello Domingo}
+\paragraph{Fernando Cabello Domingo}
 For his inspiring never-ending enthusiasm and optimism. For always answering my phone calls and messages in a timely fashion
 during stressful moments of uncertainty. For his guidance during the final phase of my education.
 
-\subparagraph{Hogeschool Rotterdam}
+\paragraph{Hogeschool Rotterdam}
 For providing me with a challenging and engaging job. For giving me access to their services during my internship.
 
-\subparagraph{My students}
+\paragraph{My students}
 For their interesting questions, helpful comments and good company.
 
 
