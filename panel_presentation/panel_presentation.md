@@ -20,11 +20,11 @@ theme: sjaakvandenberg/cleaver-light
 
 ###  Learning goals
 
-* The *C#* and *Python 3* programming languages
+The *C#* and *Python 3* programming languages
 
-* Object-oriented design patterns
+Object-oriented design patterns
 
-* Data structures, algorithms, complexity analysis
+Data structures, algorithms, complexity analysis
 
 
 --
@@ -32,11 +32,11 @@ theme: sjaakvandenberg/cleaver-light
 
 ### Motivations
 
-* Experimental games about mathematics
+Experimental games about mathematics
 
-* Teaching B.Sc students at Hogeschool Rotterdam
+Teaching B.Sc students at Hogeschool Rotterdam
 
-* Desire to improve my own knowledge and skills
+Desire to improve my own knowledge and skills
 
 
 --
@@ -44,11 +44,11 @@ theme: sjaakvandenberg/cleaver-light
 
 ### Different culture
 
-* Emphasis on stability, modularity, security
+Emphasis on stability, modularity, security
 
-* Formal logic
+Formal logic
 
-* Higher level languages
+Higher level languages
 
 
 --
@@ -74,6 +74,7 @@ theme: sjaakvandenberg/cleaver-light
 * Lambdas
 * List comprehensions
 * State machines, iterators, indexers
+* Regular expressions
 * Async, threads
 * Etcetera
 
@@ -83,11 +84,11 @@ theme: sjaakvandenberg/cleaver-light
 
 ### Design patterns
 
-* State-of-the-art *OOP*  
+State-of-the-art *OOP*  
 
-* Maintainability, modularity, reliability, efficiency
+Modularity, stability, efficiency
 
-* Adapter, observer, strategy, abstract factory
+Adapter, strategy, option, visitor
 
 
 --
@@ -95,11 +96,11 @@ theme: sjaakvandenberg/cleaver-light
 
 ### Data structures
 
-* **Collections** - Array, matrix, linked list, hashmap
+**Collections** - Array, matrix, linked list, hashmap
 
-* **Orders** - Stack, queue
+**Orders** - Stack, queue
 
-* **Relationships** - Trees, graphs
+**Relationships** - Trees, graphs
 
 
 --
@@ -119,13 +120,13 @@ theme: sjaakvandenberg/cleaver-light
 
 ### Empirical analysis
 
-* Observation through experiment
+Observation through experiment
 
-* Plot growth of the function
+Plot growth of the function
 
-* Usually inaccurate
+Usually inaccurate
 
-* Hardware-dependent
+Hardware-dependent
 
 
 --
@@ -133,11 +134,11 @@ theme: sjaakvandenberg/cleaver-light
 
 ### Complexity analysis
 
-* Reasoning rather than experiment
+Reasoning rather than experiment
 
-* Worst case **O** - big oh - complexity
+Worst case **O** - big oh - complexity
 
-* Hardware-independent
+Hardware-independent
 
 
 --
